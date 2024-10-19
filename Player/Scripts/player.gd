@@ -18,13 +18,18 @@ func _ready():
 
 # Called every frame
 func _process(_delta):
-	# Calculate direction based on player input
-	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")  # Horizontal movement
-	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")      # Vertical movement
+	direction = Vector2(
+		Input.get_axis("left", "right"),
+		Input.get_axis("up", "down")
+	).normalized()
 	
+	# Calculate direction based on player input
+	#direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")  # Horizontal movement
+	#direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")      # Vertical movement
+	#direction = direction.normalized()
 	# Set the velocity based on direction and move speed
 	
-	pass  # Placeholder for additional processing
+	pass 
 
 # Called at a fixed time step (for physics calculations)
 func _physics_process(delta):
