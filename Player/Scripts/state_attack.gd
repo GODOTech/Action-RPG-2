@@ -12,7 +12,7 @@ var attacking : bool = false
 @onready var audio : AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D"
 @export var attack_sound : AudioStream
 
-@onready var hurt_box = $"../../Interactions/HurtBox"
+@onready var hurt_box : HurtBox = %AttackHurtbox # The only node with that name, can acces it from anYwhere
 
 
 

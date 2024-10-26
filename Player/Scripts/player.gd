@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 # Initialize variables
 var cardinal_direction : Vector2 = Vector2.DOWN  # The current cardinal direction the player is facing (initially facing down)
+const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP, ]
 var direction : Vector2 = Vector2.ZERO             # The current movement direction of the player
 				   # The speed at which the player moves
 					 # The current state of the player (idle or walking)
@@ -39,16 +40,12 @@ func _physics_process(delta):
 
 # Function to determine the new direction of the player
 func SetDirection() -> bool:
-	var new_dir : Vector2 = cardinal_direction  # Start with the current cardinal direction
+	
 	if direction == Vector2.ZERO:  # If no input is detected
 		return false  # No direction change
 	
-	# Determine the new direction based on input
-	if direction.y == 0:
-		new_dir = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT  # Horizontal input
-	elif direction.x == 0:
-		new_dir = Vector2.UP if direction.y < 0 else Vector2.DOWN  # Vertical input
-	
+	var direction_id : int = int( round( ( direction + cardinal_direction * 0.1 ).angle() / TAU * DIR_4.size() ) )
+	var new_dir = DIR_4[ direction_id ]
 	# If the new direction is the same as the current one, do nothing
 	if new_dir == cardinal_direction:
 		return false
