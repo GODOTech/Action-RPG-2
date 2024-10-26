@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ds1rd5derwhan"]
+[gd_scene load_steps=31 format=3 uid="uid://ds1rd5derwhan"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_m3jck"]
 [ext_resource type="Texture2D" uid="uid://c5giq8ao7oesu" path="res://Player/Sprites/PlayerSprite02.png" id="2_0ngrr"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://Player/Scripts/state_walk.gd" id="5_vxixa"]
 [ext_resource type="Script" path="res://Player/Scripts/state_attack.gd" id="6_j1ors"]
 [ext_resource type="AudioStream" uid="uid://dm12egcvt0kv0" path="res://Player/Audio/SwordSwoosh.wav" id="8_3qqof"]
+[ext_resource type="PackedScene" uid="uid://dg6cwepyvap7b" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="10_e3g7e"]
+[ext_resource type="Script" path="res://Player/Scripts/PlayerInteractionsHost.gd" id="10_haci3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rf8m"]
 
@@ -411,6 +413,9 @@ _data = {
 "walk_up": SubResource("Animation_ke02r")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_o4akh"]
+radius = 20.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 16
 motion_mode = 1
@@ -469,3 +474,15 @@ attack_sound = ExtResource("8_3qqof")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
 max_polyphony = 4
+
+[node name="Interactions" type="Node2D" parent="."]
+script = ExtResource("10_haci3")
+
+[node name="HurtBox" parent="Interactions" instance=ExtResource("10_e3g7e")]
+position = Vector2(0, 16)
+collision_mask = 256
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HurtBox"]
+shape = SubResource("CircleShape2D_o4akh")
+debug_color = Color(0.961343, 0.170977, 0.257696, 0.42)

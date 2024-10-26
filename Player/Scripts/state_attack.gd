@@ -12,6 +12,7 @@ var attacking : bool = false
 @onready var audio : AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D"
 @export var attack_sound : AudioStream
 
+@onready var hurt_box = $"../../Interactions/HurtBox"
 
 
 
@@ -27,19 +28,24 @@ func Enter() -> void:
 	audio.stream = attack_sound
 	audio.pitch_scale = randf_range( 8.9, 1.1)
 	audio.play()
+	
 	attacking = true
+	
+	await  get_tree().create_timer(0.075).timeout
+	hurt_box.monitoring = true
 	pass
 
 # What happens when the player exits the state
 func Exit() -> void:
 	animation_player.animation_finished.disconnect(EndAttack)
 	attacking = false
+	hurt_box.monitoring = false
 	pass
 
 func Process(_delta : float) -> State:
 	player.velocity -= player.velocity * decelerate_speed * _delta
 	if attacking == false:
-		#if player.direction == Vector2.ZERO:
+		#if player.direction == Vector2.ZERO: ###
 		return idle
 	else :
 		walk

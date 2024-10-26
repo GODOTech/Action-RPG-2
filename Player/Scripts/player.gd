@@ -11,6 +11,8 @@ var direction : Vector2 = Vector2.ZERO             # The current movement direct
 @onready var sprite : Sprite2D = $Sprite2D                         # Reference to the Sprite2D node
 @onready var state_machine : PlayerStateMachine = $StateMachine
 
+signal DirectionChanged( new_direction: Vector2 )
+
 # Called when the node is added to the scene
 func _ready():
 	state_machine.Initialize(self)
@@ -51,7 +53,8 @@ func SetDirection() -> bool:
 	if new_dir == cardinal_direction:
 		return false
 	
-	cardinal_direction = new_dir  # Update the cardinal direction
+	cardinal_direction = new_dir
+	DirectionChanged.emit( new_dir )  # Update the cardinal direction
 	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1  # Flip the sprite based on direction
 	return true  # Direction changed
 
