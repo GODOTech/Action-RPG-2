@@ -16,6 +16,7 @@ signal DirectionChanged( new_direction: Vector2 )
 
 # Called when the node is added to the scene
 func _ready():
+	PlayerManager.player = self
 	state_machine.Initialize(self)
 	pass  # Placeholder for future initialization code
 
@@ -44,7 +45,10 @@ func SetDirection() -> bool:
 	if direction == Vector2.ZERO:  # If no input is detected
 		return false  # No direction change
 	
-	var direction_id : int = int( round( ( direction + cardinal_direction * 0.1 ).angle() / TAU * DIR_4.size() ) )
+	var direction_id : int = int( round( 
+			( direction + cardinal_direction * 0.1 ).angle()
+			 / TAU * DIR_4.size()
+	 ))
 	var new_dir = DIR_4[ direction_id ]
 	# If the new direction is the same as the current one, do nothing
 	if new_dir == cardinal_direction:
