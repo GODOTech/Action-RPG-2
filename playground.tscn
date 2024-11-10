@@ -318,5 +318,68 @@ position = Vector2(-177, 366)
 [node name="Plant100" parent="Plants" instance=ExtResource("3_q6t2p")]
 position = Vector2(-209, 367)
 
-[node name="Slime" parent="." instance=ExtResource("4_2glqk")]
+[node name="Slimes" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Slime" parent="Slimes" instance=ExtResource("4_2glqk")]
 position = Vector2(-83, 238)
+
+[node name="Slime2" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(-114, 147)
+
+[node name="Slime3" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(17, 83)
+
+[node name="Slime4" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(148, 16)
+
+[node name="Slime5" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(176, 82)
+
+[node name="Slime6" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(238, 178)
+
+[node name="Slime7" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(365, 269)
+
+[node name="Slime8" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(84, 178)
+
+[node name="Slime9" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(-162, 535)
+
+[node name="Slime10" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(188, 482)
+
+[node name="Slime11" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(590, 508)
+
+[node name="Slime12" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(813, 436)
+
+[node name="Slime13" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(957, 319)
+
+[node name="Slime14" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(922, 223)
+
+[node name="Slime15" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(767, 159)
+
+[node name="Slime16" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(738, -69)
+
+[node name="Slime17" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(1234, -63)
+
+[node name="Slime18" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(-235, -238)
+
+[node name="Slime19" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(256, -241)
+
+[node name="Slime20" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(595, -203)
+
+[node name="Slime21" parent="Slimes" instance=ExtResource("4_2glqk")]
+position = Vector2(996, -240)
