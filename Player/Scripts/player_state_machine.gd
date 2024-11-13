@@ -40,14 +40,16 @@ func Initialize(_player : Player) -> void:
 		if c is State:
 			states.append(c)
 	
-	# If there are any states, initialize the first state.
-	if states.size() > 0:
-		# Set the player reference for the first state.
-		states[0].player = _player 
-		# Change to the first state.
-		ChangeState( states[0] )
-		# Enable processing.
-		process_mode = Node.PROCESS_MODE_INHERIT
+	if states.size() == 0: return
+	
+	states[0].player = _player 
+	states[0].state_machine = self
+	
+	for state in states:
+		state.init()
+	
+	ChangeState( states[0] )
+	process_mode = Node.PROCESS_MODE_INHERIT
 
 # Changes the current state of the state machine.
 func ChangeState( new_state : State) -> void:

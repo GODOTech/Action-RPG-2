@@ -2,7 +2,7 @@ class_name HurtBox extends Area2D
 
 
 @export var damage : int = 1
-
+#@export var effect : 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,6 +16,6 @@ func _process(delta):
 
 func AreaEntered( a : Area2D ) -> void:
 	if a is HitBox:
-		a.TakeDamage( damage )
+		a.TakeDamage( self )
 	
 	pass

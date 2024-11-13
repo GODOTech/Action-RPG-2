@@ -19,13 +19,13 @@ y_sort_enabled = true
 position = Vector2(176, 141)
 
 [node name="Plant" parent="Plants" instance=ExtResource("3_q6t2p")]
-position = Vector2(-293, 297)
+position = Vector2(-262, 233)
 
 [node name="Plant2" parent="Plants" instance=ExtResource("3_q6t2p")]
 position = Vector2(-211, 282)
 
 [node name="Plant3" parent="Plants" instance=ExtResource("3_q6t2p")]
-position = Vector2(-146, 275)
+position = Vector2(-130, 226)
 
 [node name="Plant4" parent="Plants" instance=ExtResource("3_q6t2p")]
 position = Vector2(-75, 310)

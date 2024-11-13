@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://hptswsgblghc" path="res://GeneralNodes/Hitbox/hit_box.tscn" id="3_itrml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yincj"]
-size = Vector2(34, 31)
+size = Vector2(28, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jovwi"]
 size = Vector2(24, 16)
@@ -22,7 +22,7 @@ vframes = 3
 [node name="HitBox" parent="." instance=ExtResource("3_itrml")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0, -7.5)
+position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_yincj")
 debug_color = Color(0.86, 0.831333, 0, 0.541176)
 
