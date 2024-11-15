@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://hptswsgblghc" path="res://GeneralNodes/Hitbox/hit_box.tscn" id="3_itrml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yincj"]
-size = Vector2(28, 11)
+size = Vector2(19, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jovwi"]
-size = Vector2(24, 16)
+size = Vector2(24, 12)
 
 [node name="Plant" type="Node2D"]
 script = ExtResource("1_sqg57")
@@ -22,7 +22,7 @@ vframes = 3
 [node name="HitBox" parent="." instance=ExtResource("3_itrml")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0, -3.5)
+position = Vector2(-0.5, -5.5)
 shape = SubResource("RectangleShape2D_yincj")
 debug_color = Color(0.86, 0.831333, 0, 0.541176)
 
@@ -32,5 +32,5 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 9)
+position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_jovwi")
