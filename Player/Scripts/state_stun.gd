@@ -36,7 +36,7 @@ func Enter() -> void:
 func Exit() -> void:
 	next_state = null
 	player.animation_player.animation_finished.disconnect( _animation_finished)
-	%AttackHurtbox.monitoring = false
+	%AttackHurtbox.monitoring = false # ATTENTION FIXED
 	pass
 
 func Process(_delta : float) -> State:
