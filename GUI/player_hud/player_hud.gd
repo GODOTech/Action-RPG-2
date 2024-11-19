@@ -1,5 +1,4 @@
 extends CanvasLayer
-
 # No class because it would conflict with the autoload name in memory
 
 var hearts : Array[ Heart_GUI ] = []
