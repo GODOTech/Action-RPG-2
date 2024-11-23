@@ -1,117 +1,141 @@
 class_name Player extends CharacterBody2D
 
-const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP, ]
-# The current cardinal direction the player is facing (initially facing down)
-var cardinal_direction : Vector2 = Vector2.DOWN  
-# The current movement direction of the player
-var direction : Vector2 = Vector2.ZERO             
+# Constants
+const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP, ] # Array of cardinal directions
 
-var invulnerable : bool = false
-var hp : int = 6
-var max_hp : int = 6
+# Player properties
+var cardinal_direction : Vector2 = Vector2.DOWN  # Current cardinal direction (initially facing down)
+var direction : Vector2 = Vector2.ZERO             # Current movement direction
+var invulnerable : bool = false # Flag indicating if the player is invulnerable
+var hp : int = 6 # Player's health points
+var max_hp : int = 6 # Player's maximum health points
 
-@onready var animation_player : AnimationPlayer = $AnimationPlayer
-@onready var effect_animation_player : AnimationPlayer = $EffectAnimationPlayer
+# Node references
+@onready var animation_player : AnimationPlayer = $AnimationPlayer # AnimationPlayer node for main animations
+@onready var effect_animation_player : AnimationPlayer = $EffectAnimationPlayer # AnimationPlayer node for effect animations
+@onready var sprite : Sprite2D = $Sprite2D # Sprite2D node for visual representation
+@onready var state_machine : PlayerStateMachine = $StateMachine # PlayerStateMachine node for managing player states
+@onready var hit_box : HitBox = $HitBox # HitBox node for damage detection
 
-@onready var sprite : Sprite2D = $Sprite2D
-@onready var state_machine : PlayerStateMachine = $StateMachine
-@onready var hit_box : HitBox = $HitBox
+# Signals
+signal player_damaged( hurt_box: HurtBox ) # Signal emitted when the player is damaged
+signal DirectionChanged( new_direction: Vector2 ) # Signal emitted when the player's direction changes
 
-signal player_damaged( hurt_box: HurtBox )
-signal DirectionChanged( new_direction: Vector2 )
-
+# Initialization
 func _ready():
+	# Set the player instance in PlayerManager
 	PlayerManager.player = self
+	# Initialize the PlayerStateMachine
 	state_machine.Initialize(self)
+	# Connect the Damaged signal from HitBox to the _take_damage function
 	hit_box.Damaged.connect( _take_damage )
+	# Initialize HP to full
 	update_hp(99)
-	pass  
+	pass  # Placeholder, no further actions needed in this function
 
+# Process function (called every frame)
 func _process(_delta):
+	# Get player input for movement
 	direction = Vector2(
 		Input.get_axis("left", "right"),
 		Input.get_axis("up", "down")
 	).normalized()
 	
-	# Calculate direction based on player input
+	# Calculate direction based on player input (alternative method)
 	#direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")  # Horizontal movement
 	#direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")      # Vertical movement
 	#direction = direction.normalized()
 	# Set the velocity based on direction and move speed
 	
-	pass 
+	pass # Placeholder, no further actions needed in this function
 
-# Called at a fixed time step (for physics calculations)
+# Physics process function (called at fixed time step)
 func _physics_process(delta):
-	move_and_slide()  # Move the character while sliding on surfaces
+	# Move the character while sliding on surfaces
+	move_and_slide()
 
 # Function to determine the new direction of the player
 func SetDirection() -> bool:
 	
-	if direction == Vector2.ZERO:  # If no input is detected
-		return false  # No direction change
+	# If no input is detected, return false
+	if direction == Vector2.ZERO:
+		return false
 	
-	var direction_id : int = int( round( 
-			( direction + cardinal_direction * 0.1 ).angle()
-			 / TAU * DIR_4.size()
-	 ))
+# Calculate the direction ID based on player input and current direction
+# Calculate the new direction by adding the cardinal direction multiplied by 0.1 to the current direction.
+# Find the angle of the new direction.
+# Divide the angle by TAU (which is equivalent to 2 * pi) to normalize it between 0 and 1.
+# Multiply the normalized angle by the size of the DIR_4 array to determine the index.
+# Round the result to the nearest integer to get the final direction_id value.
+	var direction_id : int = int( round(
+		( direction + cardinal_direction * 0.1 ).angle()
+			/ TAU * DIR_4.size()
+		))
+	
+	# Get the new direction from the DIR_4 array
 	var new_dir = DIR_4[ direction_id ]
-	# If the new direction is the same as the current one, do nothing
+	
+	# If the new direction is the same as the current one, return false
 	if new_dir == cardinal_direction:
 		return false
 	
+	# Update the cardinal direction and emit the DirectionChanged signal
 	cardinal_direction = new_dir
-	DirectionChanged.emit( new_dir )  # Update the cardinal direction
-	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1  # Flip the sprite based on direction
-	return true  # Direction changed
-
-
+	DirectionChanged.emit( new_dir )
+	# Flip the sprite based on the new direction
+	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
+	# Return true to indicate that the direction has changed
+	return true
 
 # Function to update the player's animation based on the current state and direction
 func UpdateAnimation( state : String ) -> void:
 	# Play the animation based on state and direction
-	animation_player.play(state + "_" + AnimDirection() )  
-	pass  
+	animation_player.play( state + "_" + AnimDirection() )
+	pass  # Placeholder, no further actions needed in this function
 
 # Function to determine the animation direction based on cardinal direction
 func AnimDirection() -> String:
+	# Return the appropriate animation direction based on the cardinal direction
 	if cardinal_direction == Vector2.DOWN:
-		return "down"  # Return "down" for downward movement
+		return "down"
 	elif cardinal_direction == Vector2.UP:
-		return "up"  # Return "up" for upward movement
+		return "up"
 	else:
-		return "side"  # Return "side" for left/right movement
+		return "side"
 
+# Function to handle damage taken by the player
 func _take_damage( hurt_box : HurtBox) -> void:
+	# Return early if the player is invulnerable
 	if invulnerable == true : return
+	# Update the player's HP
 	update_hp( - hurt_box.damage )
+	# Emit the player_damaged signal
 	if hp > 0:
 		player_damaged.emit( hurt_box )
 	else:
 		player_damaged.emit( hurt_box )
 		update_hp( 99 )
-	pass
+	pass # Placeholder, no further actions needed in this function
 
+# Function to update the player's HP
 func update_hp( delta : int ) -> void:
+	# Clamp HP between 0 and max_hp
 	hp = clampi( hp + delta, 0, max_hp )
-	PlayerHud.update_hp( hp, max_hp) # Connects to the hud
-	pass
+	# Update the HP display in the HUD
+	PlayerHud.update_hp( hp, max_hp)
+	pass # Placeholder, no further actions needed in this function
 
+# Function to make the player invulnerable for a specified duration
 func make_invulnerable( _duration : float = 1.0 ) -> void:
+	# Set the invulnerable flag to true
 	invulnerable = true
+	# Disable damage detection
 	hit_box.monitoring = false
 	
+	# Wait for the specified duration
 	await get_tree().create_timer( _duration ).timeout
 	
+	# Reset invulnerability flag and re-enable damage detection
 	invulnerable = false
 	hit_box.monitoring = true
-	pass
-
-
-
-
-
-
-
-
-
+	pass # Placeholder, no further actions needed in this function

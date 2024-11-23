@@ -1,78 +1,102 @@
 class_name Enemy extends CharacterBody2D
 
-signal  direction_changed( new_direction : Vector2 )
-signal enemy_damaged( hurt_box : HurtBox )
-signal enemy_destroyed( hurt_box : HurtBox )
+# Signals
+signal  direction_changed( new_direction : Vector2 ) # Signal emitted when the enemy's direction changes
+signal enemy_damaged( hurt_box : HurtBox ) # Signal emitted when the enemy takes damage
+signal enemy_destroyed( hurt_box : HurtBox ) # Signal emitted when the enemy is destroyed
 
-const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
+# Constants
+const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ] # Array of cardinal directions
 
-@export var hp : int = 3
+# Exported properties
+@export var hp : int = 3 # Enemy's health points
 
-var cardinal_direction : Vector2 = Vector2.DOWN
-var direction : Vector2 = Vector2.ZERO
-var player: Player
-var invulnerable : bool = false
+# Variables
+var cardinal_direction : Vector2 = Vector2.DOWN # Current cardinal direction (initially facing down)
+var direction : Vector2 = Vector2.ZERO # Current movement direction
+var player: Player # Reference to the player
+var invulnerable : bool = false # Flag indicating if the enemy is invulnerable
 
+# Node references
+@onready var animation_player : AnimationPlayer = $AnimationPlayer # AnimationPlayer for animations
+@onready var sprite : Sprite2D = $Sprite2D # Sprite2D node for visual representation
+@onready var hit_box : HitBox = $HitBox # HitBox node for damage detection
+@onready var state_machine : EnemyStateMachine = $EnemyStateMachine # EnemyStateMachine node for managing enemy states
 
-@onready var animation_player : AnimationPlayer = $AnimationPlayer
-@onready var sprite : Sprite2D = $Sprite2D
-@onready var hit_box : HitBox = $HitBox
-@onready var state_machine : EnemyStateMachine = $EnemyStateMachine
-
-# Called when the node enters the scene tree for the first time.
+# Initialization
 func _ready():
+	# Initialize the EnemyStateMachine
 	state_machine.initialize( self )
+	# Get a reference to the player from PlayerManager
 	player = PlayerManager.player
+	# Connect the Damaged signal from HitBox to the _take_damage function
 	hit_box.Damaged.connect(_take_damage)
-	pass # Replace with function body.
+	pass # Placeholder, no further actions needed in this function
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Process function (called every frame)
 func _process(_delta):
-	pass
+	pass # Placeholder, no further actions needed in this function
 
+# Physics process function (called at fixed time step)
 func _physics_process(_delta):
+	# Move the enemy using move_and_slide()
 	move_and_slide()
 
+# Function to set the enemy's direction
 func SetDirection(_new_direction : Vector2 ) -> bool:
+	# Update the direction vector
 	direction = _new_direction
 	
-	if direction == Vector2.ZERO: return false  
+	# Return early if there is no direction
+	if direction == Vector2.ZERO: return false
 	
-	var direction_id : int = int( round( 
-			( direction + cardinal_direction * 0.1 ).angle()
-			 / TAU * DIR_4.size()
-	 ))
+	# Calculate the direction ID based on input and current direction
+	var direction_id : int = int( round(
+		( direction + cardinal_direction * 0.1 ).angle()
+			/ TAU * DIR_4.size()
+		))
+	
+	# Get the new direction from the DIR_4 array
 	var new_dir = DIR_4[ direction_id ]
-	# If the new direction is the same as the current one, do nothing
+	
+	# Return early if the new direction is the same as the current one
 	if new_dir == cardinal_direction:
 		return false
 	
-	# Update the cardinal direction
+	# Update the cardinal direction and emit the direction_changed signal
 	cardinal_direction = new_dir
-	direction_changed.emit( new_dir ) 
+	direction_changed.emit( new_dir )
 	
-	# Flip the sprite based on direction
-	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1  
-	return true  # Direction changed
-	
+	# Flip the sprite based on the new direction
+	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
+	# Return true to indicate that the direction has changed
+	return true
+
+# Function to update the enemy's animation
 func UpdateAnimation( state : String ) -> void:
-	animation_player.play(state + "_" + AnimDirection() ) 
-	pass 
+	# Play the animation based on the state and direction
+	animation_player.play(state + "_" + AnimDirection() )
+	pass # Placeholder, no further actions needed in this function
 
+# Function to determine the animation direction
 func AnimDirection() -> String:
+	# Return the appropriate animation direction based on the cardinal direction
 	if cardinal_direction == Vector2.DOWN:
-		return "down"  # Return "down" for downward movement
+		return "down"
 	elif cardinal_direction == Vector2.UP:
-		return "up"  # Return "up" for upward movement
+		return "up"
 	else:
-		return "side"  # Return "side" for left/right movement
+		return "side"
 
+# Function to handle damage taken by the enemy
 func _take_damage( hurt_box : HurtBox ) -> void:
+	# Return early if the enemy is invulnerable
 	if invulnerable == true: return
+	# Reduce HP by the damage amount
 	hp -= hurt_box.damage
+	# Emit the enemy_damaged signal if HP is greater than 0
 	if hp > 0:
 		enemy_damaged.emit( hurt_box )
+	# Emit the enemy_destroyed signal if HP is 0 or less
 	else:
 		enemy_destroyed.emit( hurt_box )
-	 
