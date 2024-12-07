@@ -24,6 +24,12 @@ func add_player_instance() -> void:
 	add_child( player )
 	pass # Placeholder, no further actions needed in this function
 
+func set_health( hp: int, max_hp: int ) -> void:
+	player.max_hp = max_hp
+	player.hp = hp
+	player.update_hp( 0 )
+
+
 # Function to set the player's position
 func set_player_position( _new_pos : Vector2 ) -> void:
 	# Set the player's global position

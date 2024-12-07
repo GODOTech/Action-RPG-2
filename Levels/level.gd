@@ -1,6 +1,5 @@
 class_name Level extends Node2D
 
-# Initialization
 func _ready() -> void:
 	# Enable y-sorting for this node
 	self.y_sort_enabled = true
