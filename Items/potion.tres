@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://gy31a6g8ilf3"]
+
+[ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="1_yg2we"]
+[ext_resource type="Texture2D" uid="uid://cll875skcb6ur" path="res://Items/Sprites/items.png" id="2_at7p8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drxhk"]
+atlas = ExtResource("2_at7p8")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_yg2we")
+name = "Potion"
+description = "This crimson TONIC regenerates your energy  amidst combat. Careful not to over dose!"
+texture = SubResource("AtlasTexture_drxhk")

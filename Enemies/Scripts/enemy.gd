@@ -9,7 +9,7 @@ signal enemy_destroyed( hurt_box : HurtBox ) # Signal emitted when the enemy is 
 const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ] # Array of cardinal directions
 
 # Exported properties
-@export var hp : int = 3 # Enemy's health points
+@export var hp : int = 4 # Enemy's health points
 
 # Variables
 var cardinal_direction : Vector2 = Vector2.DOWN # Current cardinal direction (initially facing down)

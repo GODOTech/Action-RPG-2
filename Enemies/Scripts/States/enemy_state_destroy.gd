@@ -6,6 +6,7 @@ class_name EnemyStateDestroy extends EnemyState
 
 @export_category('AI')
 
+@onready var hurt_box: HurtBox = $"../../HurtBox"
 
 var _damage_position : Vector2
 var _direction : Vector2
@@ -16,6 +17,7 @@ func init() -> void:
 	pass
 
 func Enter() -> void:
+	hurt_box.monitoring = false
 	enemy.invulnerable = true
 	
 	#you can also get the player from the player manager global
@@ -39,8 +41,8 @@ func Physics( _delta : float ) -> EnemyState:
 
 ## normaly on the process func, this time we're forcing it trough a signal:
 ## no matter on what state you are, you got hit!
-func _on_enemy_destroyed(hurt_box : HurtBox) -> void:
-	_damage_position = hurt_box.global_position
+func _on_enemy_destroyed(hurt_box2 : HurtBox) -> void: # WARNING the 2 is to prevent a warning
+	_damage_position = hurt_box2.global_position
 	state_machine.ChangeState( self )
 
 func _on_animation_finished( _a : String ) -> void:

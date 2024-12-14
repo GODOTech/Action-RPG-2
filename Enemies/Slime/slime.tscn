@@ -59,6 +59,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ShadowSprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_6p1i8"]
 resource_name = "destroy_down"
@@ -95,10 +107,10 @@ tracks/2/path = NodePath("Sprite2D:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.25, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.25, 0.35),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.800707, 0, 0.116917, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/3/type = "audio"
 tracks/3/imported = false
@@ -139,6 +151,18 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "clips": PackedStringArray("destroy"),
 "times": PackedFloat32Array(0.05)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ShadowSprite2D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_c2w8j"]
@@ -176,10 +200,10 @@ tracks/2/path = NodePath("Sprite2D:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.25, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.25, 0.35),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.800707, 0, 0.116917, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/3/type = "audio"
 tracks/3/imported = false
@@ -220,6 +244,18 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "clips": PackedStringArray("destroy"),
 "times": PackedFloat32Array(0.05)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ShadowSprite2D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_cd1dy"]
@@ -257,10 +293,10 @@ tracks/2/path = NodePath("Sprite2D:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.25, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.25, 0.35),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.800707, 0, 0.116917, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/3/type = "audio"
 tracks/3/imported = false
@@ -301,6 +337,18 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "clips": PackedStringArray("destroy"),
 "times": PackedFloat32Array(0.05)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ShadowSprite2D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_xspon"]
@@ -420,7 +468,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("Sprite2D:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -428,7 +476,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0.800707, 0, 0.116917, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+"values": [Color(0, 0, 0.117647, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "audio"
 tracks/3/imported = false
@@ -476,7 +524,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("Sprite2D:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -484,7 +532,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0.800707, 0, 0.116917, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+"values": [Color(0, 0, 0.117647, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "audio"
 tracks/3/imported = false
@@ -532,7 +580,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("Sprite2D:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -540,7 +588,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0.800707, 0, 0.116917, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+"values": [Color(0, 0, 0.117647, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "audio"
 tracks/3/imported = false
@@ -734,11 +782,10 @@ shape = SubResource("CircleShape2D_e2egx")
 debug_color = Color(0.752941, 0.0352941, 0.0745098, 0.419608)
 
 [node name="ShadowSprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.456634, 0.232145, 9.62615e-08, 0.886275)
+self_modulate = Color(0.231083, 0.47, 0.1833, 0.556863)
 texture = ExtResource("1_ehkhu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.709804)
 position = Vector2(0, -18)
 texture = ExtResource("2_5swks")
 hframes = 16
@@ -787,6 +834,7 @@ max_polyphony = 4
 
 [node name="DestroyEffectSprite" type="Sprite2D" parent="."]
 visible = false
+self_modulate = Color(0.8091, 0.93, 0.82119, 0.756863)
 position = Vector2(0, -6)
 texture = ExtResource("9_glfur")
 hframes = 6

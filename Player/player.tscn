@@ -59,7 +59,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_ro106"]
 resource_name = "attack_down"
-length = 0.3
+length = 0.25
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -67,7 +68,7 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.23),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0, 3]
@@ -103,7 +104,7 @@ tracks/3/path = NodePath(".:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.24),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -111,7 +112,8 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_f6tql"]
 resource_name = "attack_side"
-length = 0.3
+length = 0.25
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -119,7 +121,7 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0.01, 0.23),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [8, 11]
@@ -155,7 +157,19 @@ tracks/3/path = NodePath(".:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:flip_v")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.01, 0.24),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -163,7 +177,8 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_tf3ep"]
 resource_name = "attack_up"
-length = 0.3
+length = 0.25
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -171,7 +186,7 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.23),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [4, 7]
@@ -207,7 +222,7 @@ tracks/3/path = NodePath(".:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.24),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -267,10 +282,23 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 36)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/ShadowSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, 20)]
+}
 
 [sub_resource type="Animation" id="Animation_x07v2"]
 resource_name = "attack_down"
-length = 0.3
+length = 0.25
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -278,10 +306,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.11, 0.13, 0.19),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [21, 23]
+"values": [56, 57, 58, 59]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -295,10 +323,23 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 17)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/ShadowSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.24),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 20), Vector2(0, 25), Vector2(0, 20)]
+}
 
 [sub_resource type="Animation" id="Animation_a2p2f"]
 resource_name = "attack_side"
-length = 0.3
+length = 0.25
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -306,10 +347,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [27, 29]
+"times": PackedFloat32Array(0, 0.06, 0.09, 0.13),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [52, 53, 54, 55]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -323,10 +364,23 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(17, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/ShadowSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 20), Vector2(10, 20), Vector2(0, 20)]
+}
 
 [sub_resource type="Animation" id="Animation_83mhn"]
 resource_name = "attack_up"
-length = 0.3
+length = 0.25
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -334,10 +388,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [24, 26]
+"times": PackedFloat32Array(0, 0.05, 0.08, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -350,6 +404,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -17)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/ShadowSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 20), Vector2(0, 15), Vector2(0, 20)]
 }
 
 [sub_resource type="Animation" id="Animation_2rt25"]
@@ -416,7 +482,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [30]
+"values": [22]
 }
 
 [sub_resource type="Animation" id="Animation_djtxf"]
@@ -432,7 +498,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [32]
+"values": [27]
 }
 
 [sub_resource type="Animation" id="Animation_qrxyp"]
@@ -448,7 +514,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [31]
+"values": [25]
 }
 
 [sub_resource type="Animation" id="Animation_rymw6"]
@@ -601,19 +667,20 @@ shape = SubResource("CircleShape2D_1rf8m")
 position = Vector2(0, -20)
 texture = ExtResource("2_0ngrr")
 hframes = 16
-vframes = 3
+vframes = 6
 
 [node name="ShadowSprite" type="Sprite2D" parent="Sprite2D"]
-modulate = Color(0.0980392, 0.0980392, 0.0980392, 0.772549)
+modulate = Color(0.0980392, 0.0980392, 0.0980392, 0.372549)
 show_behind_parent = true
 position = Vector2(0, 20)
 texture = ExtResource("3_ftgd7")
 
 [node name="AttackEffect" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0.690196, 0.882353, 1, 0.764706)
 position = Vector2(0, 10)
 texture = ExtResource("3_qm12w")
 hframes = 12
-frame = 10
+frame = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D/AttackEffect"]
 libraries = {
@@ -644,10 +711,11 @@ script = ExtResource("4_y043j")
 
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource("5_vxixa")
+move_speed = 125.0
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("6_j1ors")
-decelerate_speed = 4.0
+decelerate_speed = 1.5
 attack_sound = ExtResource("8_3qqof")
 
 [node name="Stun" type="Node" parent="StateMachine"]

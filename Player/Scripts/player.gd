@@ -50,7 +50,7 @@ func _process(_delta):
 	pass # Placeholder, no further actions needed in this function
 
 # Physics process function (called at fixed time step)
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Move the character while sliding on surfaces
 	move_and_slide()
 

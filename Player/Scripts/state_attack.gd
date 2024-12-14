@@ -57,8 +57,7 @@ func Process(_delta : float) -> State:
 		#if player.direction == Vector2.ZERO: ###
 		return idle
 	# Otherwise, stay in the Walk state
-	else :
-		walk
+	else: walk
 	# Return null to indicate no state transition
 	return null
 

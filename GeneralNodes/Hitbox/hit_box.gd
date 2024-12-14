@@ -8,7 +8,7 @@ func _ready():
 	pass # Placeholder, no further actions needed in this function
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass # Placeholder, no further actions needed in this function
 
 # Function to handle damage taken by the HitBox
