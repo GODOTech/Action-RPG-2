@@ -10,11 +10,13 @@ signal hidden
 
 @onready var control: Control = get_node("/root/PlayerHud/Control")
 
+
 var is_paused : bool = false
 
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 	hide_pause_menu()
 	button_save.pressed.connect( _on_save_pressed)
 	button_load.pressed.connect( _on_load_pressed)

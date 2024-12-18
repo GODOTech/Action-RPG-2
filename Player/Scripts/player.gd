@@ -5,7 +5,7 @@ const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP, ] # Array
 
 # Player properties
 var cardinal_direction : Vector2 = Vector2.DOWN  # Current cardinal direction (initially facing down)
-var direction : Vector2 = Vector2.ZERO             # Current movement direction
+var direction : Vector2 = Vector2.ZERO # Current movement direction
 var invulnerable : bool = false # Flag indicating if the player is invulnerable
 var hp : int = 6 # Player's health points
 var max_hp : int = 6 # Player's maximum health points
@@ -31,14 +31,14 @@ func _ready():
 	hit_box.Damaged.connect( _take_damage )
 	# Initialize HP to full
 	update_hp(99)
-	pass  # Placeholder, no further actions needed in this function
+	pass 
 
 # Process function (called every frame)
-func _process(_delta):
+func _process( _delta ):
 	# Get player input for movement
 	direction = Vector2(
-		Input.get_axis("left", "right"),
-		Input.get_axis("up", "down")
+		Input.get_axis( "left", "right" ),
+		Input.get_axis( "up", "down" )
 	).normalized()
 	
 	# Calculate direction based on player input (alternative method)
@@ -47,10 +47,10 @@ func _process(_delta):
 	#direction = direction.normalized()
 	# Set the velocity based on direction and move speed
 	
-	pass # Placeholder, no further actions needed in this function
+	pass 
 
 # Physics process function (called at fixed time step)
-func _physics_process(_delta):
+func _physics_process( _delta ):
 	# Move the character while sliding on surfaces
 	move_and_slide()
 
@@ -115,7 +115,7 @@ func _take_damage( hurt_box : HurtBox) -> void:
 	else:
 		player_damaged.emit( hurt_box )
 		update_hp( 99 )
-	pass # Placeholder, no further actions needed in this function
+	pass 
 
 # Function to update the player's HP
 func update_hp( delta : int ) -> void:
@@ -123,7 +123,7 @@ func update_hp( delta : int ) -> void:
 	hp = clampi( hp + delta, 0, max_hp )
 	# Update the HP display in the HUD
 	PlayerHud.update_hp( hp, max_hp)
-	pass # Placeholder, no further actions needed in this function
+	pass 
 
 # Function to make the player invulnerable for a specified duration
 func make_invulnerable( _duration : float = 1.0 ) -> void:

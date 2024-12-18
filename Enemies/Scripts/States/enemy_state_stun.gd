@@ -1,8 +1,10 @@
 class_name EnemyStateStun extends EnemyState
 
 @export var anim_name : String = 'stun'
-@export var knockback_speed : float = 200.0
-@export var decelerate_speed : float = 10.0
+
+var decelerate_speed : int
+
+
 
 @export_category('AI')
 @export var next_state : EnemyState
@@ -16,6 +18,10 @@ func init() -> void:
 	pass
 
 func Enter() -> void:
+	#Behavior randomization 
+	var knockback_speed : int = randi_range( 10, 500 )
+	decelerate_speed = randi_range( 5, 20 )
+	
 	enemy.invulnerable = true
 	_animation_finished = false
 	

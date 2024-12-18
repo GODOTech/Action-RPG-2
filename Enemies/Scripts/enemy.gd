@@ -8,8 +8,8 @@ signal enemy_destroyed( hurt_box : HurtBox ) # Signal emitted when the enemy is 
 # Constants
 const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ] # Array of cardinal directions
 
-# Exported properties
-@export var hp : int = 4 # Enemy's health points
+
+var hp : int = randi_range( 2 ,4 ) # Enemy's health points
 
 # Variables
 var cardinal_direction : Vector2 = Vector2.DOWN # Current cardinal direction (initially facing down)
@@ -31,7 +31,8 @@ func _ready():
 	player = PlayerManager.player
 	# Connect the Damaged signal from HitBox to the _take_damage function
 	hit_box.Damaged.connect(_take_damage)
-	pass # Placeholder, no further actions needed in this function
+	randomize_look()
+	pass
 
 # Process function (called every frame)
 func _process(_delta):
@@ -100,3 +101,19 @@ func _take_damage( hurt_box : HurtBox ) -> void:
 	# Emit the enemy_destroyed signal if HP is 0 or less
 	else:
 		enemy_destroyed.emit( hurt_box )
+
+func randomize_look() -> void:
+	var scale = Vector2(randf_range(0.5, 1.5), randf_range( 0.5, 1.5))
+	#Scale the whole node tree
+	$"/root".get_node(self.get_path()).scale = scale
+	
+	var rand_mod_r = randi_range(100,200) #RED
+	var rand_mod_g = randi_range(180,220) #GREEN
+	var rand_mod_b = randi_range(50,100) #BLUE
+	var rand_mod_a = randi_range(175,210) #ALPHA
+	
+	#Set the random values and transparency
+	modulate = Color8(rand_mod_r,rand_mod_g,rand_mod_b,rand_mod_a)
+	pass
+
+

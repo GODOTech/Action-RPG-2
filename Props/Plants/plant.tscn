@@ -1,21 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxyy1eyrtxduc"]
+[gd_scene load_steps=7 format=3 uid="uid://cxyy1eyrtxduc"]
 
 [ext_resource type="Script" path="res://Props/Plants/plant.gd" id="1_sqg57"]
-[ext_resource type="Texture2D" uid="uid://sf0efuggayd1" path="res://Props/Sprites/Props.png" id="2_hqvd6"]
 [ext_resource type="PackedScene" uid="uid://hptswsgblghc" path="res://GeneralNodes/Hitbox/hit_box.tscn" id="3_itrml"]
+[ext_resource type="Texture2D" uid="uid://dagwub5chdy0l" path="res://Props/Sprites/Plant.png" id="3_vnim3"]
+[ext_resource type="Texture2D" uid="uid://whc8jcevryym" path="res://Props/Sprites/Stump.png" id="4_erc5j"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yincj"]
-size = Vector2(19, 19)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ewb5d"]
+radius = 5.52268
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jovwi"]
-size = Vector2(24, 12)
+size = Vector2(36, 6)
 
 [node name="Plant" type="Node2D"]
+texture_filter = 2
 script = ExtResource("1_sqg57")
+
+[node name="Stump" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
+texture = ExtResource("4_erc5j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -9)
-texture = ExtResource("2_hqvd6")
+texture = ExtResource("3_vnim3")
 hframes = 16
 vframes = 3
 
@@ -23,7 +29,7 @@ vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(-0.5, -5.5)
-shape = SubResource("RectangleShape2D_yincj")
+shape = SubResource("CircleShape2D_ewb5d")
 debug_color = Color(0.86, 0.831333, 0, 0.541176)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -32,5 +38,5 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 6)
+position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_jovwi")
