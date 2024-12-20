@@ -3,6 +3,11 @@ class_name Plant extends Node2D
 @onready var hit_box: HitBox = $HitBox
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var static_body_2d: StaticBody2D = $StaticBody2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var top: Sprite2D = $Top
+@onready var top_animation_player: AnimationPlayer = $Top/TopAnimationPlayer
+
+var top_destroyed : bool = false
 
 func _ready():
 	# Connect the Damaged signal from the HitBox node to the TakeDamage function
@@ -12,10 +17,18 @@ func _ready():
 
 # Function to handle damage to the plant
 func TakeDamage( _damage : HurtBox ) -> void:
-	hit_box.queue_free()
-	static_body_2d.queue_free()
-	sprite_2d.queue_free()
-	
+	if top_destroyed == false:
+			top_destroyed = true
+			top_animation_player.play("top_destroy")
+			#await top_animation_player.animation_finished
+			return
+	else:
+		animation_player.play("destroy")
+		hit_box.queue_free()
+		static_body_2d.queue_free()
+		top.z_index =- 1
+		#await animation_player.animation_finished
+		sprite_2d.z_index =- 1
 	pass
 
 func randomize_look() -> void:

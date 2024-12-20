@@ -152,6 +152,9 @@ position = Vector2(16, -352)
 [node name="Plant45" parent="Plants" instance=ExtResource("3_q6t2p")]
 position = Vector2(-146, -266)
 
+[node name="Plant101" parent="Plants" instance=ExtResource("3_q6t2p")]
+position = Vector2(-264, 448)
+
 [node name="Plant46" parent="Plants" instance=ExtResource("3_q6t2p")]
 position = Vector2(-105, 393)
 
@@ -172,6 +175,9 @@ position = Vector2(-382, 354)
 
 [node name="Plant52" parent="Plants" instance=ExtResource("3_q6t2p")]
 position = Vector2(-410, 365)
+
+[node name="Plant102" parent="Plants" instance=ExtResource("3_q6t2p")]
+position = Vector2(-320, 463)
 
 [node name="Plant53" parent="Plants" instance=ExtResource("3_q6t2p")]
 position = Vector2(-64, 316)
