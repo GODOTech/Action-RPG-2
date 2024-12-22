@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://62i8sythiruc"]
+[gd_scene load_steps=9 format=3 uid="uid://62i8sythiruc"]
 
 [ext_resource type="Script" path="res://GUI/pause_menu/pause_menu.gd" id="1_bi8ib"]
 [ext_resource type="Texture2D" uid="uid://cll875skcb6ur" path="res://Items/Sprites/items.png" id="2_5wi2v"]
+[ext_resource type="Script" path="res://GUI/pause_menu/Cursor/mouse_control.gd" id="2_d3wnv"]
 [ext_resource type="Script" path="res://GUI/pause_menu/Inventory/Scripts/inventory_ui.gd" id="3_56che"]
 [ext_resource type="PackedScene" uid="uid://b37s8sr12qou6" path="res://GUI/pause_menu/Inventory/inventory_slot.tscn" id="3_lui1g"]
 [ext_resource type="Resource" uid="uid://bl3l7vnco5tdp" path="res://GUI/pause_menu/Inventory/player_inventory.tres" id="4_qft53"]
@@ -28,6 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_d3wnv")
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1

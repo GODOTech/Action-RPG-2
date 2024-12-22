@@ -20,27 +20,24 @@ func TakeDamage( _damage : HurtBox ) -> void:
 	if top_destroyed == false:
 			top_destroyed = true
 			top_animation_player.play("top_destroy")
-			#await top_animation_player.animation_finished
 			return
 	else:
-		animation_player.play("destroy")
 		hit_box.queue_free()
 		static_body_2d.queue_free()
-		top.z_index =- 1
-		#await animation_player.animation_finished
-		sprite_2d.z_index =- 1
+		animation_player.play("destroy")
+		top.z_index = -1
+		sprite_2d.z_index = -1
 	pass
 
 func randomize_look() -> void:
 	# whidt, then heigth
-	var scale = Vector2(randf_range(0.5, 1.5), randf_range( 0.5, 1))
+	scale = Vector2(randf_range(0.5, 1.5), randf_range( 0.5, 1))
 	#Scale the whole node tree
 	$"/root".get_node(self.get_path()).scale = scale
 	
 	var rand_mod_r = randi_range(100,200) #RED
 	var rand_mod_g = randi_range(180,200) #GREEN
 	var rand_mod_b = randi_range(50,100) #BLUE
-	var rand_mod_a = randi_range(175,210) #ALPHA
 	
 	# Set the random values and transparency
 	# 255 is the MAX

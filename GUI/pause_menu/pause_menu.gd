@@ -23,7 +23,7 @@ func _ready() -> void:
 	button_quit.pressed.connect( _on_quit_pressed)
 	pass
 
-# Unhandled para que qhede claro que ningun otro sistema esta manejando este evento
+# Unhandled para que quede claro que ningun otro sistema esta manejando este evento
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		if is_paused == false:
