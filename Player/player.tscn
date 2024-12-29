@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ds1rd5derwhan"]
+[gd_scene load_steps=50 format=3 uid="uid://ds1rd5derwhan"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_m3jck"]
 [ext_resource type="Texture2D" uid="uid://c5giq8ao7oesu" path="res://Player/Sprites/PlayerSprite02.png" id="2_0ngrr"]
@@ -17,6 +17,29 @@
 [ext_resource type="AudioStream" uid="uid://dgtyajuyq5k3n" path="res://Player/Audio/hit_player.wav" id="14_f40kt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rf8m"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7oww3"]
+diffuse_texture = ExtResource("2_0ngrr")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ej6fk"]
+closed = false
+cull_mode = 1
+polygon = PackedVector2Array(7, -42, 7, -23, 7, 1)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4xccq"]
+closed = false
+cull_mode = 2
+polygon = PackedVector2Array(-6, -43, -6, -23, -6, 1)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_53aia"]
+closed = false
+cull_mode = 2
+polygon = PackedVector2Array(-8, -36, 0, -46, 8, -36)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xu7cr"]
+closed = false
+cull_mode = 1
+polygon = PackedVector2Array(-6, -35, 0, -39, 7, -35)
 
 [sub_resource type="Animation" id="Animation_bd2cj"]
 length = 0.001
@@ -654,7 +677,17 @@ _data = {
 "default": SubResource("Animation_iqk1e")
 }
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ap6f2"]
+closed = false
+polygon = PackedVector2Array(-9, 1, -1, 1)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_d5pw3"]
+closed = false
+polygon = PackedVector2Array(-9, 1, -1, 1)
+
 [node name="Player" type="CharacterBody2D"]
+light_mask = 0
+visibility_layer = 5
 collision_mask = 16
 motion_mode = 1
 wall_min_slide_angle = 0.174533
@@ -664,12 +697,43 @@ script = ExtResource("1_m3jck")
 shape = SubResource("CircleShape2D_1rf8m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 4
+visibility_layer = 4
 position = Vector2(0, -20)
-texture = ExtResource("2_0ngrr")
+texture = SubResource("CanvasTexture_7oww3")
 hframes = 16
 vframes = 6
 
+[node name="LightOccluder_Left" type="LightOccluder2D" parent="Sprite2D"]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(-7, 20)
+occluder = SubResource("OccluderPolygon2D_ej6fk")
+occluder_light_mask = 4
+
+[node name="LightOccluder_Right" type="LightOccluder2D" parent="Sprite2D"]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(6, 20)
+occluder = SubResource("OccluderPolygon2D_4xccq")
+occluder_light_mask = 4
+
+[node name="LightOccluderUP" type="LightOccluder2D" parent="Sprite2D"]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(0, 20)
+occluder = SubResource("OccluderPolygon2D_53aia")
+occluder_light_mask = 4
+
+[node name="LightOccluder_Down" type="LightOccluder2D" parent="Sprite2D"]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(0, 20)
+occluder = SubResource("OccluderPolygon2D_xu7cr")
+occluder_light_mask = 4
+
 [node name="ShadowSprite" type="Sprite2D" parent="Sprite2D"]
+visible = false
 modulate = Color(0.0980392, 0.0980392, 0.0980392, 0.372549)
 show_behind_parent = true
 position = Vector2(0, 20)
@@ -745,3 +809,20 @@ debug_color = Color(0.645078, 0.521504, 0.0690086, 0.42)
 libraries = {
 "": SubResource("AnimationLibrary_hyfas")
 }
+
+[node name="LightOccluder" type="LightOccluder2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+z_index = -1
+occluder = SubResource("OccluderPolygon2D_ap6f2")
+sdf_collision = false
+occluder_light_mask = 2
+
+[node name="LightOccluder2" type="LightOccluder2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+z_index = -1
+position = Vector2(10, 0)
+occluder = SubResource("OccluderPolygon2D_d5pw3")
+sdf_collision = false
+occluder_light_mask = 2

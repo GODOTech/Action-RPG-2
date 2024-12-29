@@ -7,9 +7,9 @@
 script = ExtResource("1_bckcm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.455817, 0.455817, 0.455817, 0.552941)
+modulate = Color(1, 1, 1, 0.643137)
 position = Vector2(0, -19)
 texture = ExtResource("1_lfsbr")
 hframes = 16
-vframes = 3
-frame = 28
+vframes = 6
+frame = 23
