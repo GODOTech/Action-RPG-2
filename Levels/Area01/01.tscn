@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ccmp6vudfuqhk" path="res://Enemies/Slime/slime.tscn" id="5_3pmm2"]
 [ext_resource type="PackedScene" uid="uid://ttyyl5bpcpp6" path="res://Levels/player_spawn.tscn" id="6_5t6tm"]
 [ext_resource type="PackedScene" uid="uid://dwm2vop11tjrc" path="res://Levels/level_transition.tscn" id="6_eclbg"]
-[ext_resource type="Texture2D" uid="uid://crgayfr3i1c38" path="res://idMv60t.png" id="9_a76fu"]
+[ext_resource type="Texture2D" uid="uid://crgayfr3i1c38" path="res://Spotlight.png" id="9_a76fu"]
 
 [node name="01" type="Node2D"]
 script = ExtResource("1_8whdo")
