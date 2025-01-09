@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://ds1rd5derwhan"]
+[gd_scene load_steps=50 format=3 uid="uid://ds1rd5derwhan"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_m3jck"]
 [ext_resource type="Texture2D" uid="uid://c5giq8ao7oesu" path="res://Player/Sprites/PlayerSprite02.png" id="2_0ngrr"]
@@ -29,6 +29,10 @@ polygon = PackedVector2Array(-8, 1, -2, 1)
 closed = false
 polygon = PackedVector2Array(-8, 1, -2, 1)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g7gk8"]
+closed = false
+polygon = PackedVector2Array(-12, 1, -12, 12)
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ej6fk"]
 closed = false
 cull_mode = 1
@@ -41,7 +45,7 @@ polygon = PackedVector2Array(-1, -42, -2, -22, -6, 1)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_53aia"]
 closed = false
-polygon = PackedVector2Array(-7, -31, -5, -37, 0, -41, 5, -38, 8, -30)
+polygon = PackedVector2Array(-5, -37, 0, -41, 5, -38)
 
 [sub_resource type="Animation" id="Animation_bd2cj"]
 length = 0.001
@@ -1341,6 +1345,15 @@ occluder = SubResource("OccluderPolygon2D_d5pw3")
 sdf_collision = false
 occluder_light_mask = 2
 
+[node name="LightOccluder3" type="LightOccluder2D" parent="Sprite2D"]
+light_mask = 2
+visibility_layer = 2
+z_index = -1
+position = Vector2(12, 4)
+occluder = SubResource("OccluderPolygon2D_g7gk8")
+sdf_collision = false
+occluder_light_mask = 2
+
 [node name="LightOccluder_Left" type="LightOccluder2D" parent="Sprite2D"]
 light_mask = 4
 visibility_layer = 4
@@ -1363,7 +1376,6 @@ occluder = SubResource("OccluderPolygon2D_53aia")
 occluder_light_mask = 4
 
 [node name="ShadowSprite" type="Sprite2D" parent="Sprite2D"]
-visible = false
 modulate = Color(0.0980392, 0.0980392, 0.0980392, 0.372549)
 show_behind_parent = true
 position = Vector2(0, 20)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ccmp6vudfuqhk"]
+[gd_scene load_steps=34 format=3 uid="uid://ccmp6vudfuqhk"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/enemy.gd" id="1_1rjuq"]
 [ext_resource type="Texture2D" uid="uid://cy5hwnbo4q7xq" path="res://Player/Sprites/Shadow.png" id="1_ehkhu"]
@@ -16,6 +16,10 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2egx"]
 radius = 13.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yv5ck"]
+cull_mode = 2
+polygon = PackedVector2Array(0, 5, 5, 5, 9, 4, 11, 3, 12, 1, 11, -1, 8, -2, 5, -3, -0.104301, -3, -4, -3, -8, -2, -10, -1, -11, 1, -10, 3, -8, 4, -4, 5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d88u0"]
 radius = 5.0
@@ -70,6 +74,54 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LightOccluder2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DestroyEffectSprite:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LightOccluder2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.375, -5.875)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("LightOccluder2D:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.17397, 1.30276)]
 }
 
 [sub_resource type="Animation" id="Animation_6p1i8"]
@@ -164,6 +216,42 @@ tracks/6/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("LightOccluder2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.5, -4.75), Vector2(-0.625, -7.75), Vector2(-0.625, -9.125)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("LightOccluder2D:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("LightOccluder2D:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.13003, 1.1723), Vector2(1.13003, 1.0523), Vector2(1.13003, 1.2923)]
+}
 
 [sub_resource type="Animation" id="Animation_c2w8j"]
 resource_name = "destroy_side"
@@ -256,6 +344,42 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("LightOccluder2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.25, -4.625), Vector2(-0.75, -7.125), Vector2(-0.5, -8.375)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("LightOccluder2D:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("LightOccluder2D:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.11379, 1.07421), Vector2(1.11379, 1.39421), Vector2(1.11379, 1.07421)]
 }
 
 [sub_resource type="Animation" id="Animation_cd1dy"]
@@ -350,6 +474,42 @@ tracks/6/keys = {
 "update": 1,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("LightOccluder2D:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("LightOccluder2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.5, -5.125), Vector2(-0.5, -9), Vector2(-0.5, -10)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("LightOccluder2D:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.11379, 1.07421), Vector2(1.11379, 1.39421), Vector2(1.19379, 1.07421)]
+}
 
 [sub_resource type="Animation" id="Animation_xspon"]
 resource_name = "idle_down"
@@ -378,6 +538,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -18)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LightOccluder2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, -5.125)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LightOccluder2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.11379, 1.07421)]
 }
 
 [sub_resource type="Animation" id="Animation_i684c"]
@@ -408,6 +592,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, -18)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LightOccluder2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, -5.125)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LightOccluder2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.11379, 1.07421)]
+}
 
 [sub_resource type="Animation" id="Animation_1jr8u"]
 resource_name = "idle_up"
@@ -436,6 +644,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -18)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LightOccluder2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, -5.125)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LightOccluder2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.11379, 1.07421)]
 }
 
 [sub_resource type="Animation" id="Animation_5ng0o"]
@@ -493,6 +725,30 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LightOccluder2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.5, -4.75), Vector2(-0.625, -8.625), Vector2(-0.625, -10.25), Vector2(-0.875, -5.5), Vector2(-0.375, -8.25)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LightOccluder2D:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.15379, 0.754209), Vector2(1.15379, 1.07421), Vector2(0.873791, 1.07421), Vector2(1.43379, 1.07421), Vector2(1.11379, 1.07421)]
+}
 
 [sub_resource type="Animation" id="Animation_ijbr0"]
 resource_name = "stun_side"
@@ -549,6 +805,30 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LightOccluder2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.5, -4.75), Vector2(-0.5, -8.5), Vector2(-0.5, -6.5), Vector2(-0.5, -7.625), Vector2(-0.375, -9.25)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LightOccluder2D:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.15379, 0.754209), Vector2(1.15379, 0.954209), Vector2(1.15379, 0.834933), Vector2(1.39379, 1.87493), Vector2(0.873791, 1.07493)]
+}
 
 [sub_resource type="Animation" id="Animation_5wssk"]
 resource_name = "stun_up"
@@ -605,6 +885,30 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LightOccluder2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.875, -3.5), Vector2(-0.625, -8.25), Vector2(-0.625, -10.875), Vector2(-0.375, -8), Vector2(-0.375, -8)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LightOccluder2D:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.03379, 0.754209), Vector2(1.15379, 0.754209), Vector2(0.873791, 1.31421), Vector2(1.35379, 2.03421), Vector2(1.07379, 1.43421)]
+}
 
 [sub_resource type="Animation" id="Animation_7y8h6"]
 resource_name = "walk_down"
@@ -632,6 +936,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, -2, -2, -2),
 "update": 0,
 "values": [Vector2(0, -18), Vector2(0, -18), Vector2(0, -23), Vector2(0, -18)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LightOccluder2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, -3), Vector2(-1, -4), Vector2(-0.5, -12), Vector2(-0.875, -3.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LightOccluder2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.29003, 1.15704), Vector2(1.11003, 1.09704), Vector2(0.890026, 1.03704), Vector2(1.35379, 0.754209)]
 }
 
 [sub_resource type="Animation" id="Animation_usu21"]
@@ -662,6 +990,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, -18), Vector2(0, -18), Vector2(0, -23), Vector2(0, -18)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LightOccluder2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -2), Vector2(-1, -5), Vector2(0, -11), Vector2(0, -11), Vector2(0, -6.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LightOccluder2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.23379, 0.754209), Vector2(1.08985, 0.754209), Vector2(0.879693, 0.754209), Vector2(0.846555, 0.754209), Vector2(1.36017, 1.79421)]
+}
 
 [sub_resource type="Animation" id="Animation_1uvf5"]
 resource_name = "walk_up"
@@ -690,6 +1042,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, -2, -2, -2),
 "update": 0,
 "values": [Vector2(0, -18), Vector2(0, -18), Vector2(0, -23), Vector2(0, -18)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LightOccluder2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, -4), Vector2(-1, -5), Vector2(-1, -11), Vector2(-1, -13), Vector2(0, -3)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LightOccluder2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.39379, 0.754209), Vector2(1.13246, 0.754209), Vector2(0.87699, 1.15421), Vector2(0.849257, 1.02088), Vector2(1.24152, 1.44754)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5fxux"]
@@ -791,12 +1167,15 @@ script = ExtResource("1_1rjuq")
 [node name="HitBox" parent="." instance=ExtResource("3_7jdtl")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+visible = false
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_e2egx")
 debug_color = Color(0.752941, 0.0352941, 0.0745098, 0.419608)
 
 [node name="ShadowSprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.231083, 0.47, 0.1833, 0.556863)
+light_mask = 2
+visibility_layer = 2
 texture = ExtResource("1_ehkhu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -805,7 +1184,14 @@ texture = ExtResource("2_5swks")
 hframes = 16
 vframes = 2
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(-0.375, -5.875)
+scale = Vector2(1.17397, 1.30276)
+occluder = SubResource("OccluderPolygon2D_yv5ck")
+occluder_light_mask = 2
+
 [node name="HurtBox" parent="." instance=ExtResource("2_fs5lk")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, 9.53674e-07)
@@ -814,6 +1200,7 @@ shape = SubResource("CircleShape2D_e2egx")
 debug_color = Color(0.754666, 0.455237, 0.0735234, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_d88u0")
 

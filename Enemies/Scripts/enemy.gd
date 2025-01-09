@@ -103,7 +103,7 @@ func _take_damage( hurt_box : HurtBox ) -> void:
 		enemy_destroyed.emit( hurt_box )
 
 func randomize_look() -> void:
-	scale = Vector2(randf_range(0.5, 1.5), randf_range( 0.5, 1.5))
+	scale= Vector2(randf_range(0.5, 1.5), randf_range( 0.5, 1.5))
 	#Scale the whole node tree
 	$"/root".get_node(self.get_path()).scale = scale
 	
