@@ -16,6 +16,7 @@ var max_hp : int = 6 # Player's maximum health points
 @onready var sprite : Sprite2D = $Sprite2D # Sprite2D node for visual representation
 @onready var state_machine : PlayerStateMachine = $StateMachine # PlayerStateMachine node for managing player states
 @onready var hit_box : HitBox = $HitBox # HitBox node for damage detection
+@onready var light: Node2D = $Light
 
 # Signals
 signal player_damaged( hurt_box: HurtBox ) # Signal emitted when the player is damaged
@@ -31,7 +32,7 @@ func _ready():
 	hit_box.Damaged.connect( _take_damage )
 	# Initialize HP to full
 	update_hp(99)
-	pass 
+	pass
 
 # Process function (called every frame)
 func _process( _delta ):
@@ -47,7 +48,10 @@ func _process( _delta ):
 	#direction = direction.normalized()
 	# Set the velocity based on direction and move speed
 	
-	pass 
+	if Input.is_action_just_pressed("Light"):
+		if light.visible: light.visible = false
+		else: light.visible = true
+	pass
 
 # Physics process function (called at fixed time step)
 func _physics_process( _delta ):
@@ -115,7 +119,7 @@ func _take_damage( hurt_box : HurtBox) -> void:
 	else:
 		player_damaged.emit( hurt_box )
 		update_hp( 99 )
-	pass 
+	pass
 
 # Function to update the player's HP
 func update_hp( delta : int ) -> void:
@@ -123,7 +127,7 @@ func update_hp( delta : int ) -> void:
 	hp = clampi( hp + delta, 0, max_hp )
 	# Update the HP display in the HUD
 	PlayerHud.update_hp( hp, max_hp)
-	pass 
+	pass
 
 # Function to make the player invulnerable for a specified duration
 func make_invulnerable( _duration : float = 1.0 ) -> void:
@@ -139,3 +143,4 @@ func make_invulnerable( _duration : float = 1.0 ) -> void:
 	invulnerable = false
 	hit_box.monitoring = true
 	pass # Placeholder, no further actions needed in this function
+

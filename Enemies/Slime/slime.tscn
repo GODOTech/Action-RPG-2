@@ -1179,6 +1179,8 @@ visibility_layer = 2
 texture = ExtResource("1_ehkhu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 5
+visibility_layer = 5
 position = Vector2(0, -18)
 texture = ExtResource("2_5swks")
 hframes = 16

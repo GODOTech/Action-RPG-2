@@ -1317,7 +1317,7 @@ wall_min_slide_angle = 0.174533
 script = ExtResource("1_m3jck")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_1rf8m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -1329,22 +1329,22 @@ hframes = 16
 vframes = 6
 
 [node name="LightOccluder" type="LightOccluder2D" parent="Sprite2D"]
-light_mask = 2
-visibility_layer = 2
+light_mask = 8
+visibility_layer = 8
 z_index = -1
 position = Vector2(0, 19)
 occluder = SubResource("OccluderPolygon2D_ap6f2")
 sdf_collision = false
-occluder_light_mask = 2
+occluder_light_mask = 8
 
 [node name="LightOccluder2" type="LightOccluder2D" parent="Sprite2D"]
-light_mask = 2
-visibility_layer = 2
+light_mask = 8
+visibility_layer = 8
 z_index = -1
 position = Vector2(10, 19)
 occluder = SubResource("OccluderPolygon2D_d5pw3")
 sdf_collision = false
-occluder_light_mask = 2
+occluder_light_mask = 8
 
 [node name="LightOccluder3" type="LightOccluder2D" parent="Sprite2D"]
 light_mask = 2
@@ -1455,18 +1455,32 @@ libraries = {
 "": SubResource("AnimationLibrary_hyfas")
 }
 
-[node name="PointLight2D_Ocluders" type="PointLight2D" parent="."]
+[node name="Light" type="Node2D" parent="."]
+visible = false
+position = Vector2(0, -8)
+
+[node name="PointLight2D_Ocluders" type="PointLight2D" parent="Light"]
 light_mask = 3
 visibility_layer = 3
-position = Vector2(0, -17)
 scale = Vector2(1.03571, 1.03571)
 color = Color(0.207843, 0.529412, 0.901961, 0.572549)
-energy = 2.0
 range_item_cull_mask = 2
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 3.25
 shadow_item_cull_mask = 3
 texture = ExtResource("16_3trk2")
-texture_scale = 0.05
+texture_scale = 0.2
+
+[node name="PointLight2D_InSprite_Ocluded" type="PointLight2D" parent="Light"]
+light_mask = 5
+visibility_layer = 5
+scale = Vector2(1.0727, 1.0727)
+color = Color(0.527231, 0.705988, 0.998319, 0.639216)
+range_item_cull_mask = 5
+shadow_filter = 1
+shadow_filter_smooth = 2.0
+shadow_item_cull_mask = 5
+texture = ExtResource("16_3trk2")
+texture_scale = 0.1
 height = 100.0

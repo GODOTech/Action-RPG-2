@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://dltw2ibbsp8r6"]
+
+[ext_resource type="Script" path="res://Levels/level.gd" id="1_ke6q6"]
+[ext_resource type="PackedScene" uid="uid://cnmu8jo7c4w6" path="res://Tile Maps/grass_01.tscn" id="2_iulud"]
+[ext_resource type="PackedScene" uid="uid://cxyy1eyrtxduc" path="res://Props/Plants/plant.tscn" id="5_a6kgo"]
+[ext_resource type="PackedScene" uid="uid://ccmp6vudfuqhk" path="res://Enemies/Slime/slime.tscn" id="6_gygoe"]
+[ext_resource type="PackedScene" uid="uid://dwm2vop11tjrc" path="res://Levels/level_transition.tscn" id="7_f1300"]
+
+[node name="01" type="Node2D"]
+script = ExtResource("1_ke6q6")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.0901961, 0.0941176, 0.470588, 1)
+
+[node name="Grass01" parent="." instance=ExtResource("2_iulud")]
+modulate = Color(1, 1, 1, 0.792157)
+light_mask = 2
+visibility_layer = 2
+layer_0/tile_data = PackedInt32Array(65536, 655360, 7, 131072, 917504, 4, 65537, 786432, 7, 131073, 65536, 2, 65538, 851968, 7, 131074, 131072, 2, 196608, 917504, 6, 262144, 917504, 5, 196609, 65536, 3, 262145, 65536, 2, 196610, 65536, 1, 262146, 131072, 1, 327680, 917504, 6, 393216, 917504, 7, 327681, 65536, 3, 393217, 65536, 2, 327682, 131072, 1, 393218, 131072, 1, 458753, 65536, 1, 458754, 131072, 3, 65539, 720896, 7, 131075, 196608, 2, 65540, 786432, 7, 131076, 131072, 1, 65541, 851968, 7, 131077, 327680, 3, 65542, 720896, 7, 131078, 458752, 3, 196611, 196608, 3, 262147, 131072, 1, 196612, 65536, 1, 262148, 0, 2, 196613, 65536, 3, 262149, 65536, 2, 196614, 131072, 1, 262150, 65536, 1, 327683, 196608, 3, 393219, 196608, 2, 327684, 65536, 1, 393220, 131072, 1, 327685, 65536, 3, 393221, 65536, 2, 327686, 131072, 3, 393222, 131072, 2, 458755, 196608, 3, 458756, 131072, 1, 458757, 65536, 3, 458758, 131072, 3, 65543, 786432, 7, 131079, 65536, 1, 65544, 851968, 7, 131080, 0, 2, 65545, 720896, 7, 131081, 65536, 2, 65546, 786432, 7, 131082, 131072, 1, 196615, 65536, 1, 262151, 196608, 2, 196616, 0, 3, 262152, 0, 2, 196618, 131072, 3, 262154, 131072, 1, 327687, 196608, 3, 393223, 196608, 2, 327688, 0, 3, 393224, 131072, 1, 327690, 131072, 3, 393226, 65536, 1, 458759, 131072, 1, 458760, 131072, 1, 458761, 65536, 3, 458762, 65536, 1, 65547, 851968, 7, 131083, 196608, 2, 65548, 458752, 5, 131084, 131072, 1, 65549, 786432, 5, 131085, 65536, 2, 131086, 655360, 4, 196619, 131072, 1, 262155, 131072, 1, 196620, 0, 3, 262156, 0, 2, 196621, 131072, 1, 262157, 65536, 2, 196622, 655360, 6, 262158, 655360, 5, 327691, 196608, 3, 393227, 65536, 1, 327692, 0, 3, 393228, 0, 2, 327693, 65536, 3, 393229, 65536, 2, 327694, 655360, 6, 393230, 655360, 5, 458763, 131072, 1, 458764, 131072, 1, 458765, 65536, 3, 458766, 655360, 7, 0, 720896, 6, 1, 786432, 6, 2, 851968, 6, 3, 720896, 6, 4, 786432, 6, 5, 851968, 6, 7, 786432, 6, 8, 851968, 6, 9, 720896, 6, 10, 786432, 6, 11, 851968, 6, 12, 458752, 4, 13, 786432, 5, 14, 851968, 6, 524288, 720896, 4, 524289, 786432, 4, 524290, 851968, 4, 524291, 720896, 4, 524292, 786432, 4, 524293, 851968, 4, 524294, 720896, 4, 524295, 786432, 4, 524296, 851968, 4, 524297, 720896, 4, 524298, 786432, 4, 524299, 851968, 4, 524300, 720896, 4, 524301, 786432, 4, 524302, 851968, 4, 393225, 131072, 1, 327689, 131072, 1, 262153, 65536, 1, 196617, 65536, 3, 6, 720896, 6, 458752, 0, 3, 65550, 917504, 7)
+
+[node name="Plants" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Plant" parent="Plants" instance=ExtResource("5_a6kgo")]
+position = Vector2(188, 117)
+
+[node name="Plant2" parent="Plants" instance=ExtResource("5_a6kgo")]
+position = Vector2(153, 109)
+
+[node name="Plant3" parent="Plants" instance=ExtResource("5_a6kgo")]
+position = Vector2(223, 110)
+
+[node name="Slimes" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Slime" parent="Slimes" instance=ExtResource("6_gygoe")]
+position = Vector2(174, 94)
+
+[node name="Slime2" parent="Slimes" instance=ExtResource("6_gygoe")]
+position = Vector2(200, 94)
+
+[node name="Transitions" type="Node2D" parent="."]
+
+[node name="LevelTransition" parent="Transitions" instance=ExtResource("7_f1300")]
+position = Vector2(0, 240)
+level = "res://Levels/Area01/03.tscn"
+target_transition_area = "LevelTransition2"
+size = 1
+
+[node name="LevelTransition2" parent="Transitions" instance=ExtResource("7_f1300")]
+position = Vector2(432, 0)
+level = "res://Levels/Area01/05.tscn"
+target_transition_area = "LevelTransition2"
+size = 1
+side = 2

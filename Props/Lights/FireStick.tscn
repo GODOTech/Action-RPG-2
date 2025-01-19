@@ -195,7 +195,7 @@ collision_layer = 16
 collision_mask = 257
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_xypm7")
 
 [node name="Flame" type="Sprite2D" parent="."]
@@ -211,15 +211,15 @@ hframes = 8
 frame = 4
 
 [node name="PointLight2D_Ocluders" type="PointLight2D" parent="."]
-light_mask = 2
-visibility_layer = 2
+light_mask = 10
+visibility_layer = 10
 color = Color(1, 0.454, 0.22, 1)
 energy = 2.0
 range_item_cull_mask = 2
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 2.0
-shadow_item_cull_mask = 2
+shadow_item_cull_mask = 10
 texture = ExtResource("3_xafqx")
 texture_scale = 0.2
 height = 100.0
