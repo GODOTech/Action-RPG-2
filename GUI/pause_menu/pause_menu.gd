@@ -10,6 +10,7 @@ signal hidden
 
 @onready var control: Control = get_node("/root/PlayerHud/Control")
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var is_paused : bool = false
 
@@ -71,5 +72,8 @@ func _on_quit_pressed():
 func update_item_description( new_text : String ) -> void:
 	item_description.text = new_text
 
-
+func play_audio( audio : AudioStream ) -> void:
+	audio_stream_player.stream = audio
+	audio_stream_player.play()
+	
 

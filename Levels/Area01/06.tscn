@@ -10,7 +10,6 @@
 script = ExtResource("1_ke6q6")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0901961, 0.0941176, 0.470588, 1)
 
 [node name="Grass01" parent="." instance=ExtResource("2_iulud")]

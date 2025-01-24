@@ -12,3 +12,4 @@ script = ExtResource("1_b3cnb")
 name = "Stone"
 description = "Heavy and sharp: These ROCKS make for the perfect improvised proyectile, serving both as a distraction mechanism and as a range  attack."
 texture = SubResource("AtlasTexture_umj7c")
+effects = Array[Resource("res://Items/Item_Effects/item_effect.gd")]([])

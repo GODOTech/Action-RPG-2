@@ -143,3 +143,6 @@ layout_mode = 2
 size_flags_vertical = 8
 text = "(L)oad
 "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 4
