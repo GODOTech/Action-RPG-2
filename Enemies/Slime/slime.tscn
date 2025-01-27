@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ccmp6vudfuqhk"]
+[gd_scene load_steps=39 format=3 uid="uid://ccmp6vudfuqhk"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/enemy.gd" id="1_1rjuq"]
 [ext_resource type="Texture2D" uid="uid://cy5hwnbo4q7xq" path="res://Player/Sprites/Shadow.png" id="1_ehkhu"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://f5b2uqv0hx0y" path="res://Enemies/Slime/DestroySmoke.png" id="9_glfur"]
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_stun.gd" id="11_bl2h7"]
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_destroy.gd" id="12_34oi3"]
+[ext_resource type="Resource" uid="uid://bo0ospo4v86nx" path="res://Items/stone.tres" id="13_ax1nu"]
+[ext_resource type="Script" path="res://Enemies/Scripts/drop_data.gd" id="14_barxt"]
+[ext_resource type="Resource" uid="uid://bty6wfxblpf6v" path="res://Items/apple.tres" id="15_oyj5f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2egx"]
 radius = 13.0
@@ -1085,6 +1088,20 @@ _data = {
 "walk_up": SubResource("Animation_1uvf5")
 }
 
+[sub_resource type="Resource" id="Resource_8s32y"]
+script = ExtResource("14_barxt")
+item = ExtResource("13_ax1nu")
+probability = 100.0
+min_amount = 1
+max_amount = 4
+
+[sub_resource type="Resource" id="Resource_8dv34"]
+script = ExtResource("14_barxt")
+item = ExtResource("15_oyj5f")
+probability = 100.0
+min_amount = 1
+max_amount = 2
+
 [sub_resource type="Animation" id="Animation_ejy60"]
 length = 0.001
 tracks/0/type = "value"
@@ -1233,6 +1250,7 @@ next_state = NodePath("../Wander")
 script = ExtResource("12_34oi3")
 knockback_speed = 400.0
 decelerate_speed = 5.0
+drops = Array[ExtResource("14_barxt")]([SubResource("Resource_8s32y"), SubResource("Resource_8dv34"), null])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 volume_db = -12.854
