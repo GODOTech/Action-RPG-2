@@ -3,6 +3,10 @@ extends Node
 # Preload the player scene
 const PLAYER = preload("res://Player/player.tscn")
 const INVENTORY_DATA : InventoryData = preload("res://GUI/pause_menu/Inventory/player_inventory.tres")
+
+signal interact_pressed
+
+
 # Player instance and spawn flag
 var player : Player # Reference to the player instance
 var player_spawned : bool = false # Flag indicating if the player has been spawned
