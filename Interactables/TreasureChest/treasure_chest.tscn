@@ -197,6 +197,7 @@ size = Vector2(30, 12)
 size = Vector2(34, 15)
 
 [node name="TreasureChest" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_y313y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

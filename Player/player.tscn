@@ -1437,6 +1437,7 @@ script = ExtResource("11_vcadp")
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
+volume_db = -20.8
 max_polyphony = 4
 
 [node name="Interactions" type="Node2D" parent="."]

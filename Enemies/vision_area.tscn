@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgcbq3lyyensl"]
+
+[ext_resource type="Script" path="res://Enemies/vision_area.gd" id="1_44fw5"]
+
+[node name="VisionArea" type="Area2D"]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_44fw5")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 100)
+collision_mask = 512
