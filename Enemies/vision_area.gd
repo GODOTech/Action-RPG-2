@@ -15,7 +15,6 @@ func _ready() -> void:
 func _on_body_enter( _b : Node2D ) -> void:
 	if _b is Player:
 		player_entered.emit()
-	
 	pass
 
 func _on_body_exit(_b : Node2D) -> void:

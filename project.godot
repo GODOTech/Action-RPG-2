@@ -29,7 +29,6 @@ PauseMenu="*res://GUI/pause_menu/pause_menu.tscn"
 
 window/size/viewport_width=480
 window/size/viewport_height=270
-window/size/mode=3
 window/size/window_width_override=960
 window/size/window_height_override=540
 window/stretch/mode="viewport"
@@ -125,7 +124,7 @@ interact={
 2d_physics/layer_3="PlayerInteract"
 2d_physics/layer_5="Walls"
 2d_physics/layer_9="Enemy"
-2d_physics/layer_10="LineOfSight"
+2d_physics/layer_10="SightOcluders"
 2d_render/main_scene="res://Levels/Area01/02.tscn"
 
 [rendering]

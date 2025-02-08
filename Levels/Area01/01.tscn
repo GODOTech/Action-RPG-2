@@ -82,5 +82,8 @@ level = "res://Levels/Area01/02.tscn"
 size = 1
 side = 3
 
-[node name="Slime" parent="." instance=ExtResource("8_o3j1k")]
+[node name="Goblin" parent="." instance=ExtResource("8_o3j1k")]
 position = Vector2(129, 208)
+
+[node name="Goblin2" parent="." instance=ExtResource("8_o3j1k")]
+position = Vector2(280, 198)
