@@ -1178,16 +1178,15 @@ _data = {
 [node name="Slime" type="CharacterBody2D"]
 texture_filter = 2
 collision_layer = 256
-collision_mask = 16
+collision_mask = 17
 script = ExtResource("1_1rjuq")
 
 [node name="HitBox" parent="." instance=ExtResource("3_7jdtl")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-visible = false
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_e2egx")
-debug_color = Color(0.752941, 0.0352941, 0.0745098, 0.419608)
+debug_color = Color(0.886275, 0.827451, 0.0627451, 0.419608)
 
 [node name="ShadowSprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.231083, 0.47, 0.1833, 0.556863)
@@ -1210,17 +1209,16 @@ occluder = SubResource("OccluderPolygon2D_yv5ck")
 occluder_light_mask = 2
 
 [node name="HurtBox" parent="." instance=ExtResource("2_fs5lk")]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, 9.53674e-07)
 scale = Vector2(1.02014, 0.422772)
 shape = SubResource("CircleShape2D_e2egx")
-debug_color = Color(0.754666, 0.455237, 0.0735234, 0.42)
+debug_color = Color(0.752941, 0.0705882, 0.0745098, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 rotation = 1.5708
+scale = Vector2(0.889346, 0.899894)
 shape = SubResource("CapsuleShape2D_d88u0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

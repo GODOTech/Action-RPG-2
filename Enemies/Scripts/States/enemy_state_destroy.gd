@@ -12,11 +12,14 @@ const PICKUP = preload("res://Items/Item_Pickup/Item_Pickup.tscn")
 @export_category("Item Drops")
 @export var drops : Array[ DropData ]
 
+@onready var ray_cast: RayCast2D = $"../../RayCast"
 @onready var hurt_box: HurtBox = $"../../HurtBox"
+@onready var attack_hurt_box: HurtBox = $"../../Sprite2D/AttackHurtBox"
+@onready var effect_player: AnimationPlayer = $"../../DestroyEffectSprite/AnimationPlayer"
+@onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 
 var _damage_position : Vector2
 var _direction : Vector2
-
 
 
 func init() -> void:
@@ -24,7 +27,8 @@ func init() -> void:
 	pass
 
 func Enter() -> void:
-	hurt_box.monitoring = false
+	if attack_hurt_box: attack_hurt_box.monitoring = false
+	if hurt_box: hurt_box.monitoring = false
 	enemy.invulnerable = true
 	
 	#you can also get the player from the player manager global
@@ -45,22 +49,19 @@ func process( _delta : float ) -> EnemyState:
 	return null
 
 func Physics( _delta : float ) -> EnemyState:
+	if animation_player.animation_finished:
+		enemy.queue_free()
 	return null
 
 ## normaly on the process func, this time we're forcing it trough a signal:
 ## no matter on what state you are, you got hit!
-func _on_enemy_destroyed(hurt_box2 : HurtBox) -> void: # WARNING the 2 is to prevent a warning
-	_damage_position = hurt_box2.global_position
+func _on_enemy_destroyed(hurt_box : HurtBox) -> void:
+	_damage_position = hurt_box.global_position
 	state_machine.ChangeState( self )
 
 func _on_animation_finished( _a : String ) -> void:
-	enemy.queue_free()
-
-# Unused
-#func disble_hurt_box() -> void:
-	#var hurt_box : HurtBox = enemy.get_node_or_null("HurtBox")
-	#if hurt_box:
-		#hurt_box.monitoring = false
+	#enemy.queue_free() WARNING: not working
+	pass
 
 func drop_items() -> void:
 	if drops.size() == 0 :

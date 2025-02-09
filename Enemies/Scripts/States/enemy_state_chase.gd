@@ -25,15 +25,14 @@ func init() -> void:
 func Enter() -> void:
 	_timer = state_aggro_duration
 	enemy.UpdateAnimation( anim_name )
-	if attatck_area:
-		attatck_area.monitoring = true
+	if attatck_area: attatck_area.monitoring = true
 	
 	pass
 
 func Exit() -> void:
 	if attatck_area:
 		attatck_area.monitoring = false
-		_can_see_player = false
+	_can_see_player = false
 	pass
 
 func process( _delta : float ) -> EnemyState:

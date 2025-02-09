@@ -1,7 +1,14 @@
-[gd_resource type="Resource" script_class="InventoryData" load_steps=2 format=3 uid="uid://bl3l7vnco5tdp"]
+[gd_resource type="Resource" script_class="InventoryData" load_steps=5 format=3 uid="uid://bl3l7vnco5tdp"]
 
 [ext_resource type="Script" path="res://GUI/pause_menu/Inventory/Scripts/inventory_data.gd" id="1_46rt0"]
+[ext_resource type="Resource" uid="uid://5nmmo2appq57" path="res://Items/gem.tres" id="2_kwdte"]
+[ext_resource type="Script" path="res://GUI/pause_menu/Inventory/Scripts/slot_data.gd" id="3_devqi"]
+
+[sub_resource type="Resource" id="Resource_l3tdj"]
+script = ExtResource("3_devqi")
+item_data = ExtResource("2_kwdte")
+quantity = 1
 
 [resource]
 script = ExtResource("1_46rt0")
-slots = Array[Resource("res://GUI/pause_menu/Inventory/Scripts/slot_data.gd")]([null, null, null, null, null, null, null, null, null, null])
+slots = Array[ExtResource("3_devqi")]([SubResource("Resource_l3tdj"), null, null, null, null, null, null, null, null, null])

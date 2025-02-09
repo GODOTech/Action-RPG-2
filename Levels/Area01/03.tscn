@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsamb66thc10o"]
+[gd_scene load_steps=8 format=3 uid="uid://dsamb66thc10o"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_3to78"]
 [ext_resource type="PackedScene" uid="uid://cnmu8jo7c4w6" path="res://Tile Maps/grass_01.tscn" id="1_hvmhg"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cxyy1eyrtxduc" path="res://Props/Plants/plant.tscn" id="4_gq4ef"]
 [ext_resource type="PackedScene" uid="uid://drsfvgk2756gn" path="res://Props/Lights/FireStick.tscn" id="4_pb4wu"]
 [ext_resource type="PackedScene" uid="uid://dwm2vop11tjrc" path="res://Levels/level_transition.tscn" id="5_agfuv"]
+[ext_resource type="PackedScene" uid="uid://tood0jnwsbcd" path="res://Enemies/Goblin/goblin.tscn" id="7_42ffh"]
 
 [node name="03" type="Node2D"]
 script = ExtResource("1_3to78")
@@ -270,3 +271,15 @@ position = Vector2(816, 576)
 level = "res://Levels/Area01/04.tscn"
 size = 1
 side = 3
+
+[node name="Goblins" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Goblin" parent="Goblins" instance=ExtResource("7_42ffh")]
+position = Vector2(815, 430)
+
+[node name="Goblin2" parent="Goblins" instance=ExtResource("7_42ffh")]
+position = Vector2(821, 479)
+
+[node name="Goblin3" parent="Goblins" instance=ExtResource("7_42ffh")]
+position = Vector2(924, 265)

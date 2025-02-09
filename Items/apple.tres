@@ -18,6 +18,6 @@ region = Rect2(192, 0, 32, 32)
 [resource]
 script = ExtResource("1_eewip")
 name = "Apple"
-description = "A delicious APPLE"
+description = "an APPLE a day keeps the doctor away! (don't forget your beef though)"
 texture = SubResource("AtlasTexture_rr7wk")
 effects = Array[Resource("res://Items/Item_Effects/item_effect.gd")]([SubResource("Resource_ox8ah")])

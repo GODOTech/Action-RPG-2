@@ -18,6 +18,7 @@ var player: Player # Reference to the player
 var invulnerable : bool = false # Flag indicating if the enemy is invulnerable
 
 
+
 # Node references
 @onready var animation_player : AnimationPlayer = $AnimationPlayer # AnimationPlayer for animations
 @onready var sprite : Sprite2D = $Sprite2D # Sprite2D node for visual representation
@@ -39,15 +40,12 @@ func _ready():
 
 # Process function (called every frame)
 func _process(_delta):
-	aim()
-	pass # Placeholder, no further actions needed in this function
+	pass 
 
 # Physics process function (called at fixed time step)
 func _physics_process(_delta):
 	move_and_slide()
-	#if hp >= 0:
-	
-	
+	aim()
 
 # Function to set the enemy's direction
 func SetDirection(_new_direction : Vector2 ) -> bool:

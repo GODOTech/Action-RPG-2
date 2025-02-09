@@ -194,7 +194,7 @@ _data = {
 size = Vector2(30, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iuhs8"]
-size = Vector2(34, 15)
+size = Vector2(12, 8)
 
 [node name="TreasureChest" type="Node2D"]
 process_mode = 3
@@ -241,7 +241,7 @@ collision_mask = 4
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 4.5)
+position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_iuhs8")
 debug_color = Color(0.298162, 0.62626, 0.154968, 0.42)
 
