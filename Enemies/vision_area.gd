@@ -3,6 +3,8 @@ class_name VisionArea extends Area2D
 signal player_entered()
 signal player_exited()
 
+@onready var goblin: Enemy = $".."
+
 func _ready() -> void:
 	body_entered.connect( _on_body_enter)
 	body_exited.connect( _on_body_exit )
@@ -15,11 +17,13 @@ func _ready() -> void:
 func _on_body_enter( _b : Node2D ) -> void:
 	if _b is Player:
 		player_entered.emit()
+		goblin.in_cone = true
 	pass
 
 func _on_body_exit(_b : Node2D) -> void:
 	if _b is Player:
 		player_exited.emit()
+		goblin.in_cone = false
 	pass
 
 func _on_direction_change(new_direction : Vector2) -> void:

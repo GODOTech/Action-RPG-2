@@ -17,6 +17,7 @@ var direction : Vector2 = Vector2.ZERO # Current movement direction
 var player: Player # Reference to the player
 var invulnerable : bool = false # Flag indicating if the enemy is invulnerable
 
+var in_cone: bool = false
 
 
 # Node references
@@ -25,6 +26,8 @@ var invulnerable : bool = false # Flag indicating if the enemy is invulnerable
 @onready var hit_box : HitBox = $HitBox # HitBox node for damage detection
 @onready var state_machine : EnemyStateMachine = $EnemyStateMachine # EnemyStateMachine node for managing enemy states
 @onready var ray_cast: RayCast2D = $RayCast
+
+@onready var vision_area: VisionArea = $VisionArea
 
 
 # Initialization
@@ -36,6 +39,8 @@ func _ready():
 	# Connect the Damaged signal from HitBox to the _take_damage function
 	hit_box.Damaged.connect(_take_damage)
 	randomize_look()
+	#vision_area.player_entered.connect(_player_enter)
+	#vision_area.player_exited.connect(_player_exit)
 	pass
 
 # Process function (called every frame)
@@ -45,7 +50,7 @@ func _process(_delta):
 # Physics process function (called at fixed time step)
 func _physics_process(_delta):
 	move_and_slide()
-	aim()
+	if in_cone: aim()
 
 # Function to set the enemy's direction
 func SetDirection(_new_direction : Vector2 ) -> bool:
@@ -137,12 +142,20 @@ func randomize_look() -> void:
 
 func aim():
 	if ray_cast:
+		
 		ray_cast.target_position = to_local(player.position)
 		var target = ray_cast.get_collider()
 		if target == player:
 			$EnemyStateMachine/Chase._can_see_player = true
 		else:
+			
 			$EnemyStateMachine/Chase._can_see_player = false
 	else: return
 
 
+func _player_enter():
+	in_cone = true
+	pass
+func _player_exit():
+	in_cone = false
+	pass
