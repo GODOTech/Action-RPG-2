@@ -107,17 +107,32 @@ func _take_damage( hurt_box : HurtBox ) -> void:
 		enemy_destroyed.emit( hurt_box )
 
 func randomize_look() -> void:
-	scale= Vector2(randf_range(0.5, 1.5), randf_range( 0.5, 1.5))
-	#Scale the whole node tree
-	$"/root".get_node(self.get_path()).scale = scale
-	
-	var rand_mod_r = randi_range(100,200) #RED
-	var rand_mod_g = randi_range(180,220) #GREEN
-	var rand_mod_b = randi_range(50,100) #BLUE
-	var rand_mod_a = randi_range(175,210) #ALPHA
-	
-	#Set the random values and transparency
-	modulate = Color8(rand_mod_r,rand_mod_g,rand_mod_b,rand_mod_a)
+	if self.name.begins_with("Slime"):
+		scale= Vector2(randf_range(0.5, 1.5), randf_range( 0.5, 1.5))
+		#Scale the whole node tree
+		$"/root".get_node(self.get_path()).scale = scale
+		
+		var rand_mod_r = randi_range(100,200) #RED
+		var rand_mod_g = randi_range(180,220) #GREEN
+		var rand_mod_b = randi_range(50,100) #BLUE
+		var rand_mod_a = randi_range(175,210) #ALPHA
+		
+		#Set the random values and transparency
+		modulate = Color8(rand_mod_r,rand_mod_g,rand_mod_b,rand_mod_a)
+		
+	if self.name.begins_with("Goblin"):
+		scale= Vector2(randf_range(0.5, 1.5), randf_range( 0.5, 1.5))
+		#Scale the whole node tree
+		$"/root".get_node(self.get_path()).scale = scale
+		
+		var rand_mod_r = randi_range(100,200) #RED
+		var rand_mod_g = randi_range(180,220) #GREEN
+		var rand_mod_b = randi_range(50,100) #BLUE
+		#var rand_mod_a = randi_range(175,210) #ALPHA
+		
+		#Set the random values and transparency
+		modulate = Color8(rand_mod_r,rand_mod_g,rand_mod_b)
+		
 	pass
 
 func aim():

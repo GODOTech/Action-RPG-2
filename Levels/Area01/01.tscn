@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://crj00he4xcrw3"]
+[gd_scene load_steps=10 format=3 uid="uid://crj00he4xcrw3"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_8whdo"]
 [ext_resource type="PackedScene" uid="uid://cnmu8jo7c4w6" path="res://Tile Maps/grass_01.tscn" id="1_vjmdj"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://drsfvgk2756gn" path="res://Props/Lights/FireStick.tscn" id="6_d6ija"]
 [ext_resource type="PackedScene" uid="uid://dwm2vop11tjrc" path="res://Levels/level_transition.tscn" id="6_eclbg"]
 [ext_resource type="PackedScene" uid="uid://cxnne2ew0ubdm" path="res://Items/Item_Pickup/Item_Pickup.tscn" id="8_4w64t"]
-[ext_resource type="PackedScene" uid="uid://p6xc2n68ak64" path="res://Interactables/TreasureChest/treasure_chest.tscn" id="9_3j60x"]
 [ext_resource type="Resource" uid="uid://b3fvgoe4d5xyq" path="res://Items/potion.tres" id="10_3mqby"]
 
 [node name="01" type="Node2D"]
@@ -87,6 +86,3 @@ side = 3
 [node name="ItemPickup" parent="." instance=ExtResource("8_4w64t")]
 position = Vector2(130, 84)
 item_data = ExtResource("10_3mqby")
-
-[node name="TreasureChest" parent="." instance=ExtResource("9_3j60x")]
-position = Vector2(116, 186)
