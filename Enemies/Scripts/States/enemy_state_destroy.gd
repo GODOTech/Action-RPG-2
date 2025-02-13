@@ -1,6 +1,7 @@
 class_name EnemyStateDestroy extends EnemyState
 
 const PICKUP = preload("res://Items/Item_Pickup/Item_Pickup.tscn")
+const GIB = preload("res://Enemies/Gibs/gib.tscn")
 
 @export var anim_name : String = 'destroy'
 @export var knockback_speed : float = 200.0
@@ -39,6 +40,7 @@ func Enter() -> void:
 	enemy.UpdateAnimation( anim_name )
 	enemy.animation_player.animation_finished.connect( _on_animation_finished )
 	drop_items()
+	spawn_gibs()
 	pass
 
 func Exit() -> void:
@@ -76,10 +78,17 @@ func drop_items() -> void:
 			drop.item_data = drops [ i ].item
 			enemy.get_parent().call_deferred( "add_child", drop )
 			drop.global_position = enemy.global_position
-			drop.velocity = enemy.velocity.rotated( randf_range( - 1.5, 1.5 ) ) * randf_range( 0.9, 1.5 )
+			drop.velocity = enemy.velocity.rotated( randf_range( - 1.5, 1.5 ) ) * randf_range( 0.9, 1.2 )
 	pass
 
-
+func spawn_gibs():
+	var gibs_amount: int = randi_range( 5, 10 )
+	for i in gibs_amount:
+		var gib = GIB.instantiate() as Gib
+		enemy.get_parent().call_deferred("add_child", gib)
+		gib.global_position = enemy.global_position
+		gib.velocity = enemy.velocity.rotated(randf_range(-1.5, 1.5)) * randf_range(0.9, 1.2)
+	pass
 
 
 

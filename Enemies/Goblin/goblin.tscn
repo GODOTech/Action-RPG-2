@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://tood0jnwsbcd"]
+[gd_scene load_steps=45 format=3 uid="uid://tood0jnwsbcd"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/enemy.gd" id="1_lqlya"]
 [ext_resource type="PackedScene" uid="uid://hptswsgblghc" path="res://GeneralNodes/Hitbox/hit_box.tscn" id="2_4f4kn"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_wander.gd" id="10_cd1o0"]
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_stun.gd" id="11_hi3g5"]
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_destroy.gd" id="12_2homl"]
+[ext_resource type="Resource" uid="uid://b3fvgoe4d5xyq" path="res://Items/potion.tres" id="13_cvd4n"]
 [ext_resource type="Resource" uid="uid://bo0ospo4v86nx" path="res://Items/stone.tres" id="13_gtxs6"]
 [ext_resource type="Script" path="res://Enemies/Scripts/drop_data.gd" id="14_jar37"]
 [ext_resource type="Resource" uid="uid://bty6wfxblpf6v" path="res://Items/apple.tres" id="15_i2ruh"]
@@ -620,16 +621,23 @@ _data = {
 [sub_resource type="Resource" id="Resource_8s32y"]
 script = ExtResource("14_jar37")
 item = ExtResource("13_gtxs6")
-probability = 100.0
+probability = 10.0
 min_amount = 1
-max_amount = 4
+max_amount = 2
 
 [sub_resource type="Resource" id="Resource_8dv34"]
 script = ExtResource("14_jar37")
 item = ExtResource("15_i2ruh")
-probability = 100.0
+probability = 10.0
 min_amount = 1
 max_amount = 2
+
+[sub_resource type="Resource" id="Resource_133hp"]
+script = ExtResource("14_jar37")
+item = ExtResource("13_cvd4n")
+probability = 10.0
+min_amount = 1
+max_amount = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2egx"]
 radius = 13.0
@@ -754,7 +762,7 @@ next_state = NodePath("../Chase")
 script = ExtResource("12_2homl")
 knockback_speed = 400.0
 decelerate_speed = 5.0
-drops = Array[ExtResource("14_jar37")]([SubResource("Resource_8s32y"), SubResource("Resource_8dv34"), null])
+drops = Array[ExtResource("14_jar37")]([SubResource("Resource_8s32y"), SubResource("Resource_8dv34"), SubResource("Resource_133hp")])
 
 [node name="VisionArea" parent="." instance=ExtResource("17_lbweg")]
 modulate = Color(0.29792, 0.98, 0.2744, 0.705882)

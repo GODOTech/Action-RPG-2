@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://ccmp6vudfuqhk"]
+[gd_scene load_steps=41 format=3 uid="uid://ccmp6vudfuqhk"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/enemy.gd" id="1_1rjuq"]
 [ext_resource type="Texture2D" uid="uid://cy5hwnbo4q7xq" path="res://Player/Sprites/Shadow.png" id="1_ehkhu"]
@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://bo0ospo4v86nx" path="res://Items/stone.tres" id="13_ax1nu"]
 [ext_resource type="Script" path="res://Enemies/Scripts/drop_data.gd" id="14_barxt"]
 [ext_resource type="Resource" uid="uid://bty6wfxblpf6v" path="res://Items/apple.tres" id="15_oyj5f"]
+[ext_resource type="Resource" uid="uid://b3fvgoe4d5xyq" path="res://Items/potion.tres" id="16_y7r0s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2egx"]
 radius = 13.0
@@ -1091,16 +1092,23 @@ _data = {
 [sub_resource type="Resource" id="Resource_8s32y"]
 script = ExtResource("14_barxt")
 item = ExtResource("13_ax1nu")
-probability = 100.0
+probability = 10.0
 min_amount = 1
-max_amount = 4
+max_amount = 2
 
 [sub_resource type="Resource" id="Resource_8dv34"]
 script = ExtResource("14_barxt")
 item = ExtResource("15_oyj5f")
-probability = 100.0
+probability = 10.0
 min_amount = 1
 max_amount = 2
+
+[sub_resource type="Resource" id="Resource_11krt"]
+script = ExtResource("14_barxt")
+item = ExtResource("16_y7r0s")
+probability = 10.0
+min_amount = 1
+max_amount = 1
 
 [sub_resource type="Animation" id="Animation_ejy60"]
 length = 0.001
@@ -1248,7 +1256,7 @@ next_state = NodePath("../Wander")
 script = ExtResource("12_34oi3")
 knockback_speed = 400.0
 decelerate_speed = 5.0
-drops = Array[ExtResource("14_barxt")]([SubResource("Resource_8s32y"), SubResource("Resource_8dv34"), null])
+drops = Array[ExtResource("14_barxt")]([SubResource("Resource_8s32y"), SubResource("Resource_8dv34"), SubResource("Resource_11krt")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 volume_db = -12.854
