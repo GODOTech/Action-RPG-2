@@ -12,6 +12,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): #if the game is running
 		return
 	area_2d.body_entered.connect( _on_body_entered)
+	area_2d.body_exited.connect( _on_body_exit)
 
 func _physics_process(delta: float) -> void:
 	var collision_info = move_and_collide( velocity * delta)
@@ -20,10 +21,12 @@ func _physics_process(delta: float) -> void:
 	velocity -= velocity * delta * 4
 
 func _on_body_entered( b ) -> void:
-	if b is Player:
-		if item_data:
-			if PlayerManager.INVENTORY_DATA.add_item( item_data ) == true:
-				item_picked_up()
+	PlayerManager.interact_pressed.connect( player_interact )
+	#if b is Player:
+	pass
+
+func _on_body_exit( b ) -> void:
+	PlayerManager.interact_pressed.disconnect( player_interact )
 	pass
 
 func item_picked_up( ) -> void:
@@ -45,3 +48,8 @@ func _update_texture( ) -> void:
 		sprite_2d.texture = item_data.texture
 	pass
 
+func player_interact():
+	if item_data:
+			if PlayerManager.INVENTORY_DATA.add_item( item_data ) == true:
+				item_picked_up()
+	pass
