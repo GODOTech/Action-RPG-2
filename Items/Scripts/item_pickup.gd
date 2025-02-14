@@ -11,8 +11,8 @@ func _ready() -> void:
 	_update_texture()
 	if Engine.is_editor_hint(): #if the game is running
 		return
-	area_2d.body_entered.connect( _on_body_entered)
-	area_2d.body_exited.connect( _on_body_exit)
+	area_2d.area_entered.connect( _on_area_entered)
+	area_2d.area_exited.connect( _on_area_exit)
 
 func _physics_process(delta: float) -> void:
 	var collision_info = move_and_collide( velocity * delta)
@@ -20,17 +20,17 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.bounce( collision_info.get_normal() )
 	velocity -= velocity * delta * 4
 
-func _on_body_entered( b ) -> void:
+func _on_area_entered( _a ) -> void:
 	PlayerManager.interact_pressed.connect( player_interact )
 	#if b is Player:
 	pass
 
-func _on_body_exit( b ) -> void:
+func _on_area_exit( _a ) -> void:
 	PlayerManager.interact_pressed.disconnect( player_interact )
 	pass
 
 func item_picked_up( ) -> void:
-	area_2d.body_entered.disconnect( _on_body_entered )
+	area_2d.area_entered.disconnect( _on_area_entered )
 	audio_stream_player_2d.play()
 	visible = false
 	await audio_stream_player_2d.finished

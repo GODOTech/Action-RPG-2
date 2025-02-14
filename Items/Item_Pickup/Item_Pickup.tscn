@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxnne2ew0ubdm"]
+[gd_scene load_steps=9 format=3 uid="uid://cxnne2ew0ubdm"]
 
 [ext_resource type="Script" path="res://Items/Scripts/item_pickup.gd" id="1_pov16"]
 [ext_resource type="Texture2D" uid="uid://cy5hwnbo4q7xq" path="res://Player/Sprites/Shadow.png" id="2_7r0rj"]
 [ext_resource type="AudioStream" uid="uid://dj202dwqtk7rl" path="res://Items/Item_Pickup/item_pickup.wav" id="2_uchpo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_plt0u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gbb1e"]
+radius = 8.0
 
 [sub_resource type="Animation" id="Animation_03yne"]
 length = 0.001
@@ -52,9 +55,13 @@ script = ExtResource("1_pov16")
 shape = SubResource("CircleShape2D_plt0u")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_plt0u")
+shape = SubResource("CircleShape2D_gbb1e")
+debug_color = Color(0, 0.6, 0.192157, 0.419608)
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.721569)
