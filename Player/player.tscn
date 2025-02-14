@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://ds1rd5derwhan"]
+[gd_scene load_steps=53 format=3 uid="uid://ds1rd5derwhan"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_m3jck"]
 [ext_resource type="Texture2D" uid="uid://c5giq8ao7oesu" path="res://Player/Sprites/PlayerSprite02.png" id="2_0ngrr"]
@@ -15,7 +15,8 @@
 [ext_resource type="Script" path="res://Player/Scripts/PlayerCamera.gd" id="11_vcadp"]
 [ext_resource type="PackedScene" uid="uid://hptswsgblghc" path="res://GeneralNodes/Hitbox/hit_box.tscn" id="13_213lq"]
 [ext_resource type="AudioStream" uid="uid://dgtyajuyq5k3n" path="res://Player/Audio/hit_player.wav" id="14_f40kt"]
-[ext_resource type="Texture2D" uid="uid://crgayfr3i1c38" path="res://Spotlight.png" id="16_3trk2"]
+[ext_resource type="Texture2D" uid="uid://jhx5kqqa30vm" path="res://LightMaps/Flashlight.png" id="14_v2wry"]
+[ext_resource type="Texture2D" uid="uid://crgayfr3i1c38" path="res://LightMaps/Spotlight.png" id="15_wamad"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rf8m"]
 
@@ -371,6 +372,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Interactions/Area2D/CollisionShape2D/Light:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 10)]
 }
 
 [sub_resource type="Animation" id="Animation_x07v2"]
@@ -1031,6 +1044,7 @@ tracks/4/keys = {
 resource_name = "walk_down"
 length = 0.3
 loop_mode = 2
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1090,6 +1104,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Interactions/Area2D/CollisionShape2D/Light:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, 5), Vector2(0, 10)]
 }
 
 [sub_resource type="Animation" id="Animation_snadh"]
@@ -1156,6 +1182,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [0.0, 0.0, 0.0, 0.0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Interactions/Area2D/CollisionShape2D/Light:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, 5), Vector2(0, 10)]
+}
 
 [sub_resource type="Animation" id="Animation_ke02r"]
 resource_name = "walk_up"
@@ -1220,6 +1258,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Interactions/Area2D/CollisionShape2D/Light:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, 5), Vector2(0, 10)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2gkbq"]
@@ -1379,6 +1429,7 @@ occluder = SubResource("OccluderPolygon2D_53aia")
 occluder_light_mask = 4
 
 [node name="ShadowSprite" type="Sprite2D" parent="Sprite2D"]
+visible = false
 modulate = Color(0.0980392, 0.0980392, 0.0980392, 0.372549)
 show_behind_parent = true
 position = Vector2(0, 20)
@@ -1453,6 +1504,35 @@ position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_apadx")
 debug_color = Color(0.300892, 0.626223, 0.139414, 0.42)
 
+[node name="Light" type="Node2D" parent="Interactions/Area2D/CollisionShape2D"]
+position = Vector2(0, 10)
+
+[node name="PointLight2D_Ocluders" type="PointLight2D" parent="Interactions/Area2D/CollisionShape2D/Light"]
+light_mask = 3
+visibility_layer = 3
+scale = Vector2(1.03571, 1.03571)
+color = Color(0.207843, 0.529412, 0.901961, 0.572549)
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 3.25
+shadow_item_cull_mask = 3
+texture = ExtResource("14_v2wry")
+texture_scale = 0.2
+
+[node name="PointLight2D_InSprite_Ocluded" type="PointLight2D" parent="Interactions/Area2D/CollisionShape2D/Light"]
+light_mask = 5
+visibility_layer = 5
+scale = Vector2(1.0727, 1.0727)
+color = Color(0.527231, 0.705988, 0.998319, 0.639216)
+range_item_cull_mask = 5
+shadow_filter = 1
+shadow_filter_smooth = 2.0
+shadow_item_cull_mask = 5
+texture = ExtResource("15_wamad")
+texture_scale = 0.1
+height = 100.0
+
 [node name="HitBox" parent="." instance=ExtResource("13_213lq")]
 collision_layer = 2
 
@@ -1465,33 +1545,3 @@ debug_color = Color(0.645078, 0.521504, 0.0690086, 0.42)
 libraries = {
 "": SubResource("AnimationLibrary_hyfas")
 }
-
-[node name="Light" type="Node2D" parent="."]
-visible = false
-position = Vector2(0, -8)
-
-[node name="PointLight2D_Ocluders" type="PointLight2D" parent="Light"]
-light_mask = 3
-visibility_layer = 3
-scale = Vector2(1.03571, 1.03571)
-color = Color(0.207843, 0.529412, 0.901961, 0.572549)
-range_item_cull_mask = 2
-shadow_enabled = true
-shadow_filter = 1
-shadow_filter_smooth = 3.25
-shadow_item_cull_mask = 3
-texture = ExtResource("16_3trk2")
-texture_scale = 0.2
-
-[node name="PointLight2D_InSprite_Ocluded" type="PointLight2D" parent="Light"]
-light_mask = 5
-visibility_layer = 5
-scale = Vector2(1.0727, 1.0727)
-color = Color(0.527231, 0.705988, 0.998319, 0.639216)
-range_item_cull_mask = 5
-shadow_filter = 1
-shadow_filter_smooth = 2.0
-shadow_item_cull_mask = 5
-texture = ExtResource("16_3trk2")
-texture_scale = 0.1
-height = 100.0

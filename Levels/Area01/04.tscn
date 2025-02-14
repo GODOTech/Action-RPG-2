@@ -13,7 +13,7 @@
 script = ExtResource("1_pmiih")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.0901961, 0.0941176, 0.470588, 1)
+color = Color(0.0901961, 0.0941176, 0.352941, 1)
 
 [node name="Grass01" parent="." instance=ExtResource("2_sgklu")]
 light_mask = 2

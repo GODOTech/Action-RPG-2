@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cll875skcb6ur" path="res://Items/Sprites/items.png" id="1_21fkp"]
 [ext_resource type="Texture2D" uid="uid://cftldipxtdhre" path="res://Items/Sprites/torch.png" id="2_edwi4"]
-[ext_resource type="Texture2D" uid="uid://crgayfr3i1c38" path="res://Spotlight.png" id="3_xafqx"]
+[ext_resource type="Texture2D" uid="uid://crgayfr3i1c38" path="res://LightMaps/Spotlight.png" id="3_xafqx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xypm7"]
 size = Vector2(36, 12)

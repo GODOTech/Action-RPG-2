@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cxyy1eyrtxduc"]
+[gd_scene load_steps=18 format=3 uid="uid://cxyy1eyrtxduc"]
 
 [ext_resource type="Script" path="res://Props/Plants/plant.gd" id="1_sqg57"]
 [ext_resource type="PackedScene" uid="uid://hptswsgblghc" path="res://GeneralNodes/Hitbox/hit_box.tscn" id="3_itrml"]
@@ -8,7 +8,13 @@
 cull_mode = 2
 polygon = PackedVector2Array(-15, -7, -3, -8, 1, -18, 2, -7, 15, -8, 2, -3, 9, 3, 1, 1, -9, 3, -3, -5)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bpbjt"]
+closed = false
+cull_mode = 2
+polygon = PackedVector2Array(29, 3, 17, 12, 12, 10, 6, 12, -3, 12, -8, 10, -12, 12, -25, 3)
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j07ac"]
+closed = false
 cull_mode = 2
 polygon = PackedVector2Array(0, -20, 4, -17, 5, -12, 10, -14, 12, -16, 16, -13, 16, -8, 14, -7, 14, -5, 18, -5, 21, -7, 24, -6, 25, -4, 25, -1, 22, 2, 18, 2, 16, 1, 20, 6, 19, 10, 17, 12, 12, 10, 6, 12, -3, 12, -6, 10, -8, 9, -12, 12, -17, 8, -15, 5, -13, 2, -20, 2, -23, -2, -21, -5, -18, -7, -14, -5, -18, -9, -20, -13, -18, -16, -14, -15, -13, -13, -11, -14, -8, -11, -4, -12, -5, -16)
 
@@ -76,6 +82,7 @@ _data = {
 }
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yixwi"]
+closed = false
 cull_mode = 1
 polygon = PackedVector2Array(13, -1, 14, -7, 12, -9, 17, -12, 14, -16, 17, -22, 14, -25, 11, -25, 12, -31, 5, -28, 0, -32, -5, -28, -6, -31, -12, -31, -11, -25, -8, -21, -13, -21, -14, -19, -19, -13, -16, -9, -12, -9, -9, -9, -14, -5, -11, -1, -4, -3, -1, -2, 1, -2)
 
@@ -83,7 +90,7 @@ polygon = PackedVector2Array(13, -1, 14, -7, 12, -9, 17, -12, 14, -16, 17, -22, 
 radius = 5.52268
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jovwi"]
-size = Vector2(36, 10)
+size = Vector2(36, 16)
 
 [sub_resource type="Animation" id="Animation_cqo8i"]
 length = 0.001
@@ -250,6 +257,13 @@ texture = ExtResource("3_vnim3")
 hframes = 16
 vframes = 3
 
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Sprite2D"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(0, 11)
+occluder = SubResource("OccluderPolygon2D_bpbjt")
+occluder_light_mask = 3
+
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite2D"]
 light_mask = 3
 visibility_layer = 3
@@ -262,6 +276,7 @@ collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Vision ocluder"]
 shape = SubResource("CircleShape2D_5p63x")
+debug_color = Color(0.702087, 0.323671, 0.921596, 0.42)
 
 [node name="Top" type="Sprite2D" parent="."]
 light_mask = 2
@@ -297,7 +312,7 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 14)
+position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_jovwi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

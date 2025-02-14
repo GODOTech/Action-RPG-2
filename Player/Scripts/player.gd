@@ -16,7 +16,7 @@ var max_hp : int = 6 # Player's maximum health points
 @onready var sprite : Sprite2D = $Sprite2D # Sprite2D node for visual representation
 @onready var state_machine : PlayerStateMachine = $StateMachine # PlayerStateMachine node for managing player states
 @onready var hit_box : HitBox = $HitBox # HitBox node for damage detection
-@onready var light: Node2D = $Light
+@onready var light: Node2D = $Interactions/Area2D/CollisionShape2D/Light
 
 # Signals
 signal player_damaged( hurt_box: HurtBox ) # Signal emitted when the player is damaged

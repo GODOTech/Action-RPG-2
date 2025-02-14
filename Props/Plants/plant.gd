@@ -27,6 +27,7 @@ func TakeDamage( _damage : HurtBox ) -> void:
 		animation_player.play("destroy")
 		top.z_index = -1
 		sprite_2d.z_index = -1
+		sprite_2d.queue_free()
 	pass
 
 func randomize_look() -> void:
