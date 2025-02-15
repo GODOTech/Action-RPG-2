@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://tood0jnwsbcd"]
+[gd_scene load_steps=46 format=3 uid="uid://tood0jnwsbcd"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/enemy.gd" id="1_lqlya"]
 [ext_resource type="PackedScene" uid="uid://hptswsgblghc" path="res://GeneralNodes/Hitbox/hit_box.tscn" id="2_4f4kn"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cx3d21k0idv4s" path="res://Enemies/Slime/hit_00.wav" id="7_5rmy1"]
 [ext_resource type="Script" path="res://Enemies/Scripts/enemy_state_machine.gd" id="8_fnkq5"]
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_idle.gd" id="9_wviua"]
+[ext_resource type="PackedScene" uid="uid://380w306we3s2" path="res://Enemies/Gibs/gib.tscn" id="10_5eopl"]
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_wander.gd" id="10_cd1o0"]
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_stun.gd" id="11_hi3g5"]
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_destroy.gd" id="12_2homl"]
@@ -757,11 +758,13 @@ next_state = NodePath("../Idle")
 [node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("11_hi3g5")
 next_state = NodePath("../Chase")
+GIB = ExtResource("10_5eopl")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("12_2homl")
 knockback_speed = 400.0
 decelerate_speed = 5.0
+GIB = ExtResource("10_5eopl")
 drops = Array[ExtResource("14_jar37")]([SubResource("Resource_8s32y"), SubResource("Resource_8dv34"), SubResource("Resource_133hp")])
 
 [node name="VisionArea" parent="." instance=ExtResource("17_lbweg")]
@@ -772,9 +775,7 @@ position = Vector2(0, -1)
 polygon = PackedVector2Array(-16, 0, 16, 0, 177, 310, -144, 309)
 
 [node name="RayCast" type="RayCast2D" parent="."]
-position = Vector2(0, -10)
 collision_mask = 529
-collide_with_areas = true
 
 [node name="HitBox" parent="." instance=ExtResource("2_4f4kn")]
 

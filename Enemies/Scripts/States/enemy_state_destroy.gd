@@ -1,11 +1,12 @@
 class_name EnemyStateDestroy extends EnemyState
 
 const PICKUP = preload("res://Items/Item_Pickup/Item_Pickup.tscn")
-const GIB = preload("res://Enemies/Gibs/gib.tscn")
+#const GIB = preload("res://Enemies/Gibs/gib.tscn")
 
 @export var anim_name : String = 'destroy'
 @export var knockback_speed : float = 200.0
 @export var decelerate_speed : float = 10.0
+@export var GIB : PackedScene
 
 
 @export_category('AI')

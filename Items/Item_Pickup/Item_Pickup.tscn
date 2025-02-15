@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://dj202dwqtk7rl" path="res://Items/Item_Pickup/item_pickup.wav" id="2_uchpo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_plt0u"]
+radius = 2.82843
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbb1e"]
 radius = 8.0
@@ -48,10 +49,11 @@ _data = {
 
 [node name="ItemPickup" type="CharacterBody2D"]
 collision_layer = 0
-collision_mask = 16
+collision_mask = 17
 script = ExtResource("1_pov16")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_plt0u")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -73,6 +75,8 @@ texture = ExtResource("2_7r0rj")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_uchpo")
+volume_db = 10.0
+pitch_scale = 0.9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

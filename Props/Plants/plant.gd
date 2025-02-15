@@ -6,6 +6,7 @@ class_name Plant extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var top: Sprite2D = $Top
 @onready var top_animation_player: AnimationPlayer = $Top/TopAnimationPlayer
+@onready var light_occluder_2d_2: LightOccluder2D = $Sprite2D/LightOccluder2D2
 
 var top_destroyed : bool = false
 
@@ -27,7 +28,7 @@ func TakeDamage( _damage : HurtBox ) -> void:
 		animation_player.play("destroy")
 		top.z_index = -1
 		sprite_2d.z_index = -1
-		sprite_2d.queue_free()
+		light_occluder_2d_2.queue_free()
 	pass
 
 func randomize_look() -> void:

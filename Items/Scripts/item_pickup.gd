@@ -49,7 +49,9 @@ func _update_texture( ) -> void:
 	pass
 
 func player_interact():
+	if visible == false: return # Just to prevent the use spamming bug
 	if item_data:
-			if PlayerManager.INVENTORY_DATA.add_item( item_data ) == true:
-				item_picked_up()
-	pass
+		if PlayerManager.INVENTORY_DATA.add_item( item_data ) == true:
+			item_picked_up()
+
+pass

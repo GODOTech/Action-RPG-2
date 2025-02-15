@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://ds1rd5derwhan"]
+[gd_scene load_steps=52 format=3 uid="uid://ds1rd5derwhan"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_m3jck"]
 [ext_resource type="Texture2D" uid="uid://c5giq8ao7oesu" path="res://Player/Sprites/PlayerSprite02.png" id="2_0ngrr"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://hptswsgblghc" path="res://GeneralNodes/Hitbox/hit_box.tscn" id="13_213lq"]
 [ext_resource type="AudioStream" uid="uid://dgtyajuyq5k3n" path="res://Player/Audio/hit_player.wav" id="14_f40kt"]
 [ext_resource type="Texture2D" uid="uid://jhx5kqqa30vm" path="res://LightMaps/Flashlight.png" id="14_v2wry"]
-[ext_resource type="Texture2D" uid="uid://crgayfr3i1c38" path="res://LightMaps/Spotlight.png" id="15_wamad"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rf8m"]
 
@@ -1290,6 +1289,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apadx"]
+size = Vector2(8, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7awb7"]
 
@@ -1307,9 +1307,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio/AudioStreamPlayer2D:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_bvb4w"]
 resource_name = "damaged"
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1334,9 +1347,21 @@ tracks/1/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("14_f40kt")
 }],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.05)
 }
 tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio/AudioStreamPlayer2D:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-20.0, 0.0]
+}
 
 [sub_resource type="Animation" id="Animation_iqk1e"]
 resource_name = "default"
@@ -1488,7 +1513,6 @@ script = ExtResource("11_vcadp")
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
-volume_db = -20.8
 max_polyphony = 4
 
 [node name="Interactions" type="Node2D" parent="."]
@@ -1505,6 +1529,7 @@ shape = SubResource("RectangleShape2D_apadx")
 debug_color = Color(0.300892, 0.626223, 0.139414, 0.42)
 
 [node name="Light" type="Node2D" parent="Interactions/Area2D/CollisionShape2D"]
+visible = false
 position = Vector2(0, 10)
 
 [node name="PointLight2D_Ocluders" type="PointLight2D" parent="Interactions/Area2D/CollisionShape2D/Light"]
@@ -1529,7 +1554,7 @@ range_item_cull_mask = 5
 shadow_filter = 1
 shadow_filter_smooth = 2.0
 shadow_item_cull_mask = 5
-texture = ExtResource("15_wamad")
+texture = ExtResource("14_v2wry")
 texture_scale = 0.1
 height = 100.0
 

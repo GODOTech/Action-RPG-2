@@ -175,4 +175,5 @@ text = "(L)oad
 "
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
 max_polyphony = 4

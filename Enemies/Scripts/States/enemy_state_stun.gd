@@ -1,13 +1,15 @@
 class_name EnemyStateStun extends EnemyState
 
+
 @export var anim_name : String = 'stun'
 
 var decelerate_speed : int
 
-
-
 @export_category('AI')
 @export var next_state : EnemyState
+
+@export var GIB : PackedScene
+
 
 var _damage_position : Vector2
 var _direction : Vector2
@@ -32,6 +34,7 @@ func Enter() -> void:
 	enemy.velocity = _direction * -knockback_speed
 	enemy.UpdateAnimation( anim_name )
 	enemy.animation_player.animation_finished.connect( _on_animation_finished )
+	spawn_gibs()
 	pass
 
 func Exit() -> void:
@@ -57,7 +60,14 @@ func _on_enemy_damaged( hurt_box : HurtBox ) -> void:
 func _on_animation_finished( _a : String ) -> void:
 	_animation_finished = true
 
-
+func spawn_gibs():
+	var gibs_amount: int = randi_range( 1, 3 )
+	for i in gibs_amount:
+		var gib = GIB.instantiate() as Gib
+		enemy.get_parent().call_deferred("add_child", gib)
+		gib.global_position = enemy.global_position
+		gib.velocity = enemy.velocity.rotated(randf_range(-1.5, 1.5)) * randf_range(0.9, 1.2)
+	pass
 
 
 

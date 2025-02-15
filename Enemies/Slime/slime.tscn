@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ccmp6vudfuqhk"]
+[gd_scene load_steps=42 format=3 uid="uid://ccmp6vudfuqhk"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/enemy.gd" id="1_1rjuq"]
 [ext_resource type="Texture2D" uid="uid://cy5hwnbo4q7xq" path="res://Player/Sprites/Shadow.png" id="1_ehkhu"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://cx3d21k0idv4s" path="res://Enemies/Slime/hit_00.wav" id="6_v6dhw"]
 [ext_resource type="Texture2D" uid="uid://f5b2uqv0hx0y" path="res://Enemies/Slime/DestroySmoke.png" id="9_glfur"]
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_stun.gd" id="11_bl2h7"]
+[ext_resource type="PackedScene" uid="uid://dchhykodploa4" path="res://Enemies/Gibs/slime_gib.tscn" id="12_0anoe"]
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_destroy.gd" id="12_34oi3"]
 [ext_resource type="Resource" uid="uid://bo0ospo4v86nx" path="res://Items/stone.tres" id="13_ax1nu"]
 [ext_resource type="Script" path="res://Enemies/Scripts/drop_data.gd" id="14_barxt"]
@@ -1251,11 +1252,13 @@ next_state = NodePath("../Idle")
 [node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("11_bl2h7")
 next_state = NodePath("../Wander")
+GIB = ExtResource("12_0anoe")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("12_34oi3")
 knockback_speed = 400.0
 decelerate_speed = 5.0
+GIB = ExtResource("12_0anoe")
 drops = Array[ExtResource("14_barxt")]([SubResource("Resource_8s32y"), SubResource("Resource_8dv34"), SubResource("Resource_11krt")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

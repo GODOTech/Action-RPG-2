@@ -16,6 +16,7 @@ var is_paused : bool = false
 
 
 func _ready() -> void:
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 	hide_pause_menu()
@@ -73,6 +74,7 @@ func update_item_description( new_text : String ) -> void:
 	item_description.text = new_text
 
 func play_audio( audio : AudioStream ) -> void:
+	
 	audio_stream_player.stream = audio
 	audio_stream_player.play()
 	

@@ -27,7 +27,7 @@ func Enter() -> void:
 	animation_player.animation_finished.connect(EndAttack)
 	# Set the sound to play and play it with random pitch
 	audio.stream = attack_sound
-	audio.pitch_scale = randf_range( 8.9, 1.1)
+	audio.pitch_scale = randf_range( 3,.5)
 	audio.play()
 	
 	# Set the attacking flag to true
