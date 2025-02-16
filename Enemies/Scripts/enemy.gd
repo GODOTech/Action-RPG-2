@@ -29,7 +29,28 @@ var in_cone: bool = false
 
 @onready var vision_area: VisionArea = $VisionArea
 
+@export_category("Randomization values")
 
+@export_group("Color")
+@export var Red_min = 100
+@export var Red_max = 200
+
+@export var green_min = 180
+@export var green_max = 220
+
+@export var blue_min = 50
+@export var blue_max = 100
+
+@export_subgroup("Transparency")
+@export var alpha_min = 175
+@export var alpha_max = 210
+
+@export_group("Size")
+@export var X_min : float = 0.5
+@export var X_max : float  = 1.5
+
+@export var Y_min : float = 0.5
+@export var Y_max : float  = 1.5
 # Initialization
 func _ready():
 	# Initialize the EnemyStateMachine
@@ -111,32 +132,33 @@ func _take_damage( hurt_box : HurtBox ) -> void:
 	else:
 		enemy_destroyed.emit( hurt_box )
 
+
+
 func randomize_look() -> void:
-	if self.name.begins_with("Slime"):
-		scale= Vector2(randf_range(0.5, 1.5), randf_range( 0.5, 1.5))
+	scale= Vector2(randf_range(X_min, X_max), randf_range( Y_min, Y_max))
+	#Scale the whole node tree
+	$"/root".get_node(self.get_path()).scale = scale
+	
+	var rand_mod_r = randi_range(Red_min,Red_max) #RED
+	var rand_mod_g = randi_range(green_min,green_max) #GREEN
+	var rand_mod_b = randi_range(blue_min,blue_max) #BLUE
+	var rand_mod_a = randi_range(alpha_min,alpha_max) #ALPHA
+	
+	#Set the random values and transparency
+	modulate = Color8(rand_mod_r,rand_mod_g,rand_mod_b,rand_mod_a)
+
+	#if self.name.begins_with("Goblin"):
+		#scale= Vector2(randf_range(0.5, 1.5), randf_range( 0.5, 1.5))
 		#Scale the whole node tree
-		$"/root".get_node(self.get_path()).scale = scale
+		#$"/root".get_node(self.get_path()).scale = scale
 		
-		var rand_mod_r = randi_range(100,200) #RED
-		var rand_mod_g = randi_range(180,220) #GREEN
-		var rand_mod_b = randi_range(50,100) #BLUE
-		var rand_mod_a = randi_range(175,210) #ALPHA
-		
-		#Set the random values and transparency
-		modulate = Color8(rand_mod_r,rand_mod_g,rand_mod_b,rand_mod_a)
-		
-	if self.name.begins_with("Goblin"):
-		scale= Vector2(randf_range(0.5, 1.5), randf_range( 0.5, 1.5))
-		#Scale the whole node tree
-		$"/root".get_node(self.get_path()).scale = scale
-		
-		var rand_mod_r = randi_range(100,200) #RED
-		var rand_mod_g = randi_range(180,220) #GREEN
-		var rand_mod_b = randi_range(50,100) #BLUE
+		#var rand_mod_r = randi_range(100,200) #RED
+		#var rand_mod_g = randi_range(180,220) #GREEN
+		#var rand_mod_b = randi_range(50,100) #BLUE
 		#var rand_mod_a = randi_range(175,210) #ALPHA
 		
 		#Set the random values and transparency
-		modulate = Color8(rand_mod_r,rand_mod_g,rand_mod_b)
+		#modulate = Color8(rand_mod_r,rand_mod_g,rand_mod_b)
 		
 	pass
 

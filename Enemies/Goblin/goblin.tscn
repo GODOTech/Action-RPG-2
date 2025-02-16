@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://tood0jnwsbcd"]
+[gd_scene load_steps=51 format=3 uid="uid://tood0jnwsbcd"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/enemy.gd" id="1_lqlya"]
 [ext_resource type="PackedScene" uid="uid://hptswsgblghc" path="res://GeneralNodes/Hitbox/hit_box.tscn" id="2_4f4kn"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://54snddi20ko4" path="res://Enemies/Goblin/DestroySmoke - Original.png" id="16_c857h"]
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_chase.gd" id="16_m0fdc"]
 [ext_resource type="PackedScene" uid="uid://bgcbq3lyyensl" path="res://Enemies/vision_area.tscn" id="17_lbweg"]
+[ext_resource type="Texture2D" uid="uid://cftldipxtdhre" path="res://Items/Sprites/torch.png" id="20_kyfkr"]
+[ext_resource type="Texture2D" uid="uid://crgayfr3i1c38" path="res://LightMaps/Spotlight.png" id="21_yovtd"]
 
 [sub_resource type="Animation" id="Animation_pkxti"]
 length = 0.001
@@ -722,11 +724,202 @@ _data = {
 "destroy": SubResource("Animation_woa83")
 }
 
+[sub_resource type="Animation" id="Animation_q0y4p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PointLight2D_Ocluders:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PointLight2D_InSprite_Ocluded:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../PointLight2D_Ocluders:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../PointLight2D_Ocluders:shadow_filter_smooth")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../PointLight2D_Ocluders:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.454, 0.22, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../PointLight2D_InSprite_Ocluded:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.454, 0.22, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x0moj"]
+resource_name = "burn"
+length = 0.8
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PointLight2D_Ocluders:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(0.9, 0.9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PointLight2D_InSprite_Ocluded:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(0.9, 0.9)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../PointLight2D_Ocluders:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.0314974, 12)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../PointLight2D_Ocluders:shadow_filter_smooth")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 4.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../PointLight2D_Ocluders:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.372549, 0.180392, 1), Color(1, 0.392157, 0.172549, 0.556863)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../PointLight2D_InSprite_Ocluded:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.396078, 0.184314, 1), Color(1, 0.380392, 0.184314, 0.627451)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ki5b2"]
+_data = {
+"RESET": SubResource("Animation_q0y4p"),
+"burn": SubResource("Animation_x0moj")
+}
+
 [node name="Goblin" type="CharacterBody2D"]
 texture_filter = 2
 collision_layer = 256
 collision_mask = 48
 script = ExtResource("1_lqlya")
+Red_min = 255
+Red_max = 255
+green_min = 255
+green_max = 255
+blue_min = 255
+blue_max = 255
+alpha_min = 255
+alpha_max = 255
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -822,3 +1015,46 @@ hframes = 6
 libraries = {
 "": SubResource("AnimationLibrary_2dvbe")
 }
+
+[node name="Torch" type="Node2D" parent="."]
+
+[node name="Flame" type="Sprite2D" parent="Torch"]
+position = Vector2(1, -39)
+texture = ExtResource("20_kyfkr")
+hframes = 5
+vframes = 2
+
+[node name="PointLight2D_Ocluders" type="PointLight2D" parent="Torch"]
+light_mask = 10
+visibility_layer = 10
+color = Color(1, 0.454, 0.22, 1)
+energy = 2.0
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 2.0
+shadow_item_cull_mask = 10
+texture = ExtResource("21_yovtd")
+texture_scale = 0.2
+height = 100.0
+
+[node name="PointLight2D_InSprite_Ocluded" type="PointLight2D" parent="Torch"]
+light_mask = 5
+visibility_layer = 5
+position = Vector2(0, -17)
+color = Color(1, 0.454, 0.22, 1)
+range_item_cull_mask = 5
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 2.0
+shadow_item_cull_mask = 5
+texture = ExtResource("21_yovtd")
+texture_scale = 0.2
+height = 200.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Torch"]
+root_node = NodePath("../Flame")
+libraries = {
+"": SubResource("AnimationLibrary_ki5b2")
+}
+autoplay = "burn"
