@@ -1,16 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://8u3q4fa5bm6b"]
+[gd_scene load_steps=5 format=3 uid="uid://8u3q4fa5bm6b"]
 
 [ext_resource type="Texture2D" uid="uid://cy5hwnbo4q7xq" path="res://Player/Sprites/Shadow.png" id="1_4brtt"]
+[ext_resource type="Script" path="res://Enemies/Goblin/goblin_corpse.gd" id="1_0216a"]
 [ext_resource type="Texture2D" uid="uid://cwxdpnso4sdr8" path="res://Enemies/Goblin/goblinCorpse.png" id="2_g0cb2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_80ixs"]
 
 [node name="GoblinCorpse" type="CharacterBody2D"]
+collision_layer = 256
+collision_mask = 16
+script = ExtResource("1_0216a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_80ixs")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Puddle" type="Sprite2D" parent="."]
 modulate = Color(0.66, 0, 0, 0.886275)
 scale = Vector2(1.4375, 1.4375)
 texture = ExtResource("1_4brtt")
@@ -19,3 +23,5 @@ texture = ExtResource("1_4brtt")
 texture = ExtResource("2_g0cb2")
 hframes = 8
 vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

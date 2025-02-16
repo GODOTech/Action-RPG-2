@@ -22,7 +22,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_entered( _a ) -> void:
 	PlayerManager.interact_pressed.connect( player_interact )
-	#if b is Player:
 	pass
 
 func _on_area_exit( _a ) -> void:

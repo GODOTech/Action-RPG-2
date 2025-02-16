@@ -1,12 +1,16 @@
 class_name EnemyStateDestroy extends EnemyState
 
 const PICKUP = preload("res://Items/Item_Pickup/Item_Pickup.tscn")
-#const GIB = preload("res://Enemies/Gibs/gib.tscn")
 
 @export var anim_name : String = 'destroy'
 @export var knockback_speed : float = 200.0
 @export var decelerate_speed : float = 10.0
-@export var GIB : PackedScene
+@export var copy_scale : Vector2
+
+
+@export var gib : PackedScene
+@export var corpse : PackedScene
+@export var mitosis : PackedScene
 
 
 @export_category('AI')
@@ -23,6 +27,10 @@ const PICKUP = preload("res://Items/Item_Pickup/Item_Pickup.tscn")
 var _damage_position : Vector2
 var _direction : Vector2
 
+
+func _ready():
+	
+	pass
 
 func init() -> void:
 	enemy.enemy_destroyed.connect( _on_enemy_destroyed )
@@ -42,6 +50,8 @@ func Enter() -> void:
 	enemy.animation_player.animation_finished.connect( _on_animation_finished )
 	drop_items()
 	spawn_gibs()
+	spawn_corpse()
+	spawn_division()
 	pass
 
 func Exit() -> void:
@@ -53,7 +63,7 @@ func process( _delta : float ) -> EnemyState:
 
 func Physics( _delta : float ) -> EnemyState:
 	if animation_player.animation_finished:
-		enemy.queue_free()
+		enemy.queue_free() # WARNING: to be moved
 	return null
 
 ## normaly on the process func, this time we're forcing it trough a signal:
@@ -85,12 +95,29 @@ func drop_items() -> void:
 func spawn_gibs():
 	var gibs_amount: int = randi_range( 5, 10 )
 	for i in gibs_amount:
-		var gib = GIB.instantiate() as Gib
+		var gib = gib.instantiate() as Gib
 		enemy.get_parent().call_deferred("add_child", gib)
 		gib.global_position = enemy.global_position
 		gib.velocity = enemy.velocity.rotated(randf_range(-1.5, 1.5)) * randf_range(0.9, 1.2)
 	pass
 
+func spawn_corpse() -> void:
+	if corpse:
+		var corpse = corpse.instantiate()
+		enemy.get_parent().call_deferred("add_child", corpse)
+		corpse.scale = enemy.scale
+		corpse.global_position = enemy.global_position
+		corpse.velocity = enemy.velocity.rotated(randf_range(-1.5, 1.5)) * randf_range(0.9, 1.2)
 
+func spawn_division(num_enemies: int = 2) -> void:
+	if mitosis:
+		for i in range(num_enemies):
+			var new_cell = mitosis.instantiate()
+			enemy.get_parent().call_deferred("add_child", new_cell)
+			new_cell.scale = enemy.scale
+			new_cell.global_position = enemy.global_position
+			# Add some variation to the position to avoid overlap
+			new_cell.global_position += Vector2(randf_range(-10, 10), randf_range(-10, 10))
+			new_cell.velocity = enemy.velocity.rotated(randf_range(-1.5, 1.5)) * randf_range(0.9, 1.2)
 
 

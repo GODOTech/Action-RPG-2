@@ -86,3 +86,6 @@ side = 3
 [node name="ItemPickup" parent="." instance=ExtResource("8_4w64t")]
 position = Vector2(130, 84)
 item_data = ExtResource("10_3mqby")
+
+[node name="Slime" parent="." instance=ExtResource("5_3pmm2")]
+position = Vector2(129, 204)

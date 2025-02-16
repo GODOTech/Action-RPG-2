@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://tood0jnwsbcd"]
+[gd_scene load_steps=52 format=3 uid="uid://tood0jnwsbcd"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/enemy.gd" id="1_lqlya"]
 [ext_resource type="PackedScene" uid="uid://hptswsgblghc" path="res://GeneralNodes/Hitbox/hit_box.tscn" id="2_4f4kn"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://380w306we3s2" path="res://Enemies/Gibs/gib.tscn" id="10_5eopl"]
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_wander.gd" id="10_cd1o0"]
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_stun.gd" id="11_hi3g5"]
+[ext_resource type="PackedScene" uid="uid://8u3q4fa5bm6b" path="res://Enemies/Goblin/goblin_corpse.tscn" id="11_j4urh"]
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_destroy.gd" id="12_2homl"]
 [ext_resource type="Resource" uid="uid://b3fvgoe4d5xyq" path="res://Items/potion.tres" id="13_cvd4n"]
 [ext_resource type="Resource" uid="uid://bo0ospo4v86nx" path="res://Items/stone.tres" id="13_gtxs6"]
@@ -957,7 +958,8 @@ GIB = ExtResource("10_5eopl")
 script = ExtResource("12_2homl")
 knockback_speed = 400.0
 decelerate_speed = 5.0
-GIB = ExtResource("10_5eopl")
+gib = ExtResource("10_5eopl")
+corpse = ExtResource("11_j4urh")
 drops = Array[ExtResource("14_jar37")]([SubResource("Resource_8s32y"), SubResource("Resource_8dv34"), SubResource("Resource_133hp")])
 
 [node name="VisionArea" parent="." instance=ExtResource("17_lbweg")]

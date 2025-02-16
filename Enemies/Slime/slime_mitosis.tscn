@@ -1,24 +1,23 @@
-[gd_scene load_steps=43 format=3 uid="uid://ccmp6vudfuqhk"]
+[gd_scene load_steps=42 format=3 uid="uid://b71r5jpdb6ifw"]
 
-[ext_resource type="Script" path="res://Enemies/Scripts/enemy.gd" id="1_1rjuq"]
-[ext_resource type="Texture2D" uid="uid://cy5hwnbo4q7xq" path="res://Player/Sprites/Shadow.png" id="1_ehkhu"]
-[ext_resource type="Texture2D" uid="uid://c71biuvl1wtp0" path="res://Enemies/Slime/Slime.png" id="2_5swks"]
-[ext_resource type="PackedScene" uid="uid://dg6cwepyvap7b" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="2_fs5lk"]
-[ext_resource type="PackedScene" uid="uid://hptswsgblghc" path="res://GeneralNodes/Hitbox/hit_box.tscn" id="3_7jdtl"]
-[ext_resource type="Script" path="res://Enemies/Scripts/enemy_state_machine.gd" id="4_dlejv"]
-[ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_idle.gd" id="5_c2o2v"]
-[ext_resource type="AudioStream" uid="uid://dlo1j3qnx85jj" path="res://Enemies/Slime/hit_01.wav" id="5_vq41c"]
-[ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_wander.gd" id="6_d1cii"]
-[ext_resource type="AudioStream" uid="uid://cx3d21k0idv4s" path="res://Enemies/Slime/hit_00.wav" id="6_v6dhw"]
-[ext_resource type="Texture2D" uid="uid://f5b2uqv0hx0y" path="res://Enemies/Slime/DestroySmoke.png" id="9_glfur"]
-[ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_stun.gd" id="11_bl2h7"]
-[ext_resource type="PackedScene" uid="uid://dchhykodploa4" path="res://Enemies/Gibs/slime_gib.tscn" id="12_0anoe"]
-[ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_destroy.gd" id="12_34oi3"]
-[ext_resource type="Resource" uid="uid://bo0ospo4v86nx" path="res://Items/stone.tres" id="13_ax1nu"]
-[ext_resource type="Script" path="res://Enemies/Scripts/drop_data.gd" id="14_barxt"]
-[ext_resource type="PackedScene" uid="uid://b71r5jpdb6ifw" path="res://Enemies/Slime/slime_mitosis.tscn" id="14_q1g3u"]
-[ext_resource type="Resource" uid="uid://bty6wfxblpf6v" path="res://Items/apple.tres" id="15_oyj5f"]
-[ext_resource type="Resource" uid="uid://b3fvgoe4d5xyq" path="res://Items/potion.tres" id="16_y7r0s"]
+[ext_resource type="Script" path="res://Enemies/Scripts/enemy.gd" id="1_ecb53"]
+[ext_resource type="PackedScene" uid="uid://hptswsgblghc" path="res://GeneralNodes/Hitbox/hit_box.tscn" id="2_slue4"]
+[ext_resource type="Texture2D" uid="uid://cy5hwnbo4q7xq" path="res://Player/Sprites/Shadow.png" id="3_j8kgn"]
+[ext_resource type="Texture2D" uid="uid://c71biuvl1wtp0" path="res://Enemies/Slime/Slime.png" id="4_5knn0"]
+[ext_resource type="PackedScene" uid="uid://dg6cwepyvap7b" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="5_oe11m"]
+[ext_resource type="AudioStream" uid="uid://dlo1j3qnx85jj" path="res://Enemies/Slime/hit_01.wav" id="6_y0qhk"]
+[ext_resource type="AudioStream" uid="uid://cx3d21k0idv4s" path="res://Enemies/Slime/hit_00.wav" id="7_toqrd"]
+[ext_resource type="Script" path="res://Enemies/Scripts/enemy_state_machine.gd" id="8_fsvn7"]
+[ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_idle.gd" id="9_5hpn4"]
+[ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_wander.gd" id="10_iq8wd"]
+[ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_stun.gd" id="11_4uj5d"]
+[ext_resource type="PackedScene" uid="uid://dchhykodploa4" path="res://Enemies/Gibs/slime_gib.tscn" id="12_3ar85"]
+[ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_destroy.gd" id="13_r6p2q"]
+[ext_resource type="Resource" uid="uid://bo0ospo4v86nx" path="res://Items/stone.tres" id="14_jm45l"]
+[ext_resource type="Script" path="res://Enemies/Scripts/drop_data.gd" id="15_26s2s"]
+[ext_resource type="Resource" uid="uid://bty6wfxblpf6v" path="res://Items/apple.tres" id="16_cqra4"]
+[ext_resource type="Resource" uid="uid://b3fvgoe4d5xyq" path="res://Items/potion.tres" id="17_sade5"]
+[ext_resource type="Texture2D" uid="uid://f5b2uqv0hx0y" path="res://Enemies/Slime/DestroySmoke.png" id="18_wdfc1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2egx"]
 radius = 13.0
@@ -180,7 +179,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.378675,
 "start_offset": 0.0,
-"stream": ExtResource("5_vq41c")
+"stream": ExtResource("6_y0qhk")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -195,7 +194,7 @@ tracks/4/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("6_v6dhw")
+"stream": ExtResource("7_toqrd")
 }],
 "times": PackedFloat32Array(0.05)
 }
@@ -297,7 +296,7 @@ tracks/2/keys = {
 "clips": [{
 "end_offset": 0.380851,
 "start_offset": 0.0,
-"stream": ExtResource("5_vq41c")
+"stream": ExtResource("6_y0qhk")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -312,7 +311,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("6_v6dhw")
+"stream": ExtResource("7_toqrd")
 }],
 "times": PackedFloat32Array(0.05)
 }
@@ -426,7 +425,7 @@ tracks/2/keys = {
 "clips": [{
 "end_offset": 0.372146,
 "start_offset": 0.0,
-"stream": ExtResource("5_vq41c")
+"stream": ExtResource("6_y0qhk")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -441,7 +440,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("6_v6dhw")
+"stream": ExtResource("7_toqrd")
 }],
 "times": PackedFloat32Array(0.05)
 }
@@ -726,7 +725,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("5_vq41c")
+"stream": ExtResource("6_y0qhk")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -806,7 +805,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("5_vq41c")
+"stream": ExtResource("6_y0qhk")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -886,7 +885,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("5_vq41c")
+"stream": ExtResource("6_y0qhk")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -1092,22 +1091,22 @@ _data = {
 }
 
 [sub_resource type="Resource" id="Resource_8s32y"]
-script = ExtResource("14_barxt")
-item = ExtResource("13_ax1nu")
+script = ExtResource("15_26s2s")
+item = ExtResource("14_jm45l")
 probability = 10.0
 min_amount = 1
 max_amount = 2
 
 [sub_resource type="Resource" id="Resource_8dv34"]
-script = ExtResource("14_barxt")
-item = ExtResource("15_oyj5f")
+script = ExtResource("15_26s2s")
+item = ExtResource("16_cqra4")
 probability = 10.0
 min_amount = 1
 max_amount = 2
 
 [sub_resource type="Resource" id="Resource_11krt"]
-script = ExtResource("14_barxt")
-item = ExtResource("16_y7r0s")
+script = ExtResource("15_26s2s")
+item = ExtResource("17_sade5")
 probability = 10.0
 min_amount = 1
 max_amount = 1
@@ -1189,9 +1188,9 @@ _data = {
 texture_filter = 2
 collision_layer = 256
 collision_mask = 17
-script = ExtResource("1_1rjuq")
+script = ExtResource("1_ecb53")
 
-[node name="HitBox" parent="." instance=ExtResource("3_7jdtl")]
+[node name="HitBox" parent="." instance=ExtResource("2_slue4")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -6)
@@ -1202,13 +1201,13 @@ debug_color = Color(0.886275, 0.827451, 0.0627451, 0.419608)
 self_modulate = Color(0.231083, 0.47, 0.1833, 0.556863)
 light_mask = 2
 visibility_layer = 2
-texture = ExtResource("1_ehkhu")
+texture = ExtResource("3_j8kgn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 5
 visibility_layer = 5
 position = Vector2(0, -18)
-texture = ExtResource("2_5swks")
+texture = ExtResource("4_5knn0")
 hframes = 16
 vframes = 2
 
@@ -1218,7 +1217,7 @@ scale = Vector2(1.17397, 1.30276)
 occluder = SubResource("OccluderPolygon2D_yv5ck")
 occluder_light_mask = 2
 
-[node name="HurtBox" parent="." instance=ExtResource("2_fs5lk")]
+[node name="HurtBox" parent="." instance=ExtResource("5_oe11m")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, 9.53674e-07)
@@ -1238,30 +1237,29 @@ libraries = {
 autoplay = "idle_down"
 
 [node name="EnemyStateMachine" type="Node" parent="."]
-script = ExtResource("4_dlejv")
+script = ExtResource("8_fsvn7")
 
 [node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
-script = ExtResource("5_c2o2v")
+script = ExtResource("9_5hpn4")
 state_duration_max = 2.0
 after_idle_state = NodePath("../Wander")
 
 [node name="Wander" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
-script = ExtResource("6_d1cii")
+script = ExtResource("10_iq8wd")
 state_cycles_max = 5
 next_state = NodePath("../Idle")
 
 [node name="Stun" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
-script = ExtResource("11_bl2h7")
+script = ExtResource("11_4uj5d")
 next_state = NodePath("../Wander")
-GIB = ExtResource("12_0anoe")
+GIB = ExtResource("12_3ar85")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("12_34oi3")
+script = ExtResource("13_r6p2q")
 knockback_speed = 400.0
 decelerate_speed = 5.0
-gib = ExtResource("12_0anoe")
-mitosis = ExtResource("14_q1g3u")
-drops = Array[ExtResource("14_barxt")]([SubResource("Resource_8s32y"), SubResource("Resource_8dv34"), SubResource("Resource_11krt")])
+gib = ExtResource("12_3ar85")
+drops = Array[ExtResource("15_26s2s")]([SubResource("Resource_8s32y"), SubResource("Resource_8dv34"), SubResource("Resource_11krt")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 volume_db = -12.854
@@ -1271,7 +1269,7 @@ max_polyphony = 4
 visible = false
 self_modulate = Color(1, 1, 1, 0.756863)
 position = Vector2(0, -6)
-texture = ExtResource("9_glfur")
+texture = ExtResource("18_wdfc1")
 hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DestroyEffectSprite"]
