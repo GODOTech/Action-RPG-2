@@ -11,7 +11,8 @@ var current_save : Dictionary = {
 		hp = 1,
 		max_hp = 1,
 		pos_x = 0,
-		pos_y = 0
+		pos_y = 0,
+		Light = false
 	},
 	items = [],
 	persistance = [
@@ -46,6 +47,8 @@ func load_game() -> void:
 	PlayerManager.set_player_position( Vector2( current_save.player.pos_x, current_save.player.pos_y ))
 	PlayerManager.set_health( current_save.player.hp, current_save.player.max_hp )
 	PlayerManager. INVENTORY_DATA.parse_save_data( current_save.items )
+	PlayerManager.set_light( current_save.player.light )
+	
 	
 	await LevelManager.level_loaded
 	
@@ -61,6 +64,7 @@ func update_player_data() -> void:
 	current_save.player.max_hp = p.max_hp
 	current_save.player.pos_x = p.global_position.x
 	current_save.player.pos_y = p.global_position.y
+	current_save.player.light = p.light.visible
 
 
 func update_scene_path() -> void:

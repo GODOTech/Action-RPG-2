@@ -33,7 +33,6 @@ func set_health( hp: int, max_hp: int ) -> void:
 	player.hp = hp
 	player.update_hp( 0 )
 
-
 # Function to set the player's position
 func set_player_position( _new_pos : Vector2 ) -> void:
 	# Set the player's global position
@@ -52,3 +51,7 @@ func set_as_parent( _p : Node2D ) -> void:
 func unparent_player( _p : Node2D ) -> void:
 	# Remove the player from the specified parent
 	_p.remove_child( player )
+
+func set_light( light : bool ) -> void:
+	player.light.visible = light
+	pass 
