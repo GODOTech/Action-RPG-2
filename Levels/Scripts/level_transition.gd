@@ -47,6 +47,7 @@ func _ready() -> void:
 
 # Function called when a body enters the transition area
 func _player_entered( _p : Node2D ) -> void:
+	print("\n*************_BEGINING_MAP_TRANSITION_*************\n")
 	# Load the new level using the LevelManager
 	LevelManager.load_new_level(level, target_transition_area, get_offset())
 	pass # Placeholder, no further actions needed in this function
@@ -57,6 +58,7 @@ func _place_player() -> void:
 	if name != LevelManager.target_transition: return
 	# Set the player's position using the LevelManager's position offset
 	PlayerManager.set_player_position( global_position + LevelManager.position_offset )
+	print("\n*************_PLACE_PLAYER_*************\n")
 
 # Function to get the offset for the player position in the next level
 func get_offset() -> Vector2:

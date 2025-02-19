@@ -24,6 +24,7 @@ signal DirectionChanged( new_direction: Vector2 ) # Signal emitted when the play
 
 # Initialization
 func _ready():
+	print("3 Player SET")
 	# Set the player instance in PlayerManager
 	PlayerManager.player = self
 	# Initialize the PlayerStateMachine
@@ -36,6 +37,7 @@ func _ready():
 
 # Process function (called every frame)
 func _process( _delta ):
+	print("4 _player process_tick")
 	# Get player input for movement
 	direction = Vector2(
 		Input.get_axis( "left", "right" ),
@@ -55,6 +57,7 @@ func _process( _delta ):
 
 # Physics process function (called at fixed time step)
 func _physics_process( _delta ):
+	print("4 PLAYER PHYSICS_TICK")
 	# Move the character while sliding on surfaces
 	move_and_slide()
 

@@ -1,6 +1,7 @@
 class_name Level extends Node2D
 
 func _ready() -> void:
+	print("\n*************_LEVEL_READY_ *************\n")
 	# Enable y-sorting for this node
 	self.y_sort_enabled = true
 	# Set this node as the parent of the PlayerManager's player instance
@@ -10,6 +11,7 @@ func _ready() -> void:
 
 # Function to handle the level_load_started signal
 func _free_level() -> void:
+	print("\n*************_LEVEL_REMOVED_*************\n")
 	# Remove the player instance from this node
 	PlayerManager.unparent_player( self )
 	# Queue this node for deletion from the scene tree
