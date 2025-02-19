@@ -17,7 +17,7 @@ var is_paused : bool = false
 
 func _ready() -> void:
 	print("5 Pausemenu SET\n",)
-	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	hide_pause_menu()
 	button_save.pressed.connect( _on_save_pressed)
@@ -38,7 +38,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func show_pause_menu() -> void:
 	print("************* PAUSE *************")
-	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
 	visible = true
 	is_paused = true
@@ -47,7 +47,7 @@ func show_pause_menu() -> void:
 
 func hide_pause_menu() -> void:
 	print("************* PAUSE_OFF *************")
-	#Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	get_tree().paused = false
 	visible = false
 	is_paused = false

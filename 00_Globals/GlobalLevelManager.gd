@@ -14,6 +14,8 @@ var position_offset : Vector2 # Stores the position offset for level loading
 func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	print("1 GlobalLevelManager SET")
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 	# Wait for the next frame to ensure all nodes are initialized
 	await get_tree().process_frame
 	# Emit the level_loaded signal to indicate the level is ready
