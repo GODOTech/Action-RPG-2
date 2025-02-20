@@ -70,11 +70,11 @@ func load_new_level(
 	pass # Placeholder, no further actions needed in this function
 
 func _physics_process(delta: float) -> void:
-	print("\n1 GLOBAL_LEVEL_MANAGER PHYSICS_TICK")
+	#print("\n1 GLOBAL_LEVEL_MANAGER PHYSICS_TICK")
 	pass
 
 func _process(delta: float) -> void:
-	print("\n1 _global_level_manager process_tick")
+	#print("\n1 _global_level_manager process_tick")
 	pass
 
 

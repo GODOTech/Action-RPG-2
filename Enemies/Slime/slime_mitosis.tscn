@@ -1189,6 +1189,8 @@ texture_filter = 2
 collision_layer = 256
 collision_mask = 17
 script = ExtResource("1_ecb53")
+X_max = 1.0
+Y_max = 1.0
 
 [node name="HitBox" parent="." instance=ExtResource("2_slue4")]
 

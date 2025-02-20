@@ -16,7 +16,7 @@ var is_paused : bool = false
 
 
 func _ready() -> void:
-	print("5 Pausemenu SET\n",)
+	print("4 Pausemenu SET\n",)
 	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	hide_pause_menu()
@@ -82,11 +82,11 @@ func play_audio( audio : AudioStream ) -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	print("2 PAUSE_MENU PHYSICS_TICK")
+	#print("2 PAUSE_MENU PHYSICS_TICK")
 	pass
 
 func _process(delta: float) -> void:
-	print("2 _pause_menu process_tick")
+	#print("2 _pause_menu process_tick")
 	pass
 
 

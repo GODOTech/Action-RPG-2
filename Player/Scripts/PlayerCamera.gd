@@ -1,5 +1,12 @@
 class_name PlayerCamera extends Camera2D
 
+@onready var viewport_center_x = get_viewport().size.x / 7.5
+@onready var viewport_center_y = get_viewport().size.y / 7.5
+@onready var player = get_parent()
+
+var mouse_sensitivity_x = .9 # Horizontal
+var mouse_sensitivity_y = .75 # Vertical
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("2 Camera SET")
@@ -22,32 +29,21 @@ func UpdateLimits(bounds : Array[ Vector2 ] ) -> void:
 	pass # Placeholder, no further actions needed in this function
 
 func _physics_process(delta: float) -> void:
-	print("5 CAMERA PHYSICS_TICK\n")
-	
-	
-	var mouse_sensitivity = .5  # Adjust this for your desired sensitivity
-	var player = get_parent()  # Assuming the camera is a child of the player node
+	#print("5 CAMERA PHYSICS_TICK\n")
 	var mouse_pos = get_viewport().get_mouse_position()
-	var viewport_center_x = get_viewport().size.x / 8
-	var viewport_center_y = get_viewport().size.y / 8
-	var intended_pos = player.position
-	intended_pos.x += (mouse_pos.x - viewport_center_x) * mouse_sensitivity
-	intended_pos.y += (mouse_pos.y - viewport_center_y) * mouse_sensitivity
-
-	# Clamp the intended position within the tilemap bounds
+	var intended_pos : Vector2 = player.position
+	var adjustment_pos = Vector2(0,20)
+	
+	intended_pos -= adjustment_pos
+	
+	intended_pos.x += (mouse_pos.x - viewport_center_x) * mouse_sensitivity_x
+	intended_pos.y += (mouse_pos.y - viewport_center_y) * mouse_sensitivity_y
+	
+	
 	intended_pos.x = clamp(intended_pos.x, limit_left, limit_right)
 	intended_pos.y = clamp(intended_pos.y, limit_top, limit_bottom)
-
 	self.global_position = intended_pos
 
-
-
-
-
-
-	
-	pass
-
 func _process(delta: float) -> void:
-	print("5 _camera process_tick\n")
+	#print("5 _camera process_tick\n")
 	pass

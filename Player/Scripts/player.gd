@@ -37,7 +37,7 @@ func _ready():
 
 # Process function (called every frame)
 func _process( _delta ):
-	print("4 _player process_tick")
+	#print("4 _player process_tick")
 	# Get player input for movement
 	direction = Vector2(
 		Input.get_axis( "left", "right" ),
@@ -57,7 +57,7 @@ func _process( _delta ):
 
 # Physics process function (called at fixed time step)
 func _physics_process( _delta ):
-	print("4 PLAYER PHYSICS_TICK")
+	#print("4 PLAYER PHYSICS_TICK")
 	# Move the character while sliding on surfaces
 	move_and_slide()
 
