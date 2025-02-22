@@ -7,8 +7,10 @@ const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP, ] # Array
 var cardinal_direction : Vector2 = Vector2.DOWN  # Current cardinal direction (initially facing down)
 var direction : Vector2 = Vector2.ZERO # Current movement direction
 var invulnerable : bool = false # Flag indicating if the player is invulnerable
-var hp : int = 6 # Player's health points
-var max_hp : int = 6 # Player's maximum health points
+var hp : int = 20 # Player's health points
+var max_hp : int = 20 # Player's maximum health points
+
+var ATTACK: int = 1
 
 # Node references
 @onready var animation_player : AnimationPlayer = $AnimationPlayer # AnimationPlayer node for main animations

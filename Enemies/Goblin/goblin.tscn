@@ -64,7 +64,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D/AttackHurtBox:position")
+tracks/3/path = NodePath("Sprite2D/HurtBox:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -93,7 +93,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/AttackHurtBox:position")
+tracks/1/path = NodePath("Sprite2D/HurtBox:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -122,7 +122,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/AttackHurtBox:position")
+tracks/1/path = NodePath("Sprite2D/HurtBox:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -151,7 +151,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/AttackHurtBox:position")
+tracks/1/path = NodePath("Sprite2D/HurtBox:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -911,7 +911,7 @@ _data = {
 [node name="Goblin" type="CharacterBody2D"]
 texture_filter = 2
 collision_layer = 256
-collision_mask = 48
+collision_mask = 49
 script = ExtResource("1_lqlya")
 alpha_min = 255
 alpha_max = 255
@@ -930,7 +930,7 @@ script = ExtResource("16_m0fdc")
 chase_speed = 70.0
 turn_rate = 0.5
 vision_area = NodePath("../../VisionArea")
-attatck_area = NodePath("../../Sprite2D/AttackHurtBox")
+attatck_area = NodePath("../../Sprite2D/HurtBox")
 next_state = NodePath("../Idle")
 
 [node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
@@ -958,7 +958,6 @@ drops = Array[ExtResource("14_jar37")]([SubResource("Resource_8s32y"), SubResour
 
 [node name="VisionArea" parent="." instance=ExtResource("17_lbweg")]
 modulate = Color(0.29792, 0.98, 0.2744, 0.705882)
-position = Vector2(0, -1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionArea"]
 polygon = PackedVector2Array(-16, 0, 16, 0, 177, 310, -144, 309)
@@ -982,12 +981,11 @@ texture = ExtResource("4_m7o31")
 hframes = 8
 vframes = 3
 
-[node name="AttackHurtBox" parent="Sprite2D" instance=ExtResource("5_g2n7s")]
+[node name="HurtBox" parent="Sprite2D" instance=ExtResource("5_g2n7s")]
 position = Vector2(0, 20)
 monitoring = false
-damage = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/AttackHurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
 position = Vector2(0, 9.53674e-07)
 shape = SubResource("CircleShape2D_4kxq2")
 debug_color = Color(0.752941, 0.105882, 0.0745098, 0.419608)

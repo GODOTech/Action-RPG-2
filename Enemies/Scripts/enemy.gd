@@ -8,7 +8,9 @@ signal enemy_destroyed( hurt_box : HurtBox ) # Signal emitted when the enemy is 
 
 const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ] # Array of cardinal directions
 
-var hp : int = randi_range( 2 ,4 ) 
+var HP : int 
+var ATTACK : int
+
 var cardinal_direction : Vector2 = Vector2.DOWN # Current cardinal direction (initially facing down)
 var direction : Vector2 = Vector2.ZERO # Current movement direction
 var player: Player # Reference to the player
@@ -21,6 +23,7 @@ var in_cone: bool = false
 @onready var state_machine : EnemyStateMachine = $EnemyStateMachine # EnemyStateMachine node for managing enemy states
 @onready var ray_cast: RayCast2D = $RayCast
 @onready var vision_area: VisionArea = $VisionArea
+@onready var hurt_box: HurtBox = $Sprite2D/HurtBox
 
 
 @export_category("Randomization values")
@@ -51,7 +54,8 @@ func _ready():
 	# Connect the Damaged signal from HitBox to the _take_damage function
 	hit_box.Damaged.connect(_take_damage)
 	randomize_look()
-	pass
+	get_mass()
+	set_damage()
 
 func _process(_delta):
 	
@@ -106,27 +110,45 @@ func AnimDirection() -> String:
 		return "side"
 
 func _take_damage( hurt_box : HurtBox ) -> void:
-	# Return early if the enemy is invulnerable
 	if invulnerable == true: return
-	# Reduce HP by the damage amount
-	hp -= hurt_box.damage
-	# Emit the enemy_damaged signal if HP is greater than 0
-	if hp > 0:
+	HP -= hurt_box.damage
+	if HP > 0:
 		enemy_damaged.emit( hurt_box )
-	# Emit the enemy_destroyed signal if HP is 0 or less
 	else:
 		enemy_destroyed.emit( hurt_box )
 
 func randomize_look() -> void:
-	scale= Vector2(randf_range(X_min, X_max), randf_range( Y_min, Y_max))
-	$"/root".get_node(self.get_path()).scale = scale
-	
+# Red, Green, Blue, Alpha(transparency); (min=0 , max=255).
 	var rand_mod_r = randi_range(Red_min,Red_max)
 	var rand_mod_g = randi_range(green_min,green_max)
 	var rand_mod_b = randi_range(blue_min,blue_max)
 	var rand_mod_a = randi_range(alpha_min,alpha_max)
+# Set the values to this particular itteration
 	modulate = Color8(rand_mod_r,rand_mod_g,rand_mod_b,rand_mod_a)
-	
+# Set the size of the whole node tree with exported values(min=0.5, max=1.5).
+	scale = Vector2(randf_range(X_min, X_max), randf_range( Y_min, Y_max))
+	$"/root".get_node(self.get_path()).scale = scale
+
+func get_mass() -> void:
+# Use the random values to get the new variable.
+	var mass = scale.x + scale.y
+# Extract the combat efective values with diferent segmentations.
+	var attack = round(mass)
+	var hp = floor( mass *2)
+# DeBugging report:
+	print("\n", name)
+	print("scale_x: ", snapped( scale.x, 0.01 ) )
+	print("scale_y: ", snapped( scale.y, 0.01 ) )
+	print("Mass:    ", snapped( mass, 0.01 ), "\n")
+	print("ATTACK: ", attack)
+	print("HP:     ", hp, "\n" )
+# Set the itteration values to the ones originated trough randomization
+	HP = hp
+	ATTACK = attack
+
+func set_damage():
+	if hurt_box:
+		hurt_box.damage = ATTACK
 	pass
 
 func aim():

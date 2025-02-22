@@ -21,15 +21,14 @@
 [ext_resource type="Resource" uid="uid://b3fvgoe4d5xyq" path="res://Items/potion.tres" id="16_y7r0s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2egx"]
-radius = 13.0
+radius = 11.8196
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yv5ck"]
 cull_mode = 2
 polygon = PackedVector2Array(0, 5, 5, 5, 9, 4, 11, 3, 12, 1, 11, -1, 8, -2, 5, -3, -0.104301, -3, -4, -3, -8, -2, -10, -1, -11, 1, -10, 3, -8, 4, -4, 5)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d88u0"]
-radius = 5.0
-height = 24.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_r81qx"]
+radius = 4.99834
 
 [sub_resource type="Animation" id="Animation_pkxti"]
 length = 0.001
@@ -1188,7 +1187,7 @@ _data = {
 [node name="Slime" type="CharacterBody2D"]
 texture_filter = 2
 collision_layer = 256
-collision_mask = 17
+collision_mask = 49
 script = ExtResource("1_1rjuq")
 X_min = 1.0
 Y_min = 1.0
@@ -1214,24 +1213,25 @@ texture = ExtResource("2_5swks")
 hframes = 16
 vframes = 2
 
+[node name="HurtBox" parent="Sprite2D" instance=ExtResource("2_fs5lk")]
+position = Vector2(0, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
+position = Vector2(0, 9.53674e-07)
+scale = Vector2(1.02014, 0.422772)
+shape = SubResource("CircleShape2D_e2egx")
+debug_color = Color(0.752941, 0.0705882, 0.0745098, 0.419608)
+
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 position = Vector2(-0.375, -5.875)
 scale = Vector2(1.17397, 1.30276)
 occluder = SubResource("OccluderPolygon2D_yv5ck")
 occluder_light_mask = 2
 
-[node name="HurtBox" parent="." instance=ExtResource("2_fs5lk")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0, 9.53674e-07)
-scale = Vector2(1.02014, 0.422772)
-shape = SubResource("CircleShape2D_e2egx")
-debug_color = Color(0.752941, 0.0705882, 0.0745098, 0.419608)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
-scale = Vector2(0.889346, 0.899894)
-shape = SubResource("CapsuleShape2D_d88u0")
+scale = Vector2(0.809346, 2.13989)
+shape = SubResource("CircleShape2D_r81qx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
