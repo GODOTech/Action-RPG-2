@@ -1189,8 +1189,8 @@ texture_filter = 2
 collision_layer = 256
 collision_mask = 49
 script = ExtResource("1_1rjuq")
-X_min = 1.0
-Y_min = 1.0
+X_min = 1.1
+Y_min = 1.1
 
 [node name="HitBox" parent="." instance=ExtResource("3_7jdtl")]
 

@@ -6,7 +6,6 @@ class_name HurtBox extends Area2D
 
 
 func _ready():
-	print(damage)
 	area_entered.connect( AreaEntered )
 
 # Function called when an area enters this HurtBox

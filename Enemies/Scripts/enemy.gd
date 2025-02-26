@@ -137,11 +137,11 @@ func get_mass() -> void:
 	var hp = floor( mass *2)
 # DeBugging report:
 	print("\n", name)
-	print("scale_x: ", snapped( scale.x, 0.01 ) )
-	print("scale_y: ", snapped( scale.y, 0.01 ) )
+	#print("scale_x: ", snapped( scale.x, 0.01 ) )
+	#print("scale_y: ", snapped( scale.y, 0.01 ) )
 	print("Mass:    ", snapped( mass, 0.01 ), "\n")
-	print("ATTACK: ", attack)
-	print("HP:     ", hp, "\n" )
+	#print("ATTACK: ", attack)
+	#print("HP:     ", hp, "\n" )
 # Set the itteration values to the ones originated trough randomization
 	HP = hp
 	ATTACK = attack

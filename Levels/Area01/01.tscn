@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://crj00he4xcrw3"]
+[gd_scene load_steps=23 format=3 uid="uid://crj00he4xcrw3"]
 
+[ext_resource type="Shader" path="res://Shaders/Distort.gdshader" id="1_3hhd1"]
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_8whdo"]
 [ext_resource type="PackedScene" uid="uid://cnmu8jo7c4w6" path="res://Tile Maps/grass_01.tscn" id="1_vjmdj"]
 [ext_resource type="PackedScene" uid="uid://cxyy1eyrtxduc" path="res://Props/Plants/plant.tscn" id="4_qhdhn"]
@@ -12,17 +13,39 @@
 [ext_resource type="Resource" uid="uid://b3fvgoe4d5xyq" path="res://Items/potion.tres" id="10_3mqby"]
 [ext_resource type="PackedScene" uid="uid://b7s32s2ws1hco" path="res://Particles/smoke_particles.tscn" id="11_d47la"]
 [ext_resource type="PackedScene" uid="uid://bx7c7kdbcwrdm" path="res://Particles/exposion_particles.tscn" id="12_xb047"]
-[ext_resource type="Shader" path="res://Shaders/01.gdshader" id="13_u7gb4"]
+[ext_resource type="Shader" path="res://Shaders/GrayScale.gdshader" id="13_u7gb4"]
+[ext_resource type="Shader" path="res://Shaders/Curve.gdshader" id="15_65ffu"]
+[ext_resource type="Texture2D" uid="uid://bqslw73mdel2k" path="res://Particles/Smoke.png" id="16_qrncb"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mk0qk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ljcdl"]
+shader = ExtResource("1_3hhd1")
+shader_parameter/scale = 2.0
+shader_parameter/distort = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4woya"]
 shader = ExtResource("13_u7gb4")
+shader_parameter/color = Color(0, 0.6, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_agjkv"]
 
+[sub_resource type="Curve" id="Curve_e1kho"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.295, 0.396226), 23.8994, 23.8994, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_o0rdh"]
+curve = SubResource("Curve_e1kho")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7fxfc"]
+shader = ExtResource("15_65ffu")
+shader_parameter/curve = SubResource("CurveTexture_o0rdh")
+
 [node name="01" type="Node2D"]
+material = SubResource("ShaderMaterial_ljcdl")
 script = ExtResource("1_8whdo")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+light_mask = 0
+visibility_layer = 0
 color = Color(0.0901961, 0.0941176, 0.470588, 1)
 
 [node name="Grass01" parent="." instance=ExtResource("1_vjmdj")]
@@ -37,7 +60,6 @@ position = Vector2(84, 82)
 position = Vector2(81, 111)
 
 [node name="GPUParticles2D" parent="FireStick" instance=ExtResource("5_dvvd3")]
-visible = false
 position = Vector2(-1, -6)
 
 [node name="Plants" type="Node2D" parent="."]
@@ -109,8 +131,16 @@ visible = false
 position = Vector2(81, 134)
 
 [node name="Area2D" type="Area2D" parent="."]
-material = SubResource("ShaderMaterial_mk0qk")
+position = Vector2(31, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+material = SubResource("ShaderMaterial_4woya")
 position = Vector2(81, 100)
 shape = SubResource("CircleShape2D_agjkv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Shader" type="Sprite2D" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_7fxfc")
+position = Vector2(189, 153)
+texture = ExtResource("16_qrncb")
