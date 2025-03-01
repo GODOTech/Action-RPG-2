@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dltw2ibbsp8r6"]
+[gd_scene load_steps=7 format=3 uid="uid://dltw2ibbsp8r6"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_ke6q6"]
+[ext_resource type="PackedScene" uid="uid://d1nf3eies0knn" path="res://Shaders/FogOverlay.tscn" id="2_0tu45"]
 [ext_resource type="PackedScene" uid="uid://cnmu8jo7c4w6" path="res://Tile Maps/grass_01.tscn" id="2_iulud"]
 [ext_resource type="PackedScene" uid="uid://cxyy1eyrtxduc" path="res://Props/Plants/plant.tscn" id="5_a6kgo"]
 [ext_resource type="PackedScene" uid="uid://ccmp6vudfuqhk" path="res://Enemies/Slime/slime.tscn" id="6_gygoe"]
@@ -8,6 +9,8 @@
 
 [node name="01" type="Node2D"]
 script = ExtResource("1_ke6q6")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_0tu45")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.0901961, 0.0941176, 0.352941, 1)
