@@ -1,14 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbvxooywy0d2s"]
+[gd_scene load_steps=12 format=3 uid="uid://dbvxooywy0d2s"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_pmiih"]
 [ext_resource type="PackedScene" uid="uid://d1nf3eies0knn" path="res://Shaders/FogOverlay.tscn" id="2_rtrxv"]
 [ext_resource type="PackedScene" uid="uid://cnmu8jo7c4w6" path="res://Tile Maps/grass_01.tscn" id="2_sgklu"]
 [ext_resource type="PackedScene" uid="uid://cxyy1eyrtxduc" path="res://Props/Plants/plant.tscn" id="3_3dbvh"]
-[ext_resource type="PackedScene" uid="uid://drsfvgk2756gn" path="res://Props/Lights/FireStick.tscn" id="4_iv4yn"]
 [ext_resource type="PackedScene" uid="uid://dwm2vop11tjrc" path="res://Levels/level_transition.tscn" id="5_sgnlc"]
 [ext_resource type="PackedScene" uid="uid://p6xc2n68ak64" path="res://Interactables/TreasureChest/treasure_chest.tscn" id="6_kmlgd"]
 [ext_resource type="Resource" uid="uid://b3fvgoe4d5xyq" path="res://Items/potion.tres" id="7_2jrkc"]
 [ext_resource type="PackedScene" uid="uid://tood0jnwsbcd" path="res://Enemies/Goblin/goblin.tscn" id="8_su5pc"]
+[ext_resource type="PackedScene" uid="uid://buvd21310jkcq" path="res://Props/Lights/Fire.tscn" id="9_uiy7m"]
+[ext_resource type="Texture2D" uid="uid://cll875skcb6ur" path="res://Items/Sprites/items.png" id="10_qvnvp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwm1b"]
+size = Vector2(36, 16)
 
 [node name="04" type="Node2D"]
 script = ExtResource("1_pmiih")
@@ -16,57 +20,60 @@ script = ExtResource("1_pmiih")
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_rtrxv")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.0901961, 0.0941176, 0.352941, 1)
+color = Color(0, 0, 0.470588, 1)
 
 [node name="Grass01" parent="." instance=ExtResource("2_sgklu")]
 light_mask = 2
 visibility_layer = 2
-layer_0/tile_data = PackedInt32Array(65536, 917504, 6, 131072, 917504, 5, 65537, 720896, 7, 131073, 65536, 2, 65538, 786432, 7, 131074, 131072, 2, 196608, 917504, 6, 262144, 917504, 5, 196609, 65536, 1, 262145, 65536, 2, 196610, 131072, 3, 262146, 131072, 2, 327680, 917504, 6, 393216, 917504, 5, 327681, 65536, 3, 393217, 65536, 2, 327682, 65536, 1, 393218, 131072, 2, 458753, 65536, 3, 458754, 65536, 1, 65539, 851968, 7, 131075, 196608, 2, 65540, 851968, 7, 131076, 0, 2, 65541, 786432, 7, 131077, 131072, 1, 65542, 851968, 7, 131078, 131072, 2, 196611, 131072, 1, 262147, 196608, 2, 196612, 0, 3, 262148, 0, 2, 196613, 65536, 3, 262149, 65536, 2, 196614, 131072, 3, 262150, 131072, 2, 327683, 131072, 1, 393219, 65536, 1, 327684, 0, 3, 393220, 0, 2, 327685, 131072, 1, 393221, 131072, 1, 327686, 131072, 3, 393222, 131072, 2, 458755, 65536, 1, 458756, 0, 3, 458757, 65536, 3, 458758, 65536, 1, 65543, 131072, 3, 131079, 196608, 2, 65544, 720896, 7, 131080, 0, 2, 65545, 786432, 7, 131081, 65536, 2, 65546, 851968, 7, 131082, 131072, 2, 196615, 262144, 3, 262151, 196608, 2, 196616, 65536, 1, 262152, 786432, 0, 196618, 131072, 1, 262154, 131072, 1, 327687, 196608, 3, 393223, 131072, 1, 327688, 786432, 3, 393224, 0, 2, 327690, 131072, 3, 393226, 65536, 1, 458759, 196608, 3, 458760, 0, 3, 458761, 65536, 1, 458762, 131072, 1, 65547, 851968, 7, 131083, 196608, 2, 65548, 720896, 7, 131084, 0, 2, 65549, 786432, 7, 131085, 65536, 2, 131086, 655360, 5, 196619, 65536, 1, 262155, 65536, 1, 196620, 0, 3, 262156, 0, 2, 196621, 65536, 3, 262157, 65536, 2, 196622, 655360, 6, 262158, 655360, 5, 327691, 196608, 3, 393227, 196608, 2, 327692, 0, 3, 393228, 0, 2, 327693, 65536, 1, 393229, 65536, 2, 327694, 655360, 6, 393230, 655360, 5, 458763, 131072, 1, 458764, 65536, 1, 458765, 65536, 3, 458766, 655360, 6, 0, 917504, 4, 1, 720896, 6, 2, 786432, 6, 3, 851968, 6, 4, 851968, 6, 5, 786432, 6, 7, 131072, 2, 8, 720896, 6, 9, 786432, 6, 10, 851968, 6, 11, 851968, 6, 12, 720896, 6, 13, 786432, 6, 14, 655360, 4, 524288, 917504, 5, 524289, 655360, 4, 524290, 786432, 4, 524291, 851968, 4, 524292, 720896, 4, 524293, 786432, 4, 524294, 851968, 4, 524295, 720896, 4, 524296, 786432, 4, 524297, 851968, 4, 524298, 720896, 4, 524299, 786432, 4, 524300, 851968, 4, 524301, 917504, 4, 524302, 655360, 5, 393225, 131072, 1, 327689, 983040, 3, 262153, 983040, 0, 196617, 65536, 1, 6, 851968, 6, 458752, 917504, 6, 65550, 655360, 6)
-
-[node name="FireStick" parent="." instance=ExtResource("4_iv4yn")]
-position = Vector2(246, 114)
+layer_0/tile_data = PackedInt32Array(65536, 917504, 6, 131072, 917504, 5, 65537, 720896, 7, 131073, 65536, 2, 65538, 786432, 7, 131074, 131072, 2, 196608, 917504, 6, 262144, 917504, 5, 196609, 65536, 1, 262145, 65536, 2, 196610, 131072, 3, 262146, 131072, 2, 327680, 917504, 6, 393216, 917504, 5, 327681, 65536, 3, 393217, 65536, 2, 327682, 65536, 1, 393218, 131072, 2, 458753, 65536, 3, 458754, 65536, 1, 65539, 851968, 7, 131075, 196608, 2, 65540, 851968, 7, 131076, 0, 2, 65541, 786432, 7, 131077, 131072, 1, 65542, 851968, 7, 131078, 131072, 2, 196611, 131072, 1, 262147, 196608, 2, 196612, 0, 3, 262148, 0, 2, 196613, 65536, 3, 262149, 65536, 2, 196614, 131072, 3, 262150, 131072, 2, 327683, 131072, 1, 393219, 65536, 1, 327684, 0, 3, 393220, 0, 2, 327685, 131072, 1, 393221, 131072, 1, 327686, 131072, 3, 393222, 131072, 2, 458755, 65536, 1, 458756, 0, 3, 458757, 65536, 3, 458758, 65536, 1, 65543, 131072, 3, 131079, 196608, 2, 65544, 720896, 7, 131080, 0, 2, 65545, 786432, 7, 131081, 65536, 2, 65546, 851968, 7, 131082, 131072, 2, 196615, 65536, 3, 262151, 196608, 2, 196616, 65536, 1, 262152, 131072, 2, 196618, 131072, 1, 262154, 131072, 1, 327687, 196608, 3, 393223, 131072, 1, 327688, 131072, 2, 393224, 786432, 0, 327690, 131072, 3, 393226, 65536, 1, 458759, 196608, 3, 458760, 786432, 3, 458761, 983040, 3, 458762, 131072, 1, 65547, 851968, 7, 131083, 327680, 3, 65548, 720896, 7, 131084, 458752, 3, 65549, 786432, 7, 131085, 65536, 2, 131086, 655360, 5, 196619, 65536, 1, 262155, 65536, 1, 196620, 0, 3, 262156, 0, 2, 196621, 65536, 3, 262157, 65536, 2, 196622, 655360, 6, 262158, 655360, 5, 327691, 196608, 3, 393227, 196608, 2, 327692, 0, 3, 393228, 0, 2, 327693, 65536, 1, 393229, 65536, 2, 327694, 655360, 6, 393230, 655360, 5, 458763, 131072, 1, 458764, 262144, 3, 458765, 65536, 3, 458766, 655360, 6, 0, 917504, 4, 1, 720896, 6, 2, 786432, 6, 3, 851968, 6, 4, 851968, 6, 5, 786432, 6, 7, 131072, 2, 8, 720896, 6, 9, 786432, 6, 10, 851968, 6, 11, 851968, 6, 12, 720896, 6, 13, 786432, 6, 14, 655360, 4, 524288, 917504, 5, 524289, 655360, 4, 524290, 786432, 4, 524291, 851968, 4, 524292, 720896, 4, 524293, 786432, 4, 524294, 851968, 4, 524295, 720896, 4, 524296, 786432, 4, 524297, 851968, 4, 524298, 720896, 4, 524299, 786432, 4, 524300, 851968, 4, 524301, 917504, 4, 524302, 655360, 5, 393225, 983040, 0, 327689, 131072, 2, 262153, 131072, 2, 196617, 65536, 1, 6, 851968, 6, 458752, 917504, 6, 65550, 655360, 6, 15, 786432, 4, 65551, 196608, 7, 131087, 196608, 7, 196623, 196608, 7, 262159, 196608, 7, 327695, 196608, 7, 393231, 196608, 7, 458767, 196608, 7, 524303, 196608, 7)
 
 [node name="Plants" type="Node2D" parent="."]
 y_sort_enabled = true
 
 [node name="Plant" parent="Plants" instance=ExtResource("3_3dbvh")]
-position = Vector2(412, 242)
+position = Vector2(139, 96)
 
 [node name="Plant2" parent="Plants" instance=ExtResource("3_3dbvh")]
-position = Vector2(421, 207)
+position = Vector2(174, 120)
 
 [node name="Plant3" parent="Plants" instance=ExtResource("3_3dbvh")]
-position = Vector2(360, 248)
+position = Vector2(129, 177)
 
 [node name="Plant4" parent="Plants" instance=ExtResource("3_3dbvh")]
-position = Vector2(59, 248)
+position = Vector2(198, 86)
 
 [node name="Plant5" parent="Plants" instance=ExtResource("3_3dbvh")]
-position = Vector2(49, 216)
+position = Vector2(244, 126)
 
 [node name="Plant6" parent="Plants" instance=ExtResource("3_3dbvh")]
-position = Vector2(65, 183)
+position = Vector2(435, 106)
 
 [node name="Plant7" parent="Plants" instance=ExtResource("3_3dbvh")]
-position = Vector2(50, 143)
+position = Vector2(53, 187)
 
 [node name="Plant8" parent="Plants" instance=ExtResource("3_3dbvh")]
 position = Vector2(57, 92)
 
 [node name="Plant9" parent="Plants" instance=ExtResource("3_3dbvh")]
-position = Vector2(147, 245)
+position = Vector2(47, 240)
 
 [node name="Plant10" parent="Plants" instance=ExtResource("3_3dbvh")]
-position = Vector2(225, 240)
+position = Vector2(81, 157)
 
 [node name="Plant11" parent="Plants" instance=ExtResource("3_3dbvh")]
-position = Vector2(294, 251)
+position = Vector2(432, 160)
 
 [node name="Plant12" parent="Plants" instance=ExtResource("3_3dbvh")]
-position = Vector2(133, 206)
+position = Vector2(304, 90)
 
 [node name="Plant13" parent="Plants" instance=ExtResource("3_3dbvh")]
-position = Vector2(361, 204)
+position = Vector2(312, 128)
+
+[node name="Plant14" parent="Plants" instance=ExtResource("3_3dbvh")]
+position = Vector2(384, 208)
+
+[node name="Plant15" parent="Plants" instance=ExtResource("3_3dbvh")]
+position = Vector2(334, 256)
 
 [node name="Transitions" type="Node2D" parent="."]
 
@@ -78,7 +85,7 @@ size = 1
 side = 2
 
 [node name="TreasureChest" parent="." instance=ExtResource("6_kmlgd")]
-position = Vector2(361, 115)
+position = Vector2(382, 77)
 item_data = ExtResource("7_2jrkc")
 quantity = 2
 
@@ -86,10 +93,23 @@ quantity = 2
 y_sort_enabled = true
 
 [node name="Goblin" parent="Goblins" instance=ExtResource("8_su5pc")]
-position = Vector2(157, 113)
+position = Vector2(122, 241)
 
 [node name="Goblin2" parent="Goblins" instance=ExtResource("8_su5pc")]
-position = Vector2(226, 151)
+position = Vector2(92, 118)
 
 [node name="Goblin3" parent="Goblins" instance=ExtResource("8_su5pc")]
-position = Vector2(310, 120)
+position = Vector2(383, 111)
+
+[node name="Fire" parent="." instance=ExtResource("9_uiy7m")]
+position = Vector2(401, 243)
+
+[node name="Stick" type="Sprite2D" parent="Fire"]
+rotation = 0.647203
+texture = ExtResource("10_qvnvp")
+hframes = 8
+frame = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Fire"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_fwm1b")

@@ -19,16 +19,18 @@ shader_parameter/scale = 2.0
 shader_parameter/distort = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a645d"]
-size = Vector2(36, 12)
+size = Vector2(36, 16)
 
 [node name="01" type="Node2D"]
 material = SubResource("ShaderMaterial_ljcdl")
 script = ExtResource("1_8whdo")
 
+[node name="ParallaxBackground" parent="." instance=ExtResource("10_dxtyp")]
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 light_mask = 0
 visibility_layer = 0
-color = Color(0.0901961, 0.0941176, 0.470588, 1)
+color = Color(0, 0, 0.470588, 1)
 
 [node name="Grass01" parent="." instance=ExtResource("1_vjmdj")]
 light_mask = 2
@@ -98,8 +100,6 @@ side = 3
 position = Vector2(130, 84)
 item_data = ExtResource("10_3mqby")
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("10_dxtyp")]
-
 [node name="Fire" parent="." instance=ExtResource("14_ivklq")]
 position = Vector2(82, 114)
 
@@ -110,5 +110,5 @@ hframes = 8
 frame = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Fire"]
-position = Vector2(0, -1)
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_a645d")

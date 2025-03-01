@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj5helq512ynr"]
+[gd_scene load_steps=10 format=3 uid="uid://bj5helq512ynr"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_skqs3"]
 [ext_resource type="PackedScene" uid="uid://cnmu8jo7c4w6" path="res://Tile Maps/grass_01.tscn" id="2_jbifk"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://tood0jnwsbcd" path="res://Enemies/Goblin/goblin.tscn" id="6_iotgw"]
 [ext_resource type="PackedScene" uid="uid://ccmp6vudfuqhk" path="res://Enemies/Slime/slime.tscn" id="6_p3xg4"]
 [ext_resource type="PackedScene" uid="uid://dwm2vop11tjrc" path="res://Levels/level_transition.tscn" id="7_pxgd1"]
+[ext_resource type="PackedScene" uid="uid://p6xc2n68ak64" path="res://Interactables/TreasureChest/treasure_chest.tscn" id="8_en06v"]
+[ext_resource type="Resource" uid="uid://bty6wfxblpf6v" path="res://Items/apple.tres" id="9_km1k7"]
 
 [node name="01" type="Node2D"]
 script = ExtResource("1_skqs3")
@@ -14,7 +16,7 @@ script = ExtResource("1_skqs3")
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_rj763")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.0901961, 0.0941176, 0.352941, 1)
+color = Color(0, 0, 0.470588, 1)
 
 [node name="Grass01" parent="." instance=ExtResource("2_jbifk")]
 light_mask = 2
@@ -130,7 +132,7 @@ position = Vector2(-55, -357)
 position = Vector2(-60, -741)
 
 [node name="Plant36" parent="Plants" instance=ExtResource("5_5kobr")]
-position = Vector2(-45, -706)
+position = Vector2(429, -511)
 
 [node name="Plant37" parent="Plants" instance=ExtResource("5_5kobr")]
 position = Vector2(-58, -662)
@@ -139,13 +141,13 @@ position = Vector2(-58, -662)
 position = Vector2(-496, -318)
 
 [node name="Plant39" parent="Plants" instance=ExtResource("5_5kobr")]
-position = Vector2(-463, -334)
+position = Vector2(456, -478)
 
 [node name="Plant40" parent="Plants" instance=ExtResource("5_5kobr")]
 position = Vector2(-439, -313)
 
 [node name="Plant41" parent="Plants" instance=ExtResource("5_5kobr")]
-position = Vector2(-387, -313)
+position = Vector2(404, -604)
 
 [node name="Plant42" parent="Plants" instance=ExtResource("5_5kobr")]
 position = Vector2(465, -776)
@@ -163,7 +165,7 @@ position = Vector2(214, -620)
 y_sort_enabled = true
 
 [node name="Slime" parent="Slimes" instance=ExtResource("6_p3xg4")]
-position = Vector2(355, 56)
+position = Vector2(454, -35)
 
 [node name="Slime2" parent="Slimes" instance=ExtResource("6_p3xg4")]
 position = Vector2(-566, -119)
@@ -242,7 +244,15 @@ side = 2
 y_sort_enabled = true
 
 [node name="Goblin" parent="Goblins" instance=ExtResource("6_iotgw")]
-position = Vector2(424, -543)
+position = Vector2(393, -546)
 
 [node name="Goblin2" parent="Goblins" instance=ExtResource("6_iotgw")]
-position = Vector2(426, -719)
+position = Vector2(425, -732)
+
+[node name="Goblin3" parent="Goblins" instance=ExtResource("6_iotgw")]
+position = Vector2(283, 66)
+
+[node name="TreasureChest" parent="." instance=ExtResource("8_en06v")]
+position = Vector2(357, 34)
+item_data = ExtResource("9_km1k7")
+quantity = 6
