@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://pnfg64jwxiu1"]
+
+[ext_resource type="Shader" path="res://Shaders/FireHaze.gdshader" id="1_71sbk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nlci7"]
+shader = ExtResource("1_71sbk")
+shader_parameter/force = 0.26
+shader_parameter/scale = 0.01
+shader_parameter/debug = true
+
+[sub_resource type="Curve" id="Curve_1i8af"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vb2mi"]
+curve = SubResource("Curve_1i8af")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_udorq"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, -200, 0)
+scale_min = 0.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_vb2mi")
+turbulence_enabled = true
+turbulence_noise_scale = 1.0
+
+[node name="FireHaze" type="GPUParticles2D"]
+material = SubResource("ShaderMaterial_nlci7")
+scale = Vector2(10, 10)
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_udorq")

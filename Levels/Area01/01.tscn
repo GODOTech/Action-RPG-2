@@ -1,43 +1,26 @@
-[gd_scene load_steps=23 format=3 uid="uid://crj00he4xcrw3"]
+[gd_scene load_steps=16 format=3 uid="uid://crj00he4xcrw3"]
 
 [ext_resource type="Shader" path="res://Shaders/Distort.gdshader" id="1_3hhd1"]
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_8whdo"]
 [ext_resource type="PackedScene" uid="uid://cnmu8jo7c4w6" path="res://Tile Maps/grass_01.tscn" id="1_vjmdj"]
 [ext_resource type="PackedScene" uid="uid://cxyy1eyrtxduc" path="res://Props/Plants/plant.tscn" id="4_qhdhn"]
 [ext_resource type="PackedScene" uid="uid://ccmp6vudfuqhk" path="res://Enemies/Slime/slime.tscn" id="5_3pmm2"]
-[ext_resource type="PackedScene" uid="uid://c6lodwogrjidt" path="res://Particles/fire_particles.tscn" id="5_dvvd3"]
 [ext_resource type="PackedScene" uid="uid://ttyyl5bpcpp6" path="res://Levels/player_spawn.tscn" id="6_5t6tm"]
-[ext_resource type="PackedScene" uid="uid://drsfvgk2756gn" path="res://Props/Lights/FireStick.tscn" id="6_d6ija"]
 [ext_resource type="PackedScene" uid="uid://dwm2vop11tjrc" path="res://Levels/level_transition.tscn" id="6_eclbg"]
 [ext_resource type="PackedScene" uid="uid://cxnne2ew0ubdm" path="res://Items/Item_Pickup/Item_Pickup.tscn" id="8_4w64t"]
 [ext_resource type="Resource" uid="uid://b3fvgoe4d5xyq" path="res://Items/potion.tres" id="10_3mqby"]
 [ext_resource type="PackedScene" uid="uid://b7s32s2ws1hco" path="res://Particles/smoke_particles.tscn" id="11_d47la"]
 [ext_resource type="PackedScene" uid="uid://bx7c7kdbcwrdm" path="res://Particles/exposion_particles.tscn" id="12_xb047"]
-[ext_resource type="Shader" path="res://Shaders/GrayScale.gdshader" id="13_u7gb4"]
-[ext_resource type="Shader" path="res://Shaders/Curve.gdshader" id="15_65ffu"]
-[ext_resource type="Texture2D" uid="uid://bqslw73mdel2k" path="res://Particles/Smoke.png" id="16_qrncb"]
+[ext_resource type="Texture2D" uid="uid://cll875skcb6ur" path="res://Items/Sprites/items.png" id="13_1ltox"]
+[ext_resource type="PackedScene" uid="uid://buvd21310jkcq" path="res://Props/Lights/Fire.tscn" id="14_ivklq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ljcdl"]
 shader = ExtResource("1_3hhd1")
 shader_parameter/scale = 2.0
 shader_parameter/distort = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4woya"]
-shader = ExtResource("13_u7gb4")
-shader_parameter/color = Color(0, 0.6, 1, 1)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_agjkv"]
-
-[sub_resource type="Curve" id="Curve_e1kho"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.295, 0.396226), 23.8994, 23.8994, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_o0rdh"]
-curve = SubResource("Curve_e1kho")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7fxfc"]
-shader = ExtResource("15_65ffu")
-shader_parameter/curve = SubResource("CurveTexture_o0rdh")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a645d"]
+size = Vector2(36, 12)
 
 [node name="01" type="Node2D"]
 material = SubResource("ShaderMaterial_ljcdl")
@@ -55,12 +38,6 @@ layer_0/tile_data = PackedInt32Array(65536, 917504, 4, 131072, 917504, 5, 65537,
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("6_5t6tm")]
 position = Vector2(84, 82)
-
-[node name="FireStick" parent="." instance=ExtResource("6_d6ija")]
-position = Vector2(81, 111)
-
-[node name="GPUParticles2D" parent="FireStick" instance=ExtResource("5_dvvd3")]
-position = Vector2(-1, -6)
 
 [node name="Plants" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -130,17 +107,17 @@ position = Vector2(119, 114)
 visible = false
 position = Vector2(81, 134)
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(31, 3)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-material = SubResource("ShaderMaterial_4woya")
-position = Vector2(81, 100)
-shape = SubResource("CircleShape2D_agjkv")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Shader" type="Sprite2D" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_7fxfc")
-position = Vector2(189, 153)
-texture = ExtResource("16_qrncb")
+[node name="Fire" parent="." instance=ExtResource("14_ivklq")]
+position = Vector2(82, 114)
+
+[node name="Stick" type="Sprite2D" parent="Fire"]
+rotation = 0.647203
+texture = ExtResource("13_1ltox")
+hframes = 8
+frame = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Fire"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_a645d")

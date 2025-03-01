@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://c6lodwogrjidt"]
 
-[sub_resource type="Gradient" id="Gradient_rfv5i"]
-offsets = PackedFloat32Array(0, 0.474138, 1)
-colors = PackedColorArray(0.98, 0.87808, 0.2156, 1, 0.99, 0.5445, 0, 1, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_kigye"]
+offsets = PackedFloat32Array(0, 0.523179)
+colors = PackedColorArray(1, 1, 0.254902, 1, 1, 0.635294, 0.180392, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_cow2u"]
-gradient = SubResource("Gradient_rfv5i")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d8dxl"]
+gradient = SubResource("Gradient_kigye")
 
 [sub_resource type="Curve" id="Curve_1i8af"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -14,17 +14,19 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_vb2mi"]
 curve = SubResource("Curve_1i8af")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2jh7x"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qq7oj"]
 particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
 gravity = Vector3(0, -200, 0)
 scale_min = 0.0
 scale_max = 10.0
 scale_curve = SubResource("CurveTexture_vb2mi")
-color_ramp = SubResource("GradientTexture1D_cow2u")
+color_initial_ramp = SubResource("GradientTexture1D_d8dxl")
 turbulence_enabled = true
 turbulence_noise_scale = 1.0
 
 [node name="FireParticles" type="GPUParticles2D"]
 scale = Vector2(10, 10)
 amount = 15
-process_material = SubResource("ParticleProcessMaterial_2jh7x")
+process_material = SubResource("ParticleProcessMaterial_qq7oj")
