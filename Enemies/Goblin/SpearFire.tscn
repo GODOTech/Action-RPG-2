@@ -1,11 +1,34 @@
-[gd_scene load_steps=8 format=3 uid="uid://drsfvgk2756gn"]
+[gd_scene load_steps=12 format=3 uid="uid://dij63xe0lqfmh"]
 
-[ext_resource type="Texture2D" uid="uid://cll875skcb6ur" path="res://Items/Sprites/items.png" id="1_21fkp"]
-[ext_resource type="Texture2D" uid="uid://cftldipxtdhre" path="res://Items/Sprites/torch.png" id="2_edwi4"]
-[ext_resource type="Texture2D" uid="uid://crgayfr3i1c38" path="res://LightMaps/Spotlight.png" id="3_xafqx"]
+[ext_resource type="PackedScene" uid="uid://c6lodwogrjidt" path="res://Particles/fire_particles.tscn" id="1_vamuj"]
+[ext_resource type="Texture2D" uid="uid://cftldipxtdhre" path="res://Items/Sprites/torch.png" id="2_rb0xv"]
+[ext_resource type="Texture2D" uid="uid://crgayfr3i1c38" path="res://LightMaps/Spotlight.png" id="5_a5rln"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xypm7"]
-size = Vector2(36, 12)
+[sub_resource type="Gradient" id="Gradient_kigye"]
+offsets = PackedFloat32Array(0, 0.523179)
+colors = PackedColorArray(1, 1, 0.254902, 1, 1, 0.635294, 0.180392, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d8dxl"]
+gradient = SubResource("Gradient_kigye")
+
+[sub_resource type="Curve" id="Curve_1i8af"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vb2mi"]
+curve = SubResource("Curve_1i8af")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_blivp"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.5
+gravity = Vector3(0, -200, 0)
+scale_min = 0.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_vb2mi")
+color_initial_ramp = SubResource("GradientTexture1D_d8dxl")
+turbulence_enabled = true
+turbulence_noise_scale = 1.0
 
 [sub_resource type="Animation" id="Animation_q0y4p"]
 length = 0.001
@@ -190,39 +213,34 @@ _data = {
 "burn": SubResource("Animation_x0moj")
 }
 
-[node name="FireStick" type="StaticBody2D"]
+[node name="Fire" type="StaticBody2D"]
+texture_filter = 2
 collision_layer = 32
 collision_mask = 257
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_xypm7")
+[node name="FireParticles" parent="." instance=ExtResource("1_vamuj")]
+position = Vector2(-1, -10)
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_blivp")
 
 [node name="Flame" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
-texture = ExtResource("2_edwi4")
+texture = ExtResource("2_rb0xv")
 hframes = 5
 vframes = 2
-
-[node name="Stick" type="Sprite2D" parent="."]
-rotation = 0.647203
-texture = ExtResource("1_21fkp")
-hframes = 8
-frame = 4
 
 [node name="PointLight2D_Ocluders" type="PointLight2D" parent="."]
 light_mask = 10
 visibility_layer = 10
 color = Color(1, 0.454, 0.22, 1)
-energy = 2.0
+energy = 1.5
 range_item_cull_mask = 2
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 2.0
 shadow_item_cull_mask = 10
-texture = ExtResource("3_xafqx")
-texture_scale = 0.2
-height = 100.0
+texture = ExtResource("5_a5rln")
+texture_scale = 0.5
 
 [node name="PointLight2D_InSprite_Ocluded" type="PointLight2D" parent="."]
 light_mask = 5
@@ -234,9 +252,8 @@ shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 2.0
 shadow_item_cull_mask = 5
-texture = ExtResource("3_xafqx")
-texture_scale = 0.2
-height = 200.0
+texture = ExtResource("5_a5rln")
+texture_scale = 0.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 deterministic = true
