@@ -1,9 +1,10 @@
-[gd_scene load_steps=42 format=3 uid="uid://b71r5jpdb6ifw"]
+[gd_scene load_steps=44 format=3 uid="uid://b71r5jpdb6ifw"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/enemy.gd" id="1_ecb53"]
 [ext_resource type="PackedScene" uid="uid://hptswsgblghc" path="res://GeneralNodes/Hitbox/hit_box.tscn" id="2_slue4"]
 [ext_resource type="Texture2D" uid="uid://cy5hwnbo4q7xq" path="res://Player/Sprites/Shadow.png" id="3_j8kgn"]
 [ext_resource type="Texture2D" uid="uid://c71biuvl1wtp0" path="res://Enemies/Slime/Slime.png" id="4_5knn0"]
+[ext_resource type="Texture2D" uid="uid://cn3p6ei6qk1kg" path="res://Enemies/Slime/Slime_n.png" id="5_hlt1f"]
 [ext_resource type="PackedScene" uid="uid://dg6cwepyvap7b" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="5_oe11m"]
 [ext_resource type="AudioStream" uid="uid://dlo1j3qnx85jj" path="res://Enemies/Slime/hit_01.wav" id="6_y0qhk"]
 [ext_resource type="AudioStream" uid="uid://cx3d21k0idv4s" path="res://Enemies/Slime/hit_00.wav" id="7_toqrd"]
@@ -21,6 +22,10 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2egx"]
 radius = 11.8196
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_c3ata"]
+diffuse_texture = ExtResource("4_5knn0")
+normal_texture = ExtResource("5_hlt1f")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yv5ck"]
 cull_mode = 2
@@ -1210,7 +1215,7 @@ texture = ExtResource("3_j8kgn")
 light_mask = 5
 visibility_layer = 5
 position = Vector2(0, -18)
-texture = ExtResource("4_5knn0")
+texture = SubResource("CanvasTexture_c3ata")
 hframes = 16
 vframes = 2
 

@@ -1,12 +1,21 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxyy1eyrtxduc"]
+[gd_scene load_steps=22 format=3 uid="uid://cxyy1eyrtxduc"]
 
 [ext_resource type="Script" path="res://Props/Plants/plant.gd" id="1_sqg57"]
+[ext_resource type="Texture2D" uid="uid://dhhtsn6xnuf5w" path="res://Props/Sprites/Plant_n.png" id="3_ewehj"]
 [ext_resource type="PackedScene" uid="uid://hptswsgblghc" path="res://GeneralNodes/Hitbox/hit_box.tscn" id="3_itrml"]
 [ext_resource type="Texture2D" uid="uid://dagwub5chdy0l" path="res://Props/Sprites/Plant.png" id="3_vnim3"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ry1xq"]
+diffuse_texture = ExtResource("3_vnim3")
+normal_texture = ExtResource("3_ewehj")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_54yog"]
 cull_mode = 2
 polygon = PackedVector2Array(-15, -7, -3, -8, 1, -18, 2, -7, 15, -8, 2, -3, 9, 3, 1, 1, -9, 3, -3, -5)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cr72a"]
+diffuse_texture = ExtResource("3_vnim3")
+normal_texture = ExtResource("3_ewehj")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bpbjt"]
 closed = false
@@ -20,6 +29,10 @@ polygon = PackedVector2Array(0, -20, 4, -17, 5, -12, 10, -14, 12, -16, 16, -13, 
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5p63x"]
 radius = 23.0217
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_iqxd7"]
+diffuse_texture = ExtResource("3_vnim3")
+normal_texture = ExtResource("3_ewehj")
 
 [sub_resource type="Animation" id="Animation_vjl23"]
 length = 0.001
@@ -236,7 +249,7 @@ script = ExtResource("1_sqg57")
 light_mask = 2
 visibility_layer = 2
 position = Vector2(0, -7)
-texture = ExtResource("3_vnim3")
+texture = SubResource("CanvasTexture_ry1xq")
 hframes = 16
 vframes = 3
 frame = 32
@@ -253,7 +266,7 @@ occluder_light_mask = 3
 light_mask = 2
 visibility_layer = 2
 position = Vector2(0, -9)
-texture = ExtResource("3_vnim3")
+texture = SubResource("CanvasTexture_cr72a")
 hframes = 16
 vframes = 3
 
@@ -282,7 +295,7 @@ debug_color = Color(0.702087, 0.323671, 0.921596, 0.42)
 light_mask = 2
 visibility_layer = 2
 position = Vector2(0, -9)
-texture = ExtResource("3_vnim3")
+texture = SubResource("CanvasTexture_iqxd7")
 hframes = 16
 vframes = 3
 frame = 16

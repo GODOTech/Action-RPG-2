@@ -116,10 +116,10 @@ interact={
 
 [layer_names]
 
-2d_render/layer_1="Normals"
-2d_render/layer_2="Ocluders"
-2d_render/layer_3="InSprite_Oclucion"
-2d_render/layer_4="Player_Ocluders"
+2d_render/layer_1="NormalUV"
+2d_render/layer_2="MapOcluded"
+2d_render/layer_3="SpriteOcluded"
+2d_render/layer_4="PlayerOcluded"
 2d_physics/layer_1="Player"
 2d_physics/layer_2="PlayerHurt"
 2d_physics/layer_3="PlayerInteract"
