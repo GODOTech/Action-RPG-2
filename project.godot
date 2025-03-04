@@ -117,9 +117,9 @@ interact={
 [layer_names]
 
 2d_render/layer_1="NormalUV"
-2d_render/layer_2="MapOcluded"
-2d_render/layer_3="SpriteOcluded"
-2d_render/layer_4="PlayerOcluded"
+2d_render/layer_2="MapOcluder"
+2d_render/layer_3="SpriteOcluder"
+2d_render/layer_4="PlayerOcluder"
 2d_physics/layer_1="Player"
 2d_physics/layer_2="PlayerHurt"
 2d_physics/layer_3="PlayerInteract"

@@ -78,7 +78,7 @@ position = Vector2(334, 256)
 [node name="Transitions" type="Node2D" parent="."]
 
 [node name="LevelTransition" parent="Transitions" instance=ExtResource("5_sgnlc")]
-position = Vector2(240, 33)
+position = Vector2(240, 32)
 level = "res://Levels/Area01/03.tscn"
 target_transition_area = "LevelTransition4"
 size = 1

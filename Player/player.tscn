@@ -1,12 +1,11 @@
-[gd_scene load_steps=54 format=3 uid="uid://ds1rd5derwhan"]
+[gd_scene load_steps=53 format=3 uid="uid://ds1rd5derwhan"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_m3jck"]
-[ext_resource type="Texture2D" uid="uid://c5giq8ao7oesu" path="res://Player/Sprites/PlayerSprite02.png" id="2_0ngrr"]
-[ext_resource type="Texture2D" uid="uid://bq7hwyd2tsgvp" path="res://Player/Sprites/PlayerSprite02_n.png" id="3_5715e"]
-[ext_resource type="Texture2D" uid="uid://cy5hwnbo4q7xq" path="res://Player/Sprites/Shadow.png" id="3_ftgd7"]
-[ext_resource type="Texture2D" uid="uid://bujm8bc5u4xyp" path="res://Player/Sprites/AttackSprite01.png" id="3_qm12w"]
+[ext_resource type="Texture2D" uid="uid://c5giq8ao7oesu" path="res://Player/Sprites/PlayerSprite.png" id="2_dbmku"]
+[ext_resource type="Texture2D" uid="uid://bq7hwyd2tsgvp" path="res://Player/Sprites/PlayerSprite_n.png" id="3_kq4cu"]
 [ext_resource type="Script" path="res://Player/Scripts/player_state_machine.gd" id="3_w6v6t"]
 [ext_resource type="Script" path="res://Player/Scripts/state_idle.gd" id="4_y043j"]
+[ext_resource type="Texture2D" uid="uid://bujm8bc5u4xyp" path="res://Player/Sprites/AttackSprite.png" id="5_hlf4w"]
 [ext_resource type="Script" path="res://Player/Scripts/state_walk.gd" id="5_vxixa"]
 [ext_resource type="Script" path="res://Player/Scripts/state_attack.gd" id="6_j1ors"]
 [ext_resource type="AudioStream" uid="uid://dm12egcvt0kv0" path="res://Player/Audio/SwordSwoosh.wav" id="8_3qqof"]
@@ -22,8 +21,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rf8m"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_7oww3"]
-diffuse_texture = ExtResource("2_0ngrr")
-normal_texture = ExtResource("3_5715e")
+diffuse_texture = ExtResource("2_dbmku")
+normal_texture = ExtResource("3_kq4cu")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ap6f2"]
 closed = false
@@ -318,43 +317,43 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/ShadowSprite:position")
+tracks/2/path = NodePath("Sprite2D/LightOccluder2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(0, 20)]
+"update": 0,
+"values": [Vector2(10, 19)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D/LightOccluder2:position")
+tracks/3/path = NodePath("Sprite2D/LightOccluder:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(10, 19)]
+"values": [Vector2(0, 19)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D/LightOccluder:position")
+tracks/4/path = NodePath("Sprite2D/LightOccluder:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 19)]
+"values": [0.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite2D/LightOccluder:rotation")
+tracks/5/path = NodePath("Sprite2D/LightOccluder2:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -366,22 +365,10 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite2D/LightOccluder2:rotation")
+tracks/6/path = NodePath("Interactions/Area2D/CollisionShape2D/Light:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Interactions/Area2D/CollisionShape2D/Light:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -419,58 +406,46 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/ShadowSprite:position")
+tracks/2/path = NodePath("Sprite2D/LightOccluder:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.24),
+"times": PackedFloat32Array(0, 0.13, 0.17),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(0, 20), Vector2(0, 25), Vector2(0, 20)]
+"update": 0,
+"values": [Vector2(11, 17), Vector2(10, 21), Vector2(8, 25)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D/LightOccluder:position")
+tracks/3/path = NodePath("Sprite2D/LightOccluder:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.13, 0.17),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(11, 17), Vector2(10, 21), Vector2(8, 25)]
+"values": [0.0, 0.0, 0.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D/LightOccluder:rotation")
+tracks/4/path = NodePath("Sprite2D/LightOccluder2:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.13, 0.17),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite2D/LightOccluder2:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.16),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 17), Vector2(2, 16), Vector2(-3, 24)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite2D/LightOccluder2:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D/LightOccluder2:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.16),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -508,58 +483,46 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/ShadowSprite:position")
+tracks/2/path = NodePath("Sprite2D/LightOccluder2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.06, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(0, 20), Vector2(10, 20), Vector2(0, 20)]
+"times": PackedFloat32Array(0, 0.08, 0.1, 0.14),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 18), Vector2(5, 18), Vector2(3, 19), Vector2(6, 18)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D/LightOccluder2:position")
+tracks/3/path = NodePath("Sprite2D/LightOccluder2:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.08, 0.1, 0.14),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(3, 18), Vector2(5, 18), Vector2(3, 19), Vector2(6, 18)]
+"values": [0.0, 0.0, 0.0, 0.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D/LightOccluder2:rotation")
+tracks/4/path = NodePath("Sprite2D/LightOccluder:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.1, 0.14),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0, 0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite2D/LightOccluder:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.06, 0.12, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(7, 17), Vector2(16, 17), Vector2(14, 18), Vector2(14, 20)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite2D/LightOccluder:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D/LightOccluder:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.06, 0.12, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
@@ -597,58 +560,46 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/ShadowSprite:position")
+tracks/2/path = NodePath("Sprite2D/LightOccluder2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.16),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(0, 20), Vector2(0, 15), Vector2(0, 20)]
+"times": PackedFloat32Array(0, 0.06, 0.08, 0.18),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 20), Vector2(-2, 22), Vector2(3, 16), Vector2(0, 18)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D/LightOccluder2:position")
+tracks/3/path = NodePath("Sprite2D/LightOccluder2:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.06, 0.08, 0.18),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 20), Vector2(-2, 22), Vector2(3, 16), Vector2(0, 18)]
+"values": [0.0, 0.0, 0.0, 0.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D/LightOccluder2:rotation")
+tracks/4/path = NodePath("Sprite2D/LightOccluder:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.06, 0.08, 0.18),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0, 0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite2D/LightOccluder:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.08, 0.17),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(10, 20), Vector2(10, 18), Vector2(12, 17), Vector2(10, 19)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite2D/LightOccluder:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D/LightOccluder:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.08, 0.17),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
@@ -1292,7 +1243,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apadx"]
-size = Vector2(8, 20)
+size = Vector2(10, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7awb7"]
 
@@ -1456,17 +1407,10 @@ position = Vector2(0, 20)
 occluder = SubResource("OccluderPolygon2D_53aia")
 occluder_light_mask = 4
 
-[node name="ShadowSprite" type="Sprite2D" parent="Sprite2D"]
-visible = false
-modulate = Color(0.0980392, 0.0980392, 0.0980392, 0.372549)
-show_behind_parent = true
-position = Vector2(0, 20)
-texture = ExtResource("3_ftgd7")
-
 [node name="AttackEffect" type="Sprite2D" parent="Sprite2D"]
 modulate = Color(0.690196, 0.882353, 1, 0.764706)
 position = Vector2(0, 10)
-texture = ExtResource("3_qm12w")
+texture = ExtResource("5_hlf4w")
 hframes = 12
 frame = 11
 
