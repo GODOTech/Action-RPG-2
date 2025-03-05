@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://b3fvgoe4d5xyq"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=8 format=3 uid="uid://b3fvgoe4d5xyq"]
 
 [ext_resource type="Script" path="res://Items/Item_Effects/item_effect_heal.gd" id="1_rtd53"]
 [ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="1_yg2we"]
 [ext_resource type="AudioStream" uid="uid://d4kcaxbkb2ulr" path="res://Items/Item_Effects/hp-up.wav" id="2_a31iw"]
-[ext_resource type="Texture2D" uid="uid://cll875skcb6ur" path="res://Items/Sprites/items.png" id="2_at7p8"]
+[ext_resource type="Texture2D" uid="uid://c6fnc2w7dkk62" path="res://Items/Sprites/potion.png" id="4_o0xwg"]
+[ext_resource type="Texture2D" uid="uid://brfggo0ojhs4r" path="res://Items/Sprites/potion_n.png" id="5_b6urj"]
 
 [sub_resource type="Resource" id="Resource_ox8ah"]
 script = ExtResource("1_rtd53")
@@ -11,13 +12,13 @@ heal_amount = 6
 audio = ExtResource("2_a31iw")
 use_description = ""
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rr7wk"]
-atlas = ExtResource("2_at7p8")
-region = Rect2(34, -1, 29, 33)
+[sub_resource type="CanvasTexture" id="CanvasTexture_j528j"]
+diffuse_texture = ExtResource("4_o0xwg")
+normal_texture = ExtResource("5_b6urj")
 
 [resource]
 script = ExtResource("1_yg2we")
 name = "Potion"
 description = "This crimson TONIC regenerates your energy  amidst combat. Careful not to over dose!"
-texture = SubResource("AtlasTexture_rr7wk")
+texture = SubResource("CanvasTexture_j528j")
 effects = Array[Resource("res://Items/Item_Effects/item_effect.gd")]([SubResource("Resource_ox8ah")])

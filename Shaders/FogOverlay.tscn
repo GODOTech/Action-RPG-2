@@ -23,9 +23,14 @@ layer = 0
 scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+top_level = true
+light_mask = 0
 motion_mirroring = Vector2(512, 288)
 
 [node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
+self_modulate = Color(1, 1, 1, 0.517647)
+top_level = true
+light_mask = 0
 material = SubResource("ShaderMaterial_va4gv")
 offset_right = 512.0
 offset_bottom = 288.0

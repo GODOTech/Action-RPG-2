@@ -19,9 +19,6 @@ script = ExtResource("1_pmiih")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_rtrxv")]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0, 0.153979, 0.234304, 1)
-
 [node name="Grass01" parent="." instance=ExtResource("2_sgklu")]
 light_mask = 2
 visibility_layer = 2
@@ -113,3 +110,12 @@ frame = 4
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Fire"]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_fwm1b")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.8277, 0.860095, 0.93, 1)
+energy = 0.15
+
+[node name="CanvasModulate2" type="CanvasModulate" parent="."]
+light_mask = 0
+visibility_layer = 0
+color = Color(0, 0, 0.352941, 1)

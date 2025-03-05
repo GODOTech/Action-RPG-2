@@ -246,6 +246,7 @@ texture_filter = 2
 script = ExtResource("1_sqg57")
 
 [node name="Stump" type="Sprite2D" parent="."]
+self_modulate = Color(0.65834, 0.65834, 0.65834, 1)
 light_mask = 2
 visibility_layer = 2
 position = Vector2(0, -7)
@@ -263,6 +264,7 @@ occluder = SubResource("OccluderPolygon2D_54yog")
 occluder_light_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.598525, 0.598525, 0.598525, 1)
 light_mask = 2
 visibility_layer = 2
 position = Vector2(0, -9)
@@ -292,6 +294,7 @@ shape = SubResource("CircleShape2D_5p63x")
 debug_color = Color(0.702087, 0.323671, 0.921596, 0.42)
 
 [node name="Top" type="Sprite2D" parent="."]
+self_modulate = Color(0.587751, 0.587751, 0.58775, 1)
 light_mask = 2
 visibility_layer = 2
 position = Vector2(0, -9)

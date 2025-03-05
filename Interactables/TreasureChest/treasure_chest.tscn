@@ -1,10 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://p6xc2n68ak64"]
+[gd_scene load_steps=17 format=3 uid="uid://p6xc2n68ak64"]
 
 [ext_resource type="Script" path="res://Interactables/TreasureChest/treasure_chest.gd" id="1_y313y"]
 [ext_resource type="Texture2D" uid="uid://fc1ymdg56cpc" path="res://Interactables/TreasureChest/treasure-chest.png" id="2_w3qie"]
+[ext_resource type="Texture2D" uid="uid://ddvwcrlxx1te3" path="res://Interactables/TreasureChest/treasure-chest_n.png" id="3_figgu"]
 [ext_resource type="Texture2D" uid="uid://cll875skcb6ur" path="res://Items/Sprites/items.png" id="3_xpqb6"]
 [ext_resource type="AudioStream" uid="uid://don6gvo2qbavt" path="res://Interactables/TreasureChest/treasure-open.wav" id="4_e51tl"]
 [ext_resource type="PackedScene" uid="uid://c42dqjt15qwpv" path="res://GeneralNodes/PersistentDataHandler/PresistentDataHandler.tscn" id="5_73edk"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2tj51"]
+diffuse_texture = ExtResource("2_w3qie")
+normal_texture = ExtResource("3_figgu")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n8bsy"]
 atlas = ExtResource("3_xpqb6")
@@ -206,7 +211,7 @@ script = ExtResource("1_y313y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -12)
-texture = ExtResource("2_w3qie")
+texture = SubResource("CanvasTexture_2tj51")
 hframes = 2
 
 [node name="ItemSprite" type="Sprite2D" parent="."]

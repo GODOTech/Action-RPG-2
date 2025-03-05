@@ -15,9 +15,6 @@ script = ExtResource("1_skqs3")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_rj763")]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0, 0, 0.470588, 1)
-
 [node name="Grass01" parent="." instance=ExtResource("2_jbifk")]
 light_mask = 2
 visibility_layer = 2
@@ -256,3 +253,12 @@ position = Vector2(283, 66)
 position = Vector2(357, 34)
 item_data = ExtResource("9_km1k7")
 quantity = 6
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.8277, 0.860095, 0.93, 1)
+energy = 0.15
+
+[node name="CanvasModulate2" type="CanvasModulate" parent="."]
+light_mask = 0
+visibility_layer = 0
+color = Color(0, 0, 0.352941, 1)

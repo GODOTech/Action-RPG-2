@@ -12,9 +12,6 @@ script = ExtResource("1_ke6q6")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_0tu45")]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0, 0, 0.470588, 1)
-
 [node name="Grass01" parent="." instance=ExtResource("2_iulud")]
 light_mask = 2
 visibility_layer = 2
@@ -55,3 +52,12 @@ level = "res://Levels/Area01/05.tscn"
 target_transition_area = "LevelTransition2"
 size = 1
 side = 2
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.8277, 0.860095, 0.93, 1)
+energy = 0.15
+
+[node name="CanvasModulate2" type="CanvasModulate" parent="."]
+light_mask = 0
+visibility_layer = 0
+color = Color(0, 0, 0.352941, 1)
