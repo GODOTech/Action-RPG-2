@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://crj00he4xcrw3"]
+[gd_scene load_steps=17 format=3 uid="uid://crj00he4xcrw3"]
 
 [ext_resource type="Shader" path="res://Shaders/Distort.gdshader" id="1_3hhd1"]
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_8whdo"]
@@ -10,13 +10,18 @@
 [ext_resource type="PackedScene" uid="uid://cxnne2ew0ubdm" path="res://Items/Item_Pickup/Item_Pickup.tscn" id="8_4w64t"]
 [ext_resource type="Resource" uid="uid://b3fvgoe4d5xyq" path="res://Items/potion.tres" id="10_3mqby"]
 [ext_resource type="PackedScene" uid="uid://d1nf3eies0knn" path="res://Shaders/FogOverlay.tscn" id="10_dxtyp"]
-[ext_resource type="Texture2D" uid="uid://cll875skcb6ur" path="res://Items/Sprites/items.png" id="13_1ltox"]
+[ext_resource type="Texture2D" uid="uid://drc8udxbn7c1p" path="res://Items/Sprites/stick.png" id="12_4x7yk"]
+[ext_resource type="Texture2D" uid="uid://u5badlvwnr02" path="res://Items/Sprites/stick_n.png" id="13_6u7gh"]
 [ext_resource type="PackedScene" uid="uid://buvd21310jkcq" path="res://Props/Lights/Fire.tscn" id="14_ivklq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ljcdl"]
 shader = ExtResource("1_3hhd1")
 shader_parameter/scale = 2.0
 shader_parameter/distort = 0.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_aql0i"]
+diffuse_texture = ExtResource("12_4x7yk")
+normal_texture = ExtResource("13_6u7gh")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a645d"]
 size = Vector2(36, 16)
@@ -109,9 +114,7 @@ position = Vector2(82, 114)
 
 [node name="Stick" type="Sprite2D" parent="Fire"]
 rotation = 0.647203
-texture = ExtResource("13_1ltox")
-hframes = 8
-frame = 4
+texture = SubResource("CanvasTexture_aql0i")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Fire"]
 position = Vector2(0, -3)

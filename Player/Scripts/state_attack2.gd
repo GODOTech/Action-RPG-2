@@ -1,4 +1,4 @@
-class_name State_Attack extends State
+class_name State_Attack2 extends State
 
 # Variables
 var attacking : bool = false # Flag indicating if the player is attacking
@@ -12,9 +12,7 @@ var attacking : bool = false # Flag indicating if the player is attacking
 @onready var audio : AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D" # AudioStreamPlayer2D for playing attack sounds
 @export var attack_sound : AudioStream # Attack sound to play
 @onready var hurt_box : HurtBox = %AttackHurtbox # Reference to the HurtBox node for attack damage
-@onready var attack2 : State = $"../Attack2"
 const SWORD_SWOOSH = preload("res://Player/Audio/SwordSwoosh.wav")
-
 # Initialization
 func _ready():
 	pass # Placeholder, no further actions needed in this function
@@ -22,9 +20,9 @@ func _ready():
 # Function called when the player enters the attack state
 func Enter() -> void:
 	# Update the player's animation to "attack"
-	player.UpdateAnimation("attack")
+	player.UpdateAnimation("attack2")
 	# Play the attack animation based on the player's direction
-	attack_anim.play("attack_" + player.AnimDirection() )
+	attack_anim.play("attack2_" + player.AnimDirection() )
 	# Connect the animation_finished signal to the EndAttack function
 	animation_player.animation_finished.connect(EndAttack)
 	# Set the sound to play and play it with random pitch
@@ -70,10 +68,9 @@ func Physics(_delta : float) -> State:
 
 # Function to handle input events while in the attack state
 func HandleInput( _event : InputEvent ) -> State:
-	if _event.is_action_pressed("attack"):
-		return attack2
+	# Return null to indicate no state transition
 	return null
-
+	
 # Function called when the attack animation finishes
 func EndAttack( _newAnimName : String ) -> void :
 	# Set the attacking flag to false

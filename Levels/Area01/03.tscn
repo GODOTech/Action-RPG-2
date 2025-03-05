@@ -274,7 +274,7 @@ size = 1
 side = 3
 
 [node name="Fire" parent="." instance=ExtResource("8_1p1vl")]
-position = Vector2(819, 838)
+position = Vector2(821, 902)
 
 [node name="Stick" type="Sprite2D" parent="Fire"]
 rotation = 0.647203
