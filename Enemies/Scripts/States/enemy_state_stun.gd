@@ -24,7 +24,7 @@ func Enter() -> void:
 	var knockback_speed : int = randi_range( 10, 500 )
 	decelerate_speed = randi_range( 5, 20 )
 	
-	enemy.invulnerable = true
+	#enemy.invulnerable = true
 	_animation_finished = false
 	
 	#you can also get the player from the player manager global
