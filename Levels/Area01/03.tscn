@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsamb66thc10o"]
+[gd_scene load_steps=11 format=3 uid="uid://dsamb66thc10o"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_3to78"]
 [ext_resource type="PackedScene" uid="uid://cnmu8jo7c4w6" path="res://Tile Maps/grass_01.tscn" id="1_hvmhg"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cxyy1eyrtxduc" path="res://Props/Plants/plant.tscn" id="4_gq4ef"]
 [ext_resource type="PackedScene" uid="uid://dwm2vop11tjrc" path="res://Levels/level_transition.tscn" id="5_agfuv"]
 [ext_resource type="PackedScene" uid="uid://buvd21310jkcq" path="res://Props/Lights/Fire.tscn" id="8_1p1vl"]
+[ext_resource type="PackedScene" uid="uid://cqf4nlj85cu2a" path="res://GeneralNodes/Triggers/MusicTrigger.tscn" id="9_j7oy5"]
 [ext_resource type="Texture2D" uid="uid://cll875skcb6ur" path="res://Items/Sprites/items.png" id="9_lrrfu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07pi2"]
@@ -291,6 +292,11 @@ color = Color(0.8277, 0.860095, 0.93, 1)
 energy = 0.15
 
 [node name="CanvasModulate2" type="CanvasModulate" parent="."]
+visible = false
 light_mask = 0
 visibility_layer = 0
 color = Color(0, 0, 0.352941, 1)
+
+[node name="MusicTrigger" parent="." instance=ExtResource("9_j7oy5")]
+position = Vector2(146, 142)
+scale = Vector2(1, 5.52)

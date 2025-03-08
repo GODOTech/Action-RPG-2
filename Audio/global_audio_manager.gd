@@ -10,7 +10,7 @@ class_name GlobalAudio extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Audio Initialized")
+	print("0 Audio SET")
 	pass # Replace with function body.
 
 

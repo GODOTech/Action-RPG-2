@@ -18,19 +18,18 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+GlobalSoundManager="*res://00_Globals/global_audio_manager.tscn"
 LevelManager="*res://00_Globals/GlobalLevelManager.gd"
 PlayerHud="*res://GUI/player_hud/player_hud.tscn"
 PlayerManager="*res://00_Globals/global_player_manager.gd"
 SceneTransition="*res://GUI/scene_transition/scene_transition.tscn"
 SaveManager="*res://00_Globals/global_save_manager.gd"
 PauseMenu="*res://GUI/pause_menu/pause_menu.tscn"
-GlobalSoundManager="*res://00_Globals/global_audio_manager.tscn"
 
 [display]
 
 window/size/viewport_width=512
 window/size/viewport_height=288
-window/size/mode=3
 window/size/window_width_override=960
 window/size/window_height_override=540
 window/stretch/mode="viewport"
@@ -124,6 +123,7 @@ interact={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="PlayerHurt"
 2d_physics/layer_3="PlayerInteract"
+2d_physics/layer_4="TriggersForPlayer"
 2d_physics/layer_5="Walls"
 2d_physics/layer_6="SeeTroughWall"
 2d_physics/layer_9="Enemy"

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqf4nlj85cu2a"]
+
+[ext_resource type="Script" path="res://GeneralNodes/Triggers/music_trigger.gd" id="1_e20es"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4se3"]
+
+[node name="MusicTrigger" type="Area2D"]
+collision_layer = 8
+monitorable = false
+script = ExtResource("1_e20es")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h4se3")

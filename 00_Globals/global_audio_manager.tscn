@@ -20,3 +20,4 @@ autoplay = true
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_dkp27")
+volume_db = -10.0
