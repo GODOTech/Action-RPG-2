@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bt2bmt3wbwevc"
+path="res://.godot/imported/Buckethead - 13th Floor.mp3-1e7591a34fa642324e95f57a3d7d3073.mp3str"
+
+[deps]
+
+source_file="res://Audio/BGM/Buckethead - 13th Floor.mp3"
+dest_files=["res://.godot/imported/Buckethead - 13th Floor.mp3-1e7591a34fa642324e95f57a3d7d3073.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

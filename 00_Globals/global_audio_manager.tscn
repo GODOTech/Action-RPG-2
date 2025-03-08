@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkds5weswjlo5"]
+
+[ext_resource type="Script" path="res://Audio/global_audio_manager.gd" id="1_o50uc"]
+[ext_resource type="AudioStream" uid="uid://b7dtp5822epqv" path="res://Audio/Binaural/333.WAV" id="2_2i2no"]
+[ext_resource type="AudioStream" uid="uid://b7bsmiesiembu" path="res://Audio/Ambience/Forest morning crow calls echoing and various birds chirps_LOOP.LR.wav" id="3_tra6m"]
+[ext_resource type="AudioStream" uid="uid://bt2bmt3wbwevc" path="res://Audio/BGM/Buckethead - 13th Floor.mp3" id="4_dkp27"]
+
+[node name="GlobalAudioManager" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_o50uc")
+
+[node name="BinauralPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2i2no")
+volume_db = -33.0
+autoplay = true
+
+[node name="AmbiencePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tra6m")
+autoplay = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dkp27")
